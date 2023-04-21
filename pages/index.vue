@@ -1,15 +1,19 @@
 <template >
   <div class="  bg-[#1DB5E4]">
     <BlogComponent class="w-[98%] h-full mx-auto my-5 rounded-2xl"/>
+    <SocialBar/>
+    <!-- <BlogsCarrousel /> -->
   </div>
+  
 </template>
 
 <script>
+import SocialBar from '../components/SocialBar.vue';
 import BlogComponent from '../components/BlogComponent.vue';
-
+// import BlogsCarrousel from '../components/BlogsCarrousel.vue';
 export default {
   name: "IndexPage",
-  components: { BlogComponent}
+  components: { BlogComponent,SocialBar}
 }
 </script>
 
