@@ -1,6 +1,6 @@
 <template>
   <div class="bg-[#1EB5E4]">
-    <Hero-Icon class="mt-24 w-full 2xl-[1440px]"/>
+    <Hero-Icon class="mt-32 w-full 2xl-[1440px]"/>
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
 
 h2 {
   font-family: Soulmaze;
-  font-weight: lighter;
+  /* font-weight: bolder; */
 }
 html {
   font-family: Cabin;
