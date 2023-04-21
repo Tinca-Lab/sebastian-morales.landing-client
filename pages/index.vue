@@ -1,8 +1,8 @@
 <template >
   <div class="  bg-[#1DB5E4]">
-    <BlogComponent class="w-[98%] h-full mx-auto my-5 rounded-2xl"/>
-    <About-Me-Section/>
     <Hero-Icon class="mt-32 w-full 2xl-[1440px]"/>
+    <About-Me-Section/>
+    <BlogComponent class="w-[98%] h-full mx-auto my-5 rounded-2xl"/>
     </div>
 </template>
 
