@@ -1,18 +1,19 @@
-<template>
-    <div class="bg-[#1EB5E4]">
-       <About-Me-Section/>
-       <Hero-Icon class="mt-32 w-full 2xl-[1440px]"/>
-       hola
+<template >
+  <div class="  bg-[#1DB5E4]">
+    <BlogComponent class="w-[98%] h-full mx-auto my-5 rounded-2xl"/>
+    <About-Me-Section/>
+    <Hero-Icon class="mt-32 w-full 2xl-[1440px]"/>
     </div>
 </template>
 
 <script>
+import BlogComponent from '../components/Blog/BlogComponent.vue';
 import AboutMeSection from '../components/AboutMeSection.vue';
 import HeroIcon from '../components/HeroIcon/HeroIcon.vue';
 
 export default {
     name: "IndexPage",
-    components: {AboutMeSection,HeroIcon},
+    components: {AboutMeSection,HeroIcon,BlogComponent},
      layout: 'default',
 }
 </script>
@@ -21,13 +22,12 @@ export default {
 @font-face {
     font-family: "Soulmaze";
     src: url("../assets/fonts/MadeSoulmaze.otf");
-   }
-
-    h2{
-        font-family: Soulmaze;
-        font-weight: lighter;
-    }
-    html{
-        font-family: Cabin;
-    }
+  }
+  h2{
+      font-family: Soulmaze;
+      font-weight: lighter;
+  }
+  html{
+      font-family: Cabin;
+  }
 </style>
