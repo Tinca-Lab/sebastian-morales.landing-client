@@ -29,8 +29,8 @@ export default{
     name: "CardBlog",
     props: {
         blog: {
-            type: Object,
-            required: true,
+            type: Object ,
+            require:true
         }
     },
 }
