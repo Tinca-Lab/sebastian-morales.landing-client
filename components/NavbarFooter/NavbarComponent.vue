@@ -84,7 +84,7 @@ export default {
     MoralesLogo, LoginIcon, RegisterIcon
   },
   data: () => ({
-    nav: false
+    nav: true
   }),
   methods: {
     openNavbar() {

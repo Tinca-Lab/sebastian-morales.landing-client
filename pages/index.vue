@@ -1,6 +1,6 @@
 <template>
   <div class="bg-[#1EB5E4]">
-    <Hero-Icon class="mt-48 w-full 2xl-[1440px]"/>
+    <Hero-Icon class="mt-24 w-full 2xl-[1440px]"/>
   </div>
 </template>
 
