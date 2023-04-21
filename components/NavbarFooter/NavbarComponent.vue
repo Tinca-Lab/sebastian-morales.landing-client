@@ -13,7 +13,7 @@
           aria-expanded="false"
           @click="openNavbar"
         >
-          <span class="sr-only">Open main menu</span>
+          <!-- <span class="sr-only">Open main menu</span> -->
           <svg class="w-12 h-12 pr-3" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill="white" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
         </button>
 
@@ -22,37 +22,15 @@
             class="flex flex-col font-medium bg-[#0088B2] rounded-b-3xl md:flex-row md:py-5 lg:p-5 gap-5"
           >
             <li>
-              <!-- <a
-                href="/"
-                class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0"
-                aria-current="page">Inicio</a> -->
                 <NuxtLink class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0" to="/">Inicio</NuxtLink>
             </li>
             <li>
-              <!-- <a
-                href="/aboutMe"
-                class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0"
-              >
-                Acerca de mi
-              </a> -->
               <NuxtLink class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0" to="/aboutMe">Acerca de mi</NuxtLink>
             </li>
             <li>
-              <!-- <a
-                href="/blogs"
-                class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0"
-                >
-                  Blogs
-                </a> -->
                 <NuxtLink class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0" to="/blogs">Blogs</NuxtLink>
             </li>
             <li>
-              <!-- <a
-                href="/contact"
-                class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0"
-              >
-                Contacto
-              </a> -->
               <NuxtLink class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0" to="/contact">Contacto</NuxtLink>
             </li>
             <li v-if="nav">

@@ -1,43 +1,24 @@
 <template>
-  <section class="text-center flex flex-col gap-0 items-center w-[98%] w-full 2xl:w-[1440px] m-auto">
-    <div class="mx-auto bottom-5 py-5 bg-[#0088B2] text-center flex flex-col gap-0 pt-8 items-center w-full 2xl:w-[1440px] m-auto rounded-3xl">
-      <FooterIcon/>
-      <div class=" w-[335px] block m-auto">
+  <!-- <section class="text-center flex flex-col gap-0 items-center w-[98%] w-full 2xl:w-[1440px] m-auto">
+    <div class="mx-auto bottom-5 py-5 bg-[#0088B2] text-center flex flex-col gap-0 pt-8 items-center w-full 2xl:w-[1440px] m-auto rounded-3xl"> -->
+      <section class="text-center flex flex-col gap-0 items-center w-[98%] w-full 2xl:w-[1440px] m-auto">
+      <div class="bg-[#0088B2] rounded-3xl w-[98%] 2xl:w-[1440px] z-20 my-3">
+      <div class="max-w-screen-xl flex flex-wrap items-center flex-col mx-auto p-4">
+      <FooterIcon />
+      <div class=" w-[300px] md:w-[350px] block m-auto">
         <ul
-          class="flex flex-col font-medium md:flex-row p-5 gap-5"
+          class="flex flex-col xs:w-[300px] md:w-[350px] font-medium md:flex-row xs-p-0 md:p-5 gap-5"
         >
-          <li>
-            <!-- <a
-              href="/"
-              class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0"
-              aria-current="page">Inicio</a> -->
+          <li class="w-[275px] xs1:w-full">
               <NuxtLink class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0" to="/">Inicio</NuxtLink>
           </li>
-          <li>
-            <!-- <a
-              href="/aboutMe"
-              class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0"
-            >
-              Acerca de mi
-            </a> -->
+          <li class="w-[275px] xs1:w-full">
             <NuxtLink class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0" to="/aboutMe">Acerca de mi</NuxtLink>
           </li>
-          <li>
-            <!-- <a
-              href="/blogs"
-              class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0"
-              >
-                Blogs
-              </a> -->
+          <li class="w-[275px] xs1:w-full">
               <NuxtLink class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0" to="/blogs">Blogs</NuxtLink>
           </li>
-          <li>
-            <!-- <a
-              href="/contact"
-              class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0"
-            >
-              Contacto
-            </a> -->
+          <li class="w-[275px] xs1:w-full">
             <NuxtLink class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0" to="/contact">Contacto</NuxtLink>
           </li>
         </ul>
@@ -56,6 +37,7 @@
         </p>
       </div>
     </div>
+  </div>
   </section>
 </template>
 
