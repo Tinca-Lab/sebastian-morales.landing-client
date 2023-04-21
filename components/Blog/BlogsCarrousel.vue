@@ -1,6 +1,6 @@
 <template>
-    <div >
-      <carousel class="border-solid border-blue-500 border-2 w-6/12">
+    <div class="max-w-xs mx-auto">
+      <carousel class="border-solid w-10/12 mx-auto">
         <slide v-for="(item, index) in blog" :key="index">
             <CardBlog :blog="item" />
         </slide>
