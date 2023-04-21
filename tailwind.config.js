@@ -12,11 +12,15 @@ module.exports = {
       extend: {
         colors: {
             primary: {"50":"#EFF6FF","100":"#DBEAFE","200":"#BFDBFE","300":"#93C5FD","400":"#60A5FA","500":"#3B82F6","600":"#2563EB","700":"#1D4ED8","800":"#1E40AF","900":"#1E3A8A"},
+          },
+          fontFamily:{
+            Soulmaze: ['MADESoulmaze','sans-serif'],
+          Cabin:['Cabin','sans-serif'],
+          Inter:['Inter','sans-sefif'],
           }
       },
       fontFamily: {
-          'Soulmaze': ['MadeSoulmaze'],
-          Cabin:['Cabin','sans-serif'],
+          
         'body': [
       'Inter', 
       'ui-sans-serif', 
@@ -33,7 +37,7 @@ module.exports = {
       'Segoe UI Emoji', 
       'Segoe UI Symbol', 
       'Noto Color Emoji'
-    ],
+      ],
         'sans': [
       'Inter', 
       'ui-sans-serif', 
@@ -51,6 +55,13 @@ module.exports = {
       'Segoe UI Symbol', 
       'Noto Color Emoji'
     ]
+      },
+      screens: {
+        'sm': '480px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
       }
     },
     plugins: [],

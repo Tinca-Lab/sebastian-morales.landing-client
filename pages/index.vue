@@ -1,5 +1,7 @@
 <template >
-    <BlogComponent />
+  <div class="  bg-[#1DB5E4]">
+    <BlogComponent class="w-[98%] h-full mx-auto my-5 rounded-2xl"/>
+  </div>
 </template>
 
 <script>
@@ -7,14 +9,14 @@ import BlogComponent from '../components/BlogComponent.vue';
 
 export default {
   name: "IndexPage",
-  components: { BlogComponent }
+  components: { BlogComponent}
 }
 </script>
 
 <style>
 @font-face {
   font-family: "Soulmaze";
-  src: url("../assets/fonts/MadeSoulmaze.otf");
+  src: url("../static/fonts/MadeSoulmaze.otf");
 }
 
 h2 {

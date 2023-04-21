@@ -1,99 +1,65 @@
 <template>
-    <section class="bg-gradient-to-r from-[#85E2FF] to-transparent">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-            <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
-                <h2 class="mb-4 text-5xl tracking-tight font-extrabold text-[#003F52] dark:text-white    ">Our Blog</h2>
-                <p class="font-normal text-gray-900 sm:text-xl dark:text-gray-400 ">We use an agile approach to test
-                    assumptions and connect with the needs of your audience early and often.</p>
+    <section class="bg-white dark:bg-gray-900 bg-gradient-to-r from-[#85E2FF] to-transparent">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 ">
+            <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16 ">
+                <h2 
+                class="mb-4 text-5xl tracking-tight font-extrabold text-[#003F52] dark:text-white"
+                :class="{'font-Inter':isMobile}">
+                Blog</h2>
+                <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Conoce las ideas, propuestas y pensamientos que impulsan mi vision para construir un futuro mejor juntos.<br>
+                Bienvenid@ a mi espacio de reflexion y opinion
+                </p>
             </div>
-            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                <article
-                    class="p-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
-                        <img 
-                            class="mb-5 rounded-lg"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops.png"
-                            alt="office laptop working">
-                    </a>
-                    <span
-                        class="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900">Article</span>
-                    <h2 class="my-2 text-2xl font-bold tracking-tight text-[#111928] dark:text-white">
-                        <a href="#">Our first office</a>
-                    </h2>
-                    <p class="mb-4 font-light text-gray-500 dark:text-gray-400 ">Over the past year, Volosoft has undergone
-                        many changes! After months of preparation and some hard work, we moved to our new office.</p>
-                    <div class="flex items-center space-x-4">
-                        <img 
-                            class="w-10 h-10 rounded-full"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                            alt="Jese Leos avatar">
-                        <div class="font-medium dark:text-white">
-                            <div>Jese Leos</div>
-                            <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Aug 15, 2021 · 16 min read
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article
-                    class="p-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
-                        <img 
-                            class="mb-5 rounded-lg"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/google-hq.png" alt="Google HQ">
-                    </a>
-                    <span
-                        class="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900">Article</span>
-                    <h2 class="my-2 text-2xl font-bold tracking-tight text-[#111928] dark:text-white">
-                        <a href="#">We partnered up with Google</a>
-                    </h2>
-                    <p class="mb-4 font-light text-gray-500 dark:text-gray-400">Over the past year, Volosoft has undergone
-                        many changes! After months of preparation and some hard work, we moved to our new office.</p>
-                    <div class="flex items-center space-x-4">
-                        <img 
-                            class="w-10 h-10 rounded-full"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png"
-                            alt="Roberta Casas avatar">
-                        <div class="font-medium dark:text-white">
-                            <div>Roberta Casas</div>
-                            <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Aug 15, 2021 · 16 min read
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article
-                    class="p-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
-                        <img 
-                            class="mb-5 rounded-lg"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops-2.png"
-                            alt="office laptops">
-                    </a>
-                    <span
-                        class="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900">Article</span>
-                    <h2 class="my-2 text-2xl font-bold tracking-tight text-[#111928] dark:text-white">
-                        <a href="#">Our first project with React</a>
-                    </h2>
-                    <p class="mb-4 font-light text-gray-500 dark:text-gray-400">Over the past year, Volosoft has undergone
-                        many changes! After months of preparation and some hard work, we moved to our new office.</p>
-                    <div class="flex items-center space-x-4">
-                        <img 
-                            class="w-10 h-10 rounded-full"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png"
-                            alt="Sofia McGuire avatar">
-                        <div class="font-medium dark:text-white">
-                            <div>Sofia McGuire</div>
-                            <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Aug 15, 2021 · 16 min read
-                            </div>
-                        </div>
-                    </div>
-                </article>
+            <div class="grid gap-8 justify-items-center border-solid sm:grid-cols-2 lg:grid-cols-3 ">
+                <CardBlog  v-for="info in blogs" :key="info.id" :blog="info" />
             </div>
         </div>
     </section>
 </template>
 <script>
+import CardBlog from './CardBlog.vue';
+
+
 export default {
-    name: "BlogComponent"
+    name: "BlogComponent",
+    components: { CardBlog  },
+    data() {
+        return {
+            isMobile: false,
+            blogs: [
+                    {
+                        "image": "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops.png",
+                        "title": "Our first office",
+                        "description": "Over the past year, Volosoft has undergone many changes! After months of preparation and some hard work, we moved to our new office.",
+                        "imgProfile":"https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png",
+                        "autor":"Jese Leos",
+                        "date":"Aug 15, 2021 · 16 min read"
+                    },
+                    {
+                        "image": "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/google-hq.png",
+                        "title": "We partnered up with Google",
+                        "description": "Over the past year, Volosoft has undergone many changes! After months of preparation and some hard work, we moved to our new office.",
+                        "imgProfile":"https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png",
+                        "autor":"Roberta Casas",
+                        "date":"Aug 10, 2021 · 6 min read"
+                    },
+                    {
+                        "image": "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops-2.png",
+                        "title": "Our first project with React",
+                        "description": "Over the past year, Volosoft has undergone many changes! After months of preparation and some hard work, we moved to our new office.",
+                        "imgProfile":"https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png",
+                        "autor":"Sofia McGuire",
+                        "date":"Aug 1, 2021 · 23 min read"
+                    }
+                ]
+        }
+    },
+    mounted() {
+        if (window.innerWidth < 640) {
+            this.isMobile = true
+        }
+    }
+
 }
 </script>
 

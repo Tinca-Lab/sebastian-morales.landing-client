@@ -16,8 +16,9 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {rel: "stylesheet",href: "./assets/fonts/MadeSoulmaze.otf"},
-      {rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cabin&display=swap"}
+      {rel: "stylesheet",href: "./assets/fonts/style.css"},
+      {rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cabin&display=swap"},
+      {rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap"}
     ],
   },
 
