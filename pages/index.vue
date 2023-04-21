@@ -1,5 +1,9 @@
 <template >
-    <BlogComponent />
+  <div>
+
+    <Blog-Component />
+
+  </div>
 </template>
 
 <script>
@@ -7,7 +11,8 @@ import BlogComponent from '../components/BlogComponent.vue';
 
 export default {
   name: "IndexPage",
-  components: { BlogComponent }
+  components: { BlogComponent },
+  layout: 'default',
 }
 </script>
 

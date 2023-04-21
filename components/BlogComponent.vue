@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-gradient-to-r from-[#85E2FF] to-transparent">
+    <section class="bg-gradient-to-r from-[#85E2FF] to-transparent pt-16">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
             <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
                 <h2 class="mb-4 text-5xl tracking-tight font-extrabold text-[#003F52] dark:text-white    ">Our Blog</h2>
@@ -10,7 +10,7 @@
                 <article
                     class="p-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img 
+                        <img
                             class="mb-5 rounded-lg"
                             src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops.png"
                             alt="office laptop working">
@@ -23,7 +23,7 @@
                     <p class="mb-4 font-light text-gray-500 dark:text-gray-400 ">Over the past year, Volosoft has undergone
                         many changes! After months of preparation and some hard work, we moved to our new office.</p>
                     <div class="flex items-center space-x-4">
-                        <img 
+                        <img
                             class="w-10 h-10 rounded-full"
                             src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                             alt="Jese Leos avatar">
@@ -37,7 +37,7 @@
                 <article
                     class="p-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img 
+                        <img
                             class="mb-5 rounded-lg"
                             src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/google-hq.png" alt="Google HQ">
                     </a>
@@ -49,7 +49,7 @@
                     <p class="mb-4 font-light text-gray-500 dark:text-gray-400">Over the past year, Volosoft has undergone
                         many changes! After months of preparation and some hard work, we moved to our new office.</p>
                     <div class="flex items-center space-x-4">
-                        <img 
+                        <img
                             class="w-10 h-10 rounded-full"
                             src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png"
                             alt="Roberta Casas avatar">
@@ -63,7 +63,7 @@
                 <article
                     class="p-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img 
+                        <img
                             class="mb-5 rounded-lg"
                             src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops-2.png"
                             alt="office laptops">
@@ -76,7 +76,7 @@
                     <p class="mb-4 font-light text-gray-500 dark:text-gray-400">Over the past year, Volosoft has undergone
                         many changes! After months of preparation and some hard work, we moved to our new office.</p>
                     <div class="flex items-center space-x-4">
-                        <img 
+                        <img
                             class="w-10 h-10 rounded-full"
                             src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png"
                             alt="Sofia McGuire avatar">
