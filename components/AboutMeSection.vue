@@ -7,7 +7,7 @@
                 <p >We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick.</p>
                 <button class="flex flex-row justify-center mt-5 items-center gap-2 px-5 py-3 w-36 h-12 bg-[#1EB5E4] rounded-md shadow-md text-white mx-auto md:mx-0">
                     <span class="text-lg font-medium">Leer más</span>
-                    <Arrow-Icon/> 
+                    <Arrow-Icon />
                 </button>
             </div>
             <div class="grid grid-cols-2 gap-4 mt-8">
@@ -18,9 +18,11 @@
     </section>
 </template>
 <script>
-import ArrowIcon from './icons/ArrowIcon.vue';
+import ArrowIcon from './Icons/ArrowIcon.vue';
     export default{
         name: "AboutMeSection",
-        components: {ArrowIcon}
+        components: {
+          ArrowIcon
+        }
     }
 </script>
