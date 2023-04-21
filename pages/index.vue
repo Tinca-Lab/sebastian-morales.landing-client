@@ -1,17 +1,15 @@
 <template >
   <div>
-
-    <Blog-Component />
-
+    <Hero-Icon class="mt-48 w-full 2xl-[1440px]"/>
   </div>
 </template>
 
 <script>
-import BlogComponent from '../components/BlogComponent.vue';
+import HeroIcon from '../components/HeroIcon/HeroIcon.vue';
 
 export default {
   name: "IndexPage",
-  components: { BlogComponent },
+  components: { HeroIcon },
   layout: 'default',
 }
 </script>

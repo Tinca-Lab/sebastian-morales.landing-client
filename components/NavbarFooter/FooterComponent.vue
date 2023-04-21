@@ -1,6 +1,6 @@
 <template>
   <section class="text-center flex flex-col gap-0 items-center w-[98%] w-full 2xl:w-[1440px] m-auto">
-    <div class="fixed mx-auto bottom-5 py-5 bg-[#0088B2] text-center flex flex-col gap-0 pt-8 items-center w-full 2xl:w-[1440px] m-auto rounded-3xl">
+    <div class="mx-auto bottom-5 py-5 bg-[#0088B2] text-center flex flex-col gap-0 pt-8 items-center w-full 2xl:w-[1440px] m-auto rounded-3xl">
       <FooterIcon/>
       <div class=" w-[335px] block m-auto">
         <ul
