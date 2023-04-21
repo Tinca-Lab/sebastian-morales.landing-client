@@ -2,6 +2,7 @@
     <div class="bg-[#1EB5E4]">
        <About-Me-Section/>
        <Hero-Icon class="mt-32 w-full 2xl-[1440px]"/>
+       hola
     </div>
 </template>
 

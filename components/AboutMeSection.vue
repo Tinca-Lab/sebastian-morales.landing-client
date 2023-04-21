@@ -10,6 +10,7 @@
                     <Arrow-Icon />
                 </button>
             </div>
+
             <div class="grid grid-cols-2 gap-4 mt-8">
                 <img class="w-full rounded-lg" src="../assets/image/Imagen1.png" alt="office content 1">
                 <img class="mt-4 w-full lg:mt-10 rounded-lg" src="../assets/image/Imagen2.png" alt="office content 2">
