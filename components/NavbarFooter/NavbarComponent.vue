@@ -33,7 +33,7 @@
             <li>
               <NuxtLink class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0" to="/contact">Contacto</NuxtLink>
             </li>
-            <li v-if="nav">
+            <li v-if="!nav" class="m-auto flex gap-2">
               <button
                 type="button"
                 class="flex items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
@@ -41,8 +41,6 @@
                 Inciar session
                 <Login-Icon />
               </button>
-            </li>
-            <li v-if="nav">
               <button
                 type="button"
                 class="flex items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
