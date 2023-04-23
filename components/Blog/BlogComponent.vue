@@ -14,7 +14,7 @@
                 <CardBlog  v-for="info in blogs" :key="info.id" :blog="info" />
             </div>
             <div class="gap-8 justify-items-center md:hidden">
-                <BlogsCarrousel :blog="blogs" class="xs:max-w-xs supersm:max-w-screen-supersm sm:max-w-screen-sm md:max-w-md" />
+                <BlogsCarrousel :blog="blogs" class="xs:max-w-xs supersm:max-w-screen-supersm sm:max-w-screen-sm md:max-w-md " />
                    
             </div>
         </div>

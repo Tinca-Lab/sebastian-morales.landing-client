@@ -68,7 +68,9 @@ module.exports = {
         '3xl': '1920px'
       }
     },
-    plugins: [],
+    plugins: [
+      require('@tailwindcss/line-clamp'), //añadir line-clamp a tailwind, (maximo de lineas)
+    ],
   }
   
   
