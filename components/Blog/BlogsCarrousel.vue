@@ -1,6 +1,6 @@
 <template>
-    <div class="max-w-xs mx-auto">
-      <carousel class="border-solid w-10/12 mx-auto">
+    <div class="xs:max-w-xs supersm:max-w-screen-supersm sm:max-w-screen-sm md:max-w-md m-auto ">
+      <carousel class="xs:max-w-xs supersm:max-w-screen-supersm sm:max-w-screen-sm md:max-w-md  border-solid" :per-page="1">
         <slide v-for="(item, index) in blog" :key="index">
             <CardBlog :blog="item" />
         </slide>

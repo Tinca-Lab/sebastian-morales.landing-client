@@ -13,8 +13,8 @@
             <div class="grid gap-8 justify-items-center border-solid sm:grid-cols-2 lg:grid-cols-3 xs:hidden md:grid">
                 <CardBlog  v-for="info in blogs" :key="info.id" :blog="info" />
             </div>
-            <div class="grid gap-8 justify-items-center sm:grid-cols-2 lg:grid-cols-3 xs:grid md:hidden ">
-                <BlogsCarrousel :blog="blogs" />
+            <div class="gap-8 justify-items-center md:hidden">
+                <BlogsCarrousel :blog="blogs" class="xs:max-w-xs supersm:max-w-screen-supersm sm:max-w-screen-sm md:max-w-md" />
                    
             </div>
         </div>
