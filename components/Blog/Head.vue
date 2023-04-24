@@ -3,14 +3,14 @@
         <h2 
         class="mb-4 text-5xl tracking-tight font-extrabold text-[#003F52] dark:text-white"
         :class="{'font-Inter':isMobile}">
-        {{ header.title }}
+        {{ title }}
         </h2>
         <p
-        v-if="text"        
+        v-if="description.length>0"        
         class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
-            {{ header?.description }}
+            {{ description }}
                 <br>
-            {{ header?.welcome }}
+            {{ welcome }}
         </p>
     </div>
 </template>
@@ -19,10 +19,18 @@
 export default{
     name:"HeaderSection",
     props:{
-        header:{
-            type:Object,
-            require:true
-        }
+        title:{
+            type:String,
+            default:""
+        },
+        description:{
+            type:String,
+            default:""
+        },
+        welcome:{
+            type:String,
+            default:""
+        },
     },
     data(){
         return{
