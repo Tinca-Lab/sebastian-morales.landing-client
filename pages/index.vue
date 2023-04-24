@@ -1,7 +1,7 @@
 <template >
-  <div class="relative  bg-[#1DB5E4]">
+  <div class="relative bg-[#1DB5E4]">
     <SocialBar />
-    <Hero-Icon class="mt-32 w-full 2xl-[1440px]"/>
+    <Hero-Icon class="mt-28"/>
     <About-Me-Section />
     <BlogComponent class="w-[98%] 2xl:w-[1440px] h-full mx-auto my-5 rounded-2xl" :home="false"/>
     </div>
