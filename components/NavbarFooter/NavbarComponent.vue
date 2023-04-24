@@ -1,6 +1,6 @@
 <template>
-  <div class="text-center flex flex-col gap-0 items-center w-[98%] w-full 2xl:w-[1440px] m-auto">
-    <nav class="bg-[#0088B2] fixed rounded-3xl w-[98%] 2xl:w-[1440px] z-20 mt-3">
+  <div class="text-center flex flex-col gap-0 items-center 2xl:w-[1440px] m-auto">
+    <nav class="bg-[#0088B2] fixed xs:rounded-2xl md:rounded-3xl w-[98%] 2xl:w-[1440px] z-50 mt-3 shadow-lg">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" class="flex items-center pl-5">
           <Morales-Logo />

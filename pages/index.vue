@@ -1,10 +1,10 @@
 <template >
-  <div class="relative  bg-[#1DB5E4]">
+  <div class="bg-[#1DB5E4]">
     <SocialBar class="fixed top-0 left-0 right-0 z-10"/>
-    <Hero-Icon class="mt-32 w-full 2xl-[1440px]"/>
+    <Hero-Icon class="mt-32"/>
     <About-Me-Section class="z-0"/>
     <BlogComponent class="w-[98%] h-full mx-auto my-5 rounded-2xl"/>
-   
+
     </div>
 </template>
 

@@ -1,9 +1,9 @@
 <template >
-  <div class="bg-[#1DB5E4]">
+  <div class="bg-[#1DB5E4] pl-[10px] pr-[10px]">
     <Navbar-Component />
-    
+
     <main>
-      
+
       <Nuxt />
     </main>
     <Footer-Component />
