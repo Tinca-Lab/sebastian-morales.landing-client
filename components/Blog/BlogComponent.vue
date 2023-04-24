@@ -3,12 +3,11 @@
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6  ">
             <HeaderSection :header="header"/>   
             <div class="grid gap-8 justify-items-center sm:grid-cols-2 lg:grid-cols-3  xs:hidden md:grid">
-                <CardBlog  v-for="(info,index) in blogs.slice(0,3)" :key="index" :blog="info" class="md:hidden lg:grid"/>
-                <CardBlog  v-for="(info,index) in blogs.slice(0,2)" :key="index" class="md:grid lg:hidden" :blog="info" />
+                <CardBlog  v-for="(info,index) in blogs.slice(0,3)" :key="index" :blog="info" class="md:hidden lg:grid" :background="true"/>
+                <CardBlog  v-for="(info,index) in blogs.slice(0,2)" :key="index" class="md:grid lg:hidden" :blog="info" background="true"/>
             </div>
             <div class="gap-8 justify-items-center md:hidden">
                 <BlogCarrousel :blog="blogs" class="xs:max-w-xs supersm:max-w-screen-supersm sm:max-w-screen-sm md:max-w-md " />
-                   
             </div>
         </div>
     </section>
@@ -23,7 +22,7 @@ export default {
     components: { CardBlog,BlogCarrousel,HeaderSection},
     data() {
         return {
-              blogs: [
+            blogs: [
                     {
                         "image": "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops.png",
                         "title": "Our first office",

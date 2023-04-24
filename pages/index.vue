@@ -4,7 +4,6 @@
     <Hero-Icon class="mt-32 w-full 2xl-[1440px]"/>
     <About-Me-Section />
     <BlogComponent class="w-[98%] h-full mx-auto my-5 rounded-2xl"/>
-   
     </div>
 </template>
 
@@ -16,7 +15,7 @@ import SocialBar from '../components/SocialBar.vue';
 export default {
     name: "IndexPage",
     components: {AboutMeSection,HeroIcon,BlogComponent,SocialBar},
-     layout: 'default',
+    layout: 'default',
 }
 </script>
 

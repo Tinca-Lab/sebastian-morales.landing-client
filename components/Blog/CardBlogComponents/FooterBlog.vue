@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center space-x-4">
+    <div v-if="text" class="flex items-center space-x-4">
         <img 
             class="w-10 h-10 rounded-full"
             :src="image" 
@@ -26,6 +26,10 @@ export default{
         date:{
             type:String,
             require:true
+        },
+        text:{
+            type:Boolean,
+            default:false
         }
     }
 }

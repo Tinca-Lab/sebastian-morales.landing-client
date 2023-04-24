@@ -1,6 +1,7 @@
 <template>
-    <article class="flex flex-col p-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 justify-between">
-        <HeaderBlog :image="blog.image"/>
+    <article class="flex flex-col p-4  justify-between" 
+    :class="background?'bg-white rounded-lg border border-gray-200 shadow-md ':'bg-transparent border-none'" >
+        <HeaderBlog :image="blog.image" article="true"/>
         <ArticleBlog 
         :title="blog.title"
         :description="blog.description"
@@ -9,6 +10,7 @@
         :image="blog.imgProfile"
         :autor="blog.autor"
         :date="blog.date"
+        text="true"
         />
     </article>
 </template>
@@ -25,6 +27,10 @@ export default{
         blog: {
             type: Object ,
             require:true
+        },
+        background:{
+            type:Boolean,
+            default:false
         }
     },
 }
