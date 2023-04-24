@@ -1,11 +1,10 @@
 <template >
-  <div class="bg-[#1DB5E4]">
-    <SocialBar class="fixed top-0 left-0 right-0 z-10"/>
+  <div class="relative bg-[#1DB5E4]">
+    <SocialBar />
     <Hero-Icon class="mt-28"/>
-    <About-Me-Section class="z-0"/>
-    <BlogComponent class="w-[98%] h-full mx-auto my-5 rounded-2xl"/>
-
-    </div>
+    <About-Me-Section />
+    <BlogComponent class="w-[98%] h-full mx-auto my-5 rounded-2xl" :home="true"/>
+  </div>
 </template>
 
 <script>
@@ -16,7 +15,7 @@ import SocialBar from '../components/SocialBar.vue';
 export default {
     name: "IndexPage",
     components: {AboutMeSection,HeroIcon,BlogComponent,SocialBar},
-     layout: 'default',
+    layout: 'default',
 }
 </script>
 

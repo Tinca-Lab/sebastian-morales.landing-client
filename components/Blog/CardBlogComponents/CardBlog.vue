@@ -1,6 +1,10 @@
 <template>
-    <article class="flex flex-col p-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 justify-between">
-        <HeaderBlog :image="blog.image"/>
+    <article 
+    class="flex flex-col p-4  justify-between" 
+    :class="background?'bg-white rounded-lg border border-gray-200 shadow-md ':'bg-transparent border-none'" >
+        <HeaderBlog 
+        :image="blog.image" 
+        :article="background"/>
         <ArticleBlog 
         :title="blog.title"
         :description="blog.description"
@@ -9,12 +13,13 @@
         :image="blog.imgProfile"
         :autor="blog.autor"
         :date="blog.date"
+        :text="background"
         />
     </article>
-</template> 
+</template>
 
-<script> 
-import HeaderBlog from './HeaderBlog.vue'; 
+<script>
+import HeaderBlog from './HeaderBlog.vue';
 import ArticleBlog from './ArticleBlog.vue';
 import FooterBlog from './FooterBlog.vue';
 
@@ -25,6 +30,10 @@ export default{
         blog: {
             type: Object ,
             require:true
+        },
+        background:{
+            type:Boolean,
+            default:false
         }
     },
 }

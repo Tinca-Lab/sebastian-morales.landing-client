@@ -1,11 +1,9 @@
 <template >
   <div class="bg-[#1DB5E4] pl-[10px] pr-[10px] scroll-y-hidden">
     <Navbar-Component />
-
-    <main>
-
-      <Nuxt />
-    </main>
+      <main>
+        <Nuxt />
+      </main>
     <Footer-Component />
   </div>
 </template>
