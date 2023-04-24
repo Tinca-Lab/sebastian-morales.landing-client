@@ -5,7 +5,9 @@
         :class="{'font-Inter':isMobile}">
         {{ header.title }}
         </h2>
-        <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
+        <p
+        v-if="text"        
+        class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
             {{ header?.description }}
                 <br>
             {{ header?.welcome }}

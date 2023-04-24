@@ -1,7 +1,7 @@
 <template>
     <section class="bg-white dark:bg-gray-900 bg-gradient-to-r from-[#85E2FF] to-transparent">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6  ">
-            <HeaderSection :header="header"/>   
+            <HeaderSection :header="header" />   
             <div 
             v-if="home"
             class="grid gap-8 justify-items-center sm:grid-cols-2 lg:grid-cols-3  xs:hidden md:grid">
