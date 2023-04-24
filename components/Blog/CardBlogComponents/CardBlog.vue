@@ -1,7 +1,10 @@
 <template>
-    <article class="flex flex-col p-4  justify-between" 
+    <article 
+    class="flex flex-col p-4  justify-between" 
     :class="background?'bg-white rounded-lg border border-gray-200 shadow-md ':'bg-transparent border-none'" >
-        <HeaderBlog :image="blog.image" article="true"/>
+        <HeaderBlog 
+        :image="blog.image" 
+        :article="background"/>
         <ArticleBlog 
         :title="blog.title"
         :description="blog.description"
@@ -10,7 +13,7 @@
         :image="blog.imgProfile"
         :autor="blog.autor"
         :date="blog.date"
-        text="true"
+        :text="background"
         />
     </article>
 </template>

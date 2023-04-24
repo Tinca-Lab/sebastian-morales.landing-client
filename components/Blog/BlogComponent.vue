@@ -2,9 +2,15 @@
     <section class="bg-white dark:bg-gray-900 bg-gradient-to-r from-[#85E2FF] to-transparent">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6  ">
             <HeaderSection :header="header"/>   
-            <div class="grid gap-8 justify-items-center sm:grid-cols-2 lg:grid-cols-3  xs:hidden md:grid">
+            <div 
+            v-if="home"
+            class="grid gap-8 justify-items-center sm:grid-cols-2 lg:grid-cols-3  xs:hidden md:grid">
                 <CardBlog  v-for="(info,index) in blogs.slice(0,3)" :key="index" :blog="info" class="md:hidden lg:grid" :background="true"/>
                 <CardBlog  v-for="(info,index) in blogs.slice(0,2)" :key="index" class="md:grid lg:hidden" :blog="info" background="true"/>
+            </div>
+            <div v-else 
+            class="grid gap-8 justify-items-center sm:grid-cols-2 lg:grid-cols-3  xs:hidden md:grid">
+                <CardBlog  v-for="(info,index) in blogs.slice(0,4)" :key="index" :blog="info" class="md:hidden lg:grid" :background="false"/>
             </div>
             <div class="gap-8 justify-items-center md:hidden">
                 <BlogCarrousel :blog="blogs" class="xs:max-w-xs supersm:max-w-screen-supersm sm:max-w-screen-sm md:max-w-md " />
@@ -56,6 +62,12 @@ export default {
                 }
         }
     },
+    props:{
+        home:{
+            type:Boolean,
+            default:false
+        }
+    }
 }
 
 </script>

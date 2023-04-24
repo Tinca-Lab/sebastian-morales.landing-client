@@ -6,9 +6,9 @@
         {{ header.title }}
         </h2>
         <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
-            {{ header.description }}
+            {{ header?.description }}
                 <br>
-            {{ header.welcome }}
+            {{ header?.welcome }}
         </p>
     </div>
 </template>
