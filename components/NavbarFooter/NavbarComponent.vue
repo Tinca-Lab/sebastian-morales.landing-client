@@ -1,10 +1,13 @@
 <template>
-  <div class="text-center flex flex-col gap-0 items-center 2xl:w-[1440px] m-auto">
+  <!-- <div class="text-center flex flex-col gap-0 items-center w-full 2xl:w-[1440px] m-auto">
+      <section class="relative bg-[#85E2FF] xs:rounded-2xl md:rounded-3xl w-[98%] 2xl:w-[1440px] z-20 my-3">
+        <div class="flex xs:flex-col md:flex-row flex-nowrap w-full"> -->
+  <div class="text-center flex flex-col gap-0 items-center w-full 2xl:w-[1440px] m-auto">
     <nav class="bg-[#0088B2] fixed xs:rounded-2xl md:rounded-3xl w-[98%] 2xl:w-[1440px] z-50 mt-3 shadow-lg">
-      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/" class="flex items-center pl-5">
+      <div class="flex flex-wrap items-center justify-between mx-auto px-8 py-2">
+        <NuxtLink class="flex items-center pl-5" to="/">
           <Morales-Logo />
-        </a>
+        </NuxtLink>
         <button
           data-collapse-toggle="navbar-dropdown"
           type="button"
@@ -19,7 +22,7 @@
 
         <div id="navbar-dropdown" class="hidden w-full md:block md:w-auto">
           <ul
-            class="flex flex-col font-medium bg-[#0088B2] rounded-b-3xl md:flex-row md:py-5 lg:p-5 gap-5"
+            class="flex flex-col font-medium bg-[#0088B2] text-lg md:flex-row md:py-5 lg:p-5 gap-5"
           >
             <li>
                 <NuxtLink class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0" to="/">Inicio</NuxtLink>
