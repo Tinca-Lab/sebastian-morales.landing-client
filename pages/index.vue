@@ -1,10 +1,10 @@
 <template >
   <div class="relative bg-[#1DB5E4]">
     <SocialBar />
-    <Hero-Icon class="mt-28"/>
+    <Hero-Icon class="mt-28" />
     <About-Me-Section />
-    <BlogComponent class="w-[98%] 2xl:w-[1440px] h-full mx-auto my-5 rounded-2xl" />
-    <Contact-Me class="2xl:w-[1440px]"/>
+    <BlogComponent :blogs="featuredBlogs" class="w-[98%] 2xl:w-[1440px] h-full mx-auto my-5 rounded-2xl" />
+    <Contact-Me class="2xl:w-[1440px]" />
   </div>
 </template>
 
@@ -16,23 +16,32 @@ import ContactMe from '../components/ContactMe.vue';
 import SocialBar from '../components/SocialBar.vue'
 
 export default {
-    name: "IndexPage",
-    components: {AboutMeSection,HeroIcon,BlogComponent,SocialBar,ContactMe},
-    layout: 'default',
-
+  name: "IndexPage",
+  components: { AboutMeSection, HeroIcon, BlogComponent, SocialBar, ContactMe },
+  layout: 'default',
+  data: () => ({
+    featuredBlogs: [],
+  }),
+  async mounted() {
+    const { data } = await this.$axios.$get('/api/blogs?populate[image][populate]=*&populate[author][populate]=*');
+    this.featuredBlogs = data;
+    console.log(this.featuredBlogs);
+  },
 }
 </script>
 
 <style>
 @font-face {
-    font-family: "Soulmaze";
-    src: url("../assets/fonts/MadeSoulmaze.otf");
-  }
-  h2{
-      font-family: Soulmaze;
-      font-weight: lighter;
-  }
-  html{
-      font-family: Cabin;
-  }
+  font-family: "Soulmaze";
+  src: url("../assets/fonts/MadeSoulmaze.otf");
+}
+
+h2 {
+  font-family: Soulmaze;
+  font-weight: lighter;
+}
+
+html {
+  font-family: Cabin;
+}
 </style>
