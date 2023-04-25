@@ -1,10 +1,9 @@
 <template>
     <article 
-    class="flex flex-col p-4  justify-between" 
-    :class="background?'bg-white rounded-lg border border-gray-200 shadow-md ':'bg-transparent border-none'" >
+    class="flex flex-col p-4  justify-between bg-white rounded-lg border border-gray-200 shadow-md">
         <HeaderBlog 
         :image="blog.image" 
-        :article="background"/>
+        :article=true />
         <ArticleBlog 
         :title="blog.title"
         :description="blog.description"
@@ -13,7 +12,7 @@
         :image="blog.imgProfile"
         :autor="blog.autor"
         :date="blog.date"
-        :text="background"
+        :text=true
         />
     </article>
 </template>
@@ -29,12 +28,8 @@ export default{
     props: {
         blog: {
             type: Object ,
-            require:true
+            default:()=>{return {}}
         },
-        background:{
-            type:Boolean,
-            default:false
-        }
     },
 }
 </script>

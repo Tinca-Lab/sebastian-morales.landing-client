@@ -3,7 +3,7 @@
     <SocialBar />
     <Hero-Icon class="mt-24 md:mt-[7.5rem]"/>
     <About-Me-Section />
-    <BlogComponent class="w-[98%] 2xl:w-[1440px] h-full mx-auto my-5 rounded-2xl" :home="true"/>
+    <BlogComponent class="w-[98%] 2xl:w-[1440px] h-full mx-auto my-5 rounded-2xl" />
     <Contact-Me class="2xl:w-[1440px]"/>
   </div>
 </template>
