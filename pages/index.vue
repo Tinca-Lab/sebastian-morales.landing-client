@@ -4,6 +4,7 @@
     <Hero-Icon class="mt-28"/>
     <About-Me-Section />
     <BlogComponent class="w-[98%] 2xl:w-[1440px] h-full mx-auto my-5 rounded-2xl" :home="true"/>
+    <Contact-Me class="2xl:w-[1440px]"/>
   </div>
 </template>
 
@@ -11,11 +12,14 @@
 import BlogComponent from '../components/Blog/BlogComponent.vue';
 import AboutMeSection from '../components/AboutMeSection.vue';
 import HeroIcon from '../components/HeroIcon/HeroIcon.vue';
-import SocialBar from '../components/SocialBar.vue';
+import ContactMe from '../components/ContactMe.vue';
+import SocialBar from '../components/SocialBar.vue'
+
 export default {
     name: "IndexPage",
-    components: {AboutMeSection,HeroIcon,BlogComponent,SocialBar},
+    components: {AboutMeSection,HeroIcon,BlogComponent,SocialBar,ContactMe},
     layout: 'default',
+
 }
 </script>
 
