@@ -11,7 +11,7 @@
                 <CardBlog  v-for="(info,index) in blogs.slice(0,2)" :key="index" class="md:grid lg:hidden" :blog="info" />
             </div>
             <div class="gap-8 justify-items-center md:hidden">
-                <BlogCarrousel :blog="blogs" class="xs:max-w-xs supersm:max-w-screen-supersm sm:max-w-screen-sm md:max-w-md " />
+                <BlogCarrousel :blog="blogs" class="xs:max-w-xs supersm:max-w-screen-supersm sm:max-w-screen-sm md:max-w-md border-2 border-transparent" />
             </div>
         </div>
     </section>

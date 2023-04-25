@@ -3,7 +3,7 @@
     class="flex flex-col p-4  justify-between bg-white rounded-lg border border-gray-200 shadow-md">
         <HeaderBlog 
         :image="blog.image" 
-        :article="true"/>
+        :article=true />
         <ArticleBlog 
         :title="blog.title"
         :description="blog.description"
@@ -12,7 +12,7 @@
         :image="blog.imgProfile"
         :autor="blog.autor"
         :date="blog.date"
-        :text="true"
+        :text=true
         />
     </article>
 </template>
