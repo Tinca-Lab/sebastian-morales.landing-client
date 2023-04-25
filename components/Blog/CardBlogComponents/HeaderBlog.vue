@@ -19,7 +19,7 @@ export default{
     props:{
         image:{
             type:String,
-            require:true
+            default:""
         },
         article:{
             type:Boolean,
