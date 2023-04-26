@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import HeaderBlog from './HeaderBlog.vue';
-import ArticleBlog from './ArticleBlog.vue';
-import FooterBlog from './FooterBlog.vue';
+import HeaderBlog from '@/components/Blog/CardBlogComponents/HeaderBlog.vue';
+import ArticleBlog from '@/components/Blog/CardBlogComponents/ArticleBlog.vue';
+import FooterBlog from '@/components/Blog/CardBlogComponents/FooterBlog.vue';
 
 export default {
     name: "CardBlog",

@@ -57,7 +57,8 @@
           </div>
         </div>
         <div class="xs:hidden md:block w-[35%] relative">
-          <img class="w-full md:rounded-r-3xl"
+          <img
+            class="w-full md:rounded-r-3xl"
             src="https://w0.peakpx.com/wallpaper/973/618/HD-wallpaper-paisaje-bonito-paisaje-thumbnail.jpg"
             alt="Conference speaker">
         </div>
@@ -67,7 +68,7 @@
 </template>
 
 <script>
-import ArrowIcon from '@/components/icons/ArrowIcon.vue';
+import ArrowIcon from '@/components/Icons/ArrowIcon.vue';
 
 export default {
   name: "HeroIcon",

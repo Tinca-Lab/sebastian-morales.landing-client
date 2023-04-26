@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import NavbarComponent from '../components/NavbarFooter/NavbarComponent.vue';
-import FooterComponent from '../components/NavbarFooter/FooterComponent.vue';
+import NavbarComponent from '@/components/NavbarFooter/NavbarComponent.vue';
+import FooterComponent from '@/components/NavbarFooter/FooterComponent.vue';
 
 export default {
   name: "DefaultLayout",

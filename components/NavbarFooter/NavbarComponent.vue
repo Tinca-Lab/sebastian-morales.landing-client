@@ -91,25 +91,17 @@ export default {
     MoralesLogo, LoginIcon, RegisterIcon
   },
   data: () => ({
-    nav: true
+    nav: true,
+    routes: []
   }),
   async mounted() {
     const { data } = await this.$axios.$get('/api/navbars')
     this.routes = data;
-    console.log(this.routes);
+    // console.log(this.routes);
   },
   methods: {
     openNavbar() {
       this.nav = !this.nav;
-      // const navbar = document.querySelector('#navbar-dropdown');
-      // if (this.nav === true) {
-      //   navbar.classList[0] = 'block';
-      //   // console.log(navbar.classList);
-      // }else {
-      //   navbar.classList[0] = 'hidden';
-      //   // navbar.classList.add('hidden');
-      // }
-      // // console.log(document.querySelector('#navbar-dropdown'));
     }
   }
 };

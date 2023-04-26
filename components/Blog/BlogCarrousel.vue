@@ -7,9 +7,9 @@
       </carousel>
     </div>
 </template>
-  
+
 <script>
-import CardBlog from './CardBlogComponents/CardBlog.vue';
+import CardBlog from '@/components/Blog/CardBlogComponents/CardBlog.vue';
   export default {
     name:'BlogCarrousel',
     components: {CardBlog},
@@ -17,5 +17,5 @@ import CardBlog from './CardBlogComponents/CardBlog.vue';
       blog:{type:Array,default:()=>[]}
     }
   };
-  
+
 </script>

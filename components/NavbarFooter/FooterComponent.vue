@@ -44,8 +44,8 @@
 </template>
 
 <script>
-import FooterIcon from '../Icons/FooterIcon.vue'
-import TincaIcon from '../Icons/TincaIcon.vue'
+import FooterIcon from '@/components/Icons/FooterIcon.vue'
+import TincaIcon from '@/components/Icons/TincaIcon.vue'
 
 export default {
   name: 'FooterComponent',
