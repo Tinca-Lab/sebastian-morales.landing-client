@@ -12,14 +12,17 @@
 export default {
     name: "FooterBlog",
     props: {
+        // eslint-disable-next-line vue/require-default-prop
         image: {
             type: String,
             require: true
         },
+        // eslint-disable-next-line vue/require-default-prop
         autor: {
             type: String,
             require: true
         },
+        // eslint-disable-next-line vue/require-default-prop
         date: {
             type: String,
             require: true
@@ -30,7 +33,6 @@ export default {
         }
     },
     mounted() {
-        console.log(this.image);
     }
 }
 </script>

@@ -14,9 +14,9 @@
     </section>
 </template>
 <script>
-import HeaderSection from './Head.vue';
-import CardBlog from './CardBlogComponents/CardBlog.vue';
-import BlogCarrousel from './BlogCarrousel.vue';
+import HeaderSection from '@/components/Blog/Head.vue';
+import CardBlog from '@/components/Blog/CardBlogComponents/CardBlog.vue';
+import BlogCarrousel from '@/components/Blog/BlogCarrousel.vue';
 
 export default {
     name: "BlogComponent",
