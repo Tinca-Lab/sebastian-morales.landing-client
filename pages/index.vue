@@ -1,6 +1,5 @@
 <template >
   <div class="relative bg-[#1DB5E4]">
-    <!-- <SocialBar /> -->
     <Hero-Icon class="mt-24 md:mt-[7.5rem]"/>
     <About-Me-Section />
     <BlogComponent :blogs="featuredBlogs" class="w-[98%] 2xl:w-[1440px] h-full mx-auto my-5 rounded-2xl" />
@@ -13,7 +12,6 @@ import BlogComponent from '@/components/Blog/BlogComponent.vue';
 import AboutMeSection from '@/components/AboutMeSection.vue';
 import HeroIcon from '@/components/Hero/HeroSection.vue';
 import ContactMe from '@/components/ContactMe.vue';
-// import SocialBar from '@/components/SocialBar.vue'
 
 export default {
   name: "IndexPage",
