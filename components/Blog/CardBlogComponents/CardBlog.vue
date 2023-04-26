@@ -1,35 +1,31 @@
 <template>
-    <article 
-    class="flex flex-col p-4  justify-between bg-white rounded-lg border border-gray-200 shadow-md">
-        <HeaderBlog 
-        :image="blog.image" 
-        :article=true />
-        <ArticleBlog 
-        :title="blog.title"
-        :description="blog.description"
-        />
+    <article class="flex flex-col p-4  justify-between bg-white rounded-lg border border-gray-200 shadow-md">
+        <HeaderBlog :image="`https://api.sebastianmorales.co${blog.attributes.image.data.attributes.url}`" :type=type />
+        <ArticleBlog :title="blog.attributes.title" :description="blog.attributes.description" />
         <FooterBlog
-        :image="blog.imgProfile"
-        :autor="blog.autor"
-        :date="blog.date"
-        :text=true
-        />
+            :image="`https://api.sebastianmorales.co${blog.attributes.author.data.attributes.image.data.attributes.url}`"
+            :autor="blog.attributes.author.data.attributes.name" :date="blog?.date" :text=true />
     </article>
 </template>
 
 <script>
-import HeaderBlog from './HeaderBlog.vue';
-import ArticleBlog from './ArticleBlog.vue';
-import FooterBlog from './FooterBlog.vue';
+import HeaderBlog from '@/components/Blog/CardBlogComponents/HeaderBlog.vue';
+import ArticleBlog from '@/components/Blog/CardBlogComponents/ArticleBlog.vue';
+import FooterBlog from '@/components/Blog/CardBlogComponents/FooterBlog.vue';
 
-export default{
+export default {
     name: "CardBlog",
-    components:{HeaderBlog,ArticleBlog,FooterBlog},
+    components: { HeaderBlog, ArticleBlog, FooterBlog },
     props: {
         blog: {
-            type: Object ,
-            default:()=>{return {}}
+            type: Object,
+            default: () => { return {} }
         },
+    },
+    computed: {
+        type() {
+            return this.blog.attributes.type;
+        }
     },
 }
 </script>

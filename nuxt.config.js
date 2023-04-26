@@ -1,7 +1,7 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-
+  ssr: false,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'sebastian-morales.landing-client',
@@ -16,7 +16,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {rel: "stylesheet",href: "./assets/fonts/style.css"},
+      // {rel: "stylesheet",href: "./assets/fonts/style.css"},
       {rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cabin&display=swap"},
       {rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap"}
     ],
@@ -54,7 +54,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: 'https://api.sebastianmorales.co',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
