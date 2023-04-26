@@ -2,25 +2,19 @@
     <section class="bg-white dark:bg-gray-900 bg-gradient-to-r from-[#85E2FF] to-transparent">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6  ">
             <HeaderSection :title="header.title" :description="header.description" :welcome="header.welcome" />
-            <div class="grid gap-8 justify-items-center sm:grid-cols-2 lg:grid-cols-3  xs:hidden md:grid">
-                <CardBlog v-for="(blog, index) in blogs" :key="index" :blog="blog" class="md:hidden lg:grid" />
-                <!-- <CardBlog v-for="(info, index) in blogs.slice(0, 2)" :key="index" class="md:grid lg:hidden" :blog="info" /> -->
-            </div>
-            <div class="gap-8 justify-items-center md:hidden">
-                <BlogCarrousel :blog="blogs"
-                    class="xs:max-w-xs supersm:max-w-screen-supersm sm:max-w-screen-sm md:max-w-md border-2 border-transparent" />
+            <div class="gap-8 justify-items-center">
+                <BlogCarrousel :blog="blogs" class="w-full border-2 border-transparent" />
             </div>
         </div>
     </section>
 </template>
 <script>
 import HeaderSection from '@/components/Blog/Head.vue';
-import CardBlog from '@/components/Blog/CardBlogComponents/CardBlog.vue';
 import BlogCarrousel from '@/components/Blog/BlogCarrousel.vue';
 
 export default {
     name: "BlogComponent",
-    components: { CardBlog, BlogCarrousel, HeaderSection },
+    components: { BlogCarrousel, HeaderSection },
     props: {
         blogs: {
             type: Array,
