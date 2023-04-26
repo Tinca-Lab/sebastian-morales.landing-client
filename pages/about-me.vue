@@ -1,14 +1,14 @@
 <template>
   <div class="mt-28">
-    <TimeLine />
+    <!-- <TimeLine /> -->
   </div>
 </template>
 
 <script>
-import TimeLine from '@/components/TimeLine/TimeLineComponent.vue'
+// import TimeLine from '@/components/TimeLine/TimeLineComponent.vue'
 export default {
   name: "AboutMePage",
-  components: { TimeLine},
+  // components: { TimeLine},
   layout : 'DefaultLayout',
 }
 
