@@ -1,7 +1,4 @@
 <template>
-  <!-- <div class="text-center flex flex-col gap-0 items-center w-full 2xl:w-[1440px] m-auto">
-      <section class="relative bg-[#85E2FF] xs:rounded-2xl md:rounded-3xl w-[98%] 2xl:w-[1440px] z-20 my-3">
-        <div class="flex xs:flex-col md:flex-row flex-nowrap w-full"> -->
   <div class="text-center flex flex-col gap-0 items-center w-full 2xl:w-[1440px] m-auto">
     <nav class="bg-[#0088B2] fixed mx-2.5 xs:rounded-2xl md:rounded-3xl w-[98%] 2xl:w-[1440px] z-50 mt-3 shadow-lg">
       <div class="flex flex-wrap items-center justify-between mx-auto xs:px-5 md:px-3 lg:px-5 py-2">
