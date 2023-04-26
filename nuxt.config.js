@@ -17,8 +17,8 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       // {rel: "stylesheet",href: "./assets/fonts/style.css"},
-      {rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cabin&display=swap"},
-      {rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap"}
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cabin&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap" }
     ],
   },
 
@@ -30,8 +30,12 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     {
-      src:'~/plugins/carrusel.js',
-      mode:'client'
+      src: '~/plugins/carrusel.js',
+      mode: 'client'
+    },
+    {
+      src: '~/plugins/widgets.js',
+      mode: 'client'
     }
   ],
 
