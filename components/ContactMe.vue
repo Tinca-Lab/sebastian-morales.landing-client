@@ -1,6 +1,6 @@
 <template>
 <section>
-    <div class="w-[98%] 2xl:w-[1440px] md:flex-row flex rounded-3xl h-60 bg-gradient-to-r from-[#FFF7B2] to-[#FFD465] xs:flex-col xs:h-full">
+    <div class="mx-auto w-full 2xl:w-[1440px] md:flex-row flex rounded-3xl h-60 bg-yellow-to-orange xs:flex-col xs:h-full">
       <div class="md:w-2/3 flex-grow p-4 md:rounded-l-3xl self-center text-center xs:p-11 md:pt-16 md:pb-16 flex items-center justify-center">
           <div class="w-full max-w-screen-sm text-center sm:col-span-1 ">
             <h2 class="mb-4 md:text-5xl font-extrabold text-[#FF8B1F] tracking-wider dark:text-white tracking-2 xs:text-xl">Contáctame</h2>

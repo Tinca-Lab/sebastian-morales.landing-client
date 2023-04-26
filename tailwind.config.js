@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    mode: "jit",
     content: [
       "./components/**/*.{js,vue,ts}",
       "./layouts/**/*.vue",
@@ -10,6 +11,14 @@ module.exports = {
     darkMode: 'class',
     theme: {
       extend: {
+        gradientColorStops: theme => ({
+          'yellow': '#FFF7B3',
+          'orange': '#FFD465',
+        }),
+        backgroundImage: theme => ({
+          'yellow-to-orange': 'linear-gradient(112.21deg, #FFF7B3 21.21%, #FFD465 85.72%)',
+        }),
+
         colors: {
             primary: {"50":"#EFF6FF","100":"#DBEAFE","200":"#BFDBFE","300":"#93C5FD","400":"#60A5FA","500":"#3B82F6","600":"#2563EB","700":"#1D4ED8","800":"#1E40AF","900":"#1E3A8A"},
             transparente: {"50":"rgba(255, 255, 255, 0) 82.73%)"}
@@ -68,6 +77,11 @@ module.exports = {
         '3xl': '1920px'
       }
     },
-    plugins: [],
+    variants: {
+      backgroundImage: ['responsive', 'hover'],
+    },
+    plugins: [
+      // require('tailwindcss/plugins/gradients'),
+    ],
   }
 
