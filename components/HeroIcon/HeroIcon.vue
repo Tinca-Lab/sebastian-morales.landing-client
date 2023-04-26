@@ -55,22 +55,19 @@
                   </button>
               </div>
           </div>
-          </div>
-          <div class="xs:hidden md:block w-[35%] relative">
-            <img
-            class="w-full md:rounded-r-3xl"
+        </div>
+        <div class="xs:hidden md:block w-[35%] relative">
+          <img class="w-full md:rounded-r-3xl"
             src="https://w0.peakpx.com/wallpaper/973/618/HD-wallpaper-paisaje-bonito-paisaje-thumbnail.jpg"
             alt="Conference speaker">
-          </div>
+        </div>
       </div>
     </section>
-    </div>
-
-
+  </div>
 </template>
 
 <script>
-import ArrowIcon from '../Icons/ArrowIcon.vue';
+import ArrowIcon from '@/components/icons/ArrowIcon.vue';
 
 export default {
   name: "HeroIcon",
