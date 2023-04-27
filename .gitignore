@@ -88,3 +88,6 @@ sw.*
 
 # Vim swap files
 *.swp
+
+# Plugins temp files
+*:Zone.Identifier

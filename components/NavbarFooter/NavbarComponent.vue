@@ -38,26 +38,26 @@
           <ul
             class="flex flex-col font-medium bg-[#0088B2] text-lg md:flex-row md:py-5 lg:p-5 md:gap-3 lg:gap-5"
           >
-          <li v-for="route in routes" :key="route.id">
+          <li v-for="route in routes" :key="route.id" class="border-b-2 border-[#1DB5E4] py-2 md:border-none md:py-0 xs:text-left">
               <NuxtLink
                 class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0"
                 :to="route.attributes.link">{{ route.attributes.route }}</NuxtLink>
-            </li>
-
-            <li v-if="!nav" class="m-auto flex gap-2">
-              <button
-                type="button"
-                class="flex items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
-              >
-                Inciar session
-                <Login-Icon />
-              </button>
-              <button type="button"
-                class="flex items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 ">
-                Registrarse
-                <RegisterIcon />
-              </button>
-            </li>
+          </li>
+          <li v-if="nav" class="m-auto flex gap-2 py-4 md:py-0">
+            <button
+              type="button"
+              class="flex items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
+            >
+              Inciar session
+              <Login-Icon />
+            </button>
+            <button
+              type="button"
+              class="flex items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 ">
+              Registrarse
+              <RegisterIcon />
+            </button>
+          </li>
           </ul>
         </div>
 
@@ -69,7 +69,8 @@
             Inciar sesión
             <Login-Icon />
           </button>
-          <button type="button"
+          <button
+            type="button"
             class="hover:bg-[#FFF7B2] flex items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 ">
             Registrarse
             <RegisterIcon />
@@ -91,7 +92,7 @@ export default {
     MoralesLogo, LoginIcon, RegisterIcon
   },
   data: () => ({
-    nav: true,
+    nav: false,
     routes: []
   }),
   async mounted() {
