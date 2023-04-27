@@ -21,7 +21,7 @@
 </template>
 <script>
 import BotonContact from '@/components/Boton.vue';
-import WhatsAppIcon from '@/components/Icons/WhatsAppIcon.vue';
+import WhatsAppIcon from '@/components/Icons/WhatsappIcon.vue';
 export default{
   name: "ContactMe",
   components: {
