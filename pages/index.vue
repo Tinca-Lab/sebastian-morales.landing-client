@@ -1,29 +1,43 @@
 <template >
   <div class="relative bg-[#1DB5E4]">
-    <Hero-Icon class="mt-24 md:mt-[7.5rem]"/>
+    <Hero-Icon class="mt-24 md:mt-[7.5rem]" />
     <About-Me-Section />
-    <BlogComponent :blogs="featuredBlogs" class="w-[98%] 2xl:w-[1440px] h-full mx-auto my-5 rounded-2xl" />
+    <AppBlogSection :metadata="blogSection" :blogs="featuredBlogs" class="w-[98%] 2xl:w-[1440px] h-full mx-auto my-5 rounded-2xl" />
     <Contact-Me />
   </div>
 </template>
 
 <script>
-import BlogComponent from '@/components/Blog/BlogComponent.vue';
+import AppBlogSection from '@/components/Blog/AppBlogSection.vue';
 import AboutMeSection from '@/components/AboutMeSection.vue';
 import HeroIcon from '@/components/Hero/HeroSection.vue';
 import ContactMe from '@/components/ContactMe.vue';
 
 export default {
   name: "IndexPage",
-  components: { AboutMeSection, HeroIcon, BlogComponent, ContactMe },
+  components: { AboutMeSection, HeroIcon, AppBlogSection, ContactMe },
   layout: 'default',
   data: () => ({
     featuredBlogs: [],
+    blogSection: {},
   }),
-  async mounted() {
-    const { data } = await this.$axios.$get('/api/blogs?populate[image][populate]=*&populate[author][populate]=*');
-    this.featuredBlogs = data;
+  async beforeCreate() {
+    if (process.client)
+      await this.$store.dispatch('fetchHome');
   },
+  watch: {
+    home() {
+      this.blogSection = this.home.attributes.sections.data
+        .filter(section => section.attributes.type === 'blog')[0];
+      this.featuredBlogs = this.blogSection.attributes.blogs.data;
+    }
+  },
+  computed: {
+    home() {
+      return this.$store.state.home;
+    },
+
+  }
 }
 </script>
 
