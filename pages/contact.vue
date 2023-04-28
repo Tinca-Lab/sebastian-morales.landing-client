@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ContactUs from "@/components/contactMe/ContactUs.vue";
+import ContactUs from "@/components/ContactMe/ContactUs.vue";
 
 export default {
   name: "ContactView",

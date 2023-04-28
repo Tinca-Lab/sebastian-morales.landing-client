@@ -1,61 +1,71 @@
 <template>
-  <div class="xs:w-full 2xl:w-[1440px]">
-    <section class="bg-white dark:bg-gray-900">
-      <div class="bg-[url('https://flowbite.s3.amazonaws.com/blocks/marketing-ui/contact/laptop-human.jpg')] bg-no-repeat bg-cover bg-center bg-gray-700 bg-blend-multiply">
+  <div class="xs:w-full 2xl:w-[1440px] mt-28 mx-auto">
+    <section class="bg-blue-light-to-opacity xs:rounded-2xl md:rounded-3xl">
+      <div class="bg-yellow-to-orange xs:rounded-2xl md:rounded-3xl">
           <div class="px-4 lg:pt-24 pt-8 pb-72 lg:pb-80 mx-auto max-w-screen-sm text-center lg:px-6 ">
-              <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-white">Contact Us</h2>
-              <p class="mb-16 font-light text-gray-400 sm:text-xl">We use an agile approach to test assumptions and connect with the needs of your audience early and often.</p>
+              <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">Contact Us</h2>
+              <p class="mb-16 font-light text-gray-900 sm:text-xl">We use an agile approach to test assumptions and connect with the needs of your audience early and often.</p>
           </div>
       </div>
       <div class="py-16 px-4 mx-auto -mt-96 max-w-screen-xl sm:py-24 lg:px-6 ">
-          <form action="#" class="grid grid-cols-1 gap-8 p-6 mx-auto mb-16 max-w-screen-md bg-white rounded-lg border border-gray-200 shadow-sm lg:mb-28 dark:bg-gray-800 dark:border-gray-700 sm:grid-cols-2">
+          <form action="#" class="grid grid-cols-1 gap-8 p-6 mx-auto mb-16 max-w-screen-md bg-white rounded-lg border border-gray-200 shadow-sm lg:mb-28 sm:grid-cols-2">
               <div>
-                  <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">First Name</label>
-                  <input type="text" id="first-name" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Bonnie" required>
+                  <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900">First Name</label>
+                  <input id="first-name" type="text" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500" placeholder="Bonnie" required>
               </div>
               <div>
-                  <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Last Name</label>
-                  <input type="text" id="last-name" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Green" required>
+                  <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900">Last Name</label>
+                  <input id="last-name" type="text" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500" placeholder="Green" required>
               </div>
               <div>
-                  <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
-                  <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required>
+                  <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
+                  <input id="email" type="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5" placeholder="name@flowbite.com" required>
               </div>
               <div>
-                  <label for="phone-number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Phone Number</label>
-                  <input type="number" id="phone-number" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="+12 345 6789" required>
+                  <label for="phone-number" class="block mb-2 text-sm font-medium text-gray-900">Phone Number</label>
+                  <input id="phone-number" type="number" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500" placeholder="+12 345 6789" required>
               </div>
               <div class="sm:col-span-2">
-                  <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
-                  <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
-                  <p class="mt-4 text-sm text-gray-500">By submitting this form you agree to our <a href="#" class="text-primary-600 hover:underline dark:text-primary-500">terms and conditions</a> and our <a href="#" class="text-primary-600 hover:underline dark:text-primary-500">privacy policy</a> which explains how we may collect, use and disclose your personal information including to third parties.</p>
+                  <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Your message</label>
+                  <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 " placeholder="Leave a comment..."></textarea>
+                  <p class="mt-4 text-sm text-gray-500">By submitting this form you agree to our <a href="#" class="text-primary-600 hover:underline">terms and conditions</a> and our <a href="#" class="text-primary-600 hover:underline">privacy policy</a> which explains how we may collect, use and disclose your personal information including to third parties.</p>
               </div>
-              <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
+              <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300">Send message</button>
           </form>
           <div class="space-y-8 text-center md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
               <div>
-                  <div class="flex justify-center items-center mx-auto mb-4 w-10 h-10 bg-gray-100 rounded-lg dark:bg-gray-800 lg:h-16 lg:w-16">
-                      <svg class="w-5 h-5 text-gray-600 lg:w-8 lg:h-8 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-                  </div>
-                  <p class="mb-2 text-xl font-bold dark:text-white">Email us:</p>
-                  <p class="mb-3 text-gray-500 dark:text-gray-400">Email us for general queries, including marketing and partnership opportunities.</p>
-                  <a href="mailto:abc@example.com" class="font-semibold text-primary-600 dark:text-primary-500 hover:underline">hello@flowbite.com</a>
+                <a class="flex flex-col items-center justify-center" href="https://twitter.com/JS_Morales/" target="_blank">
+                  <div class="flex justify-center items-center mx-auto mb-4 h-16 bg-gray-100 rounded-lg w-16">
+                      <svg width="38" height="38" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.1597 0.794067C20.3672 1.26895 18.7772 1.91615 17.8425 2.10282C17.8151 2.11 17.7927 2.11923 17.7663 2.12641C16.9404 1.30383 15.8086 0.794067 14.5559 0.794067C12.0312 0.794067 9.98403 2.86079 9.98403 5.40959C9.98403 5.54395 9.97285 5.79114 9.98403 5.92242C6.57749 5.92242 3.98475 4.12134 2.12553 1.81974C1.92335 2.33257 1.83496 3.14285 1.83496 3.9039C1.83496 5.34087 2.94745 6.75219 4.67967 7.62709C4.36066 7.71017 4.00913 7.76966 3.64338 7.76966C3.05311 7.76966 2.42829 7.61273 1.8563 7.13682C1.8563 7.15425 1.8563 7.17067 1.8563 7.18913C1.8563 9.19739 3.96748 10.5646 5.84498 10.9451C5.464 11.1718 4.69592 11.1944 4.32103 11.1944C4.05688 11.1944 3.12219 11.0723 2.87226 11.0251C3.39447 12.6713 5.27807 13.5965 7.07329 13.6293C5.66922 14.7411 4.69491 15.1535 1.81972 15.1535H0.840332C2.65688 16.3289 4.97024 17.2058 7.28867 17.2058C14.8373 17.2058 19.1277 11.3975 19.1277 5.92242C19.1277 5.83422 19.1257 5.64959 19.1226 5.46395C19.1226 5.44549 19.1277 5.42805 19.1277 5.40959C19.1277 5.38189 19.1196 5.35523 19.1196 5.32753C19.1166 5.18804 19.1135 5.05778 19.1105 4.99009C19.9131 4.40546 20.609 3.6762 21.1597 2.84541C20.4231 3.17568 19.6327 3.39722 18.8026 3.49774C19.6499 2.9849 20.8539 1.7623 21.1597 0.794067ZM17.0958 5.92242C17.0958 10.1072 14.0916 14.537 8.49462 15.095C9.25253 14.5524 9.98403 13.7821 9.98403 13.7821C9.98403 13.7821 6.93613 11.0518 6.70754 7.48452C7.75906 7.80863 8.85427 7.97377 9.98403 7.97377H12.016V5.40959C12.018 3.99416 13.1538 2.84644 14.5559 2.84644C15.9589 2.84644 17.0958 3.99416 17.0958 5.41061C17.0958 5.41061 17.0958 5.84139 17.0958 5.92242Z" fill="#1EB5E4"/>
+                      </svg>
+                    </div>
+                  </a>
+                  <p class="mb-2 text-xl font-bold">Sígueme en twitter.</p>
+                  <p class="mb-3 text-gray-500 ">Mantengámonos informados y al día en la conversación por Girón.</p>
+                  <!-- <a href="mailto:abc@example.com" class="font-semibold text-primary-600 hover:underline">hello@flowbite.com</a> -->
               </div>
               <div>
-                  <div class="flex justify-center items-center mx-auto mb-4 w-10 h-10 bg-gray-100 rounded-lg dark:bg-gray-800 lg:h-16 lg:w-16">
-                      <svg class="w-5 h-5 text-gray-600 lg:w-8 lg:h-8 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
-                  </div>
-                  <p class="mb-2 text-xl font-bold dark:text-white">Call us:</p>
-                  <p class="mb-3 text-gray-500 dark:text-gray-400">Call us to speak to a member of our team. We are always happy to help.</p>
-                  <span class="font-semibold text-primary-600 dark:text-primary-500">+1 (646) 786-5060</span>
+                  <a href="https://api.whatsapp.com/send/?phone=573014453430">
+                    <div class="flex justify-center items-center mx-auto mb-4 h-16 bg-gray-100 rounded-lg w-16">
+                      <WhatsAppIcon />
+                    </div>
+                  </a>
+                  <p class="mb-2 text-xl font-bold">Habla conmigo:</p>
+                  <p class="mb-3 text-gray-500">Compárteme tus opiniones e ideas de manera directa. ¡Son importantes! </p>
+                  <!-- <span class="font-semibold text-primary-600 ">+1 (646) 786-5060</span> -->
               </div>
               <div>
-                  <div class="flex justify-center items-center mx-auto mb-4 w-10 h-10 bg-gray-100 rounded-lg dark:bg-gray-800 lg:h-16 lg:w-16">
-                      <svg class="w-5 h-5 text-gray-600 lg:w-8 lg:h-8 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0c0 .993-.241 1.929-.668 2.754l-1.524-1.525a3.997 3.997 0 00.078-2.183l1.562-1.562C15.802 8.249 16 9.1 16 10zm-5.165 3.913l1.58 1.58A5.98 5.98 0 0110 16a5.976 5.976 0 01-2.516-.552l1.562-1.562a4.006 4.006 0 001.789.027zm-4.677-2.796a4.002 4.002 0 01-.041-2.08l-.08.08-1.53-1.533A5.98 5.98 0 004 10c0 .954.223 1.856.619 2.657l1.54-1.54zm1.088-6.45A5.974 5.974 0 0110 4c.954 0 1.856.223 2.657.619l-1.54 1.54a4.002 4.002 0 00-2.346.033L7.246 4.668zM12 10a2 2 0 11-4 0 2 2 0 014 0z" clip-rule="evenodd"></path></svg>
-                  </div>
-                  <p class="mb-2 text-xl font-bold dark:text-white">Support</p>
-                  <p class="mb-3 text-gray-500 dark:text-gray-400">Email us for general queries, including marketing and partnership opportunities.</p>
-                  <a href="#" class="inline-flex py-2 px-4 text-sm font-medium text-center rounded-lg border text-primary-600 border-primary-600 hover:text-white hover:bg-primary-600 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:border-primary-500 dark:text-primary-500 dark:hover:text-white dark:hover:bg-primary-600 dark:focus:ring-primary-800">Support center</a>
+                  <a class="flex flex-col items-center justify-center" href="https://www.instagram.com/moralesebastian/" target="_blank">
+                    <div class="flex justify-center items-center mx-auto mb-4 h-16 bg-gray-100 rounded-lg w-16">
+                      <svg width="38" height="38" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M5.83191 0.621826C2.95907 0.621826 0.621826 2.95907 0.621826 5.83191V14.168C0.621826 17.0409 2.95907 19.3781 5.83191 19.3781H14.168C17.0409 19.3781 19.3781 17.0409 19.3781 14.168V5.83191C19.3781 2.95907 17.0409 0.621826 14.168 0.621826H5.83191ZM5.83191 2.70586H14.168C15.8915 2.70586 17.2941 4.10841 17.2941 5.83191V14.168C17.2941 15.8915 15.8915 17.2941 14.168 17.2941H5.83191C4.10841 17.2941 2.70586 15.8915 2.70586 14.168V5.83191C2.70586 4.10841 4.10841 2.70586 5.83191 2.70586ZM15.2101 3.74788C14.9337 3.74788 14.6687 3.85766 14.4732 4.05308C14.2778 4.24849 14.168 4.51353 14.168 4.78989C14.168 5.06625 14.2778 5.33129 14.4732 5.52671C14.6687 5.72213 14.9337 5.83191 15.2101 5.83191C15.4864 5.83191 15.7515 5.72213 15.9469 5.52671C16.1423 5.33129 16.2521 5.06625 16.2521 4.78989C16.2521 4.51353 16.1423 4.24849 15.9469 4.05308C15.7515 3.85766 15.4864 3.74788 15.2101 3.74788ZM9.99998 4.78989C7.12714 4.78989 4.78989 7.12714 4.78989 9.99998C4.78989 12.8728 7.12714 15.2101 9.99998 15.2101C12.8728 15.2101 15.2101 12.8728 15.2101 9.99998C15.2101 7.12714 12.8728 4.78989 9.99998 4.78989ZM9.99998 6.87393C11.7235 6.87393 13.126 8.27648 13.126 9.99998C13.126 11.7235 11.7235 13.126 9.99998 13.126C8.27648 13.126 6.87393 11.7235 6.87393 9.99998C6.87393 8.27648 8.27648 6.87393 9.99998 6.87393Z" fill="#1EB5E4"/>
+                      </svg>
+                    </div>
+                  </a>
+                  <p class="mb-2 text-xl font-bold">Sígueme en Instagram</p>
+                  <p class="mb-3 text-gray-500">Para ver día a día mi campaña por una ciudad mejor.</p>
+                  <!-- <a href="#" class="inline-flex py-2 px-4 text-sm font-medium text-center rounded-lg border text-primary-600 border-primary-600 hover:text-white hover:bg-primary-600 focus:ring-4 focus:outline-none focus:ring-primary-300">Support center</a> -->
               </div>
           </div>
       </div>
@@ -64,7 +74,12 @@
 </template>
 
 <script>
+import WhatsAppIcon from '@/components/Icons/WhatsAppIcon.vue';
+
 export default {
   name: "ContactUs",
-  }
+  components: {
+    WhatsAppIcon
+  },
+};
 </script>

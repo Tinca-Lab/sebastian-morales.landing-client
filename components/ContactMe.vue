@@ -11,7 +11,7 @@
       <div class="md:w-1/3 flex-shrink p-4 bg-[#FFF7B2] md:rounded-r-3xl md:rounded-bl-none xs:rounded-b-3xl xs:w-full xs:p-11">
         <div class="w-full h-full self-center text-center sm:col-span-1 flex flex-col justify-center">
           <div class="flex justify-center items-center mx-auto mb-4 w-10 h-10 bg-gray-100 rounded-lg dark:bg-gray-800 lg:h-16 lg:w-16">
-            <WhatsApp-Icon/>
+            <WhatsApp-Icon :color="true"/>
           </div>
           <p class="mb-3 text-gray-500 dark:text-gray-400">Da click al botón para comunicarte conmigo de manera rápida y directa a través de WhatsApp.</p>
         </div>
@@ -21,7 +21,7 @@
 </template>
 <script>
 import BotonContact from '@/components/Boton.vue';
-import WhatsAppIcon from '@/components/Icons/WhatsappIcon.vue';
+import WhatsAppIcon from '@/components/Icons/WhatsAppIcon.vue';
 export default{
   name: "ContactMe",
   components: {
