@@ -1,10 +1,10 @@
 <template>
-    <section class="bg-yellow-to-orange mx-auto rounded-2xl">
+    <section class="bg-yellow-to-orange mx-auto rounded-2xl w-full 2xl:w-[1440px] ">
         <div class="px-4 mx-auto max-w-screen-xl lg:py-6 lg:px-6">
             <div class="text-center text-gray-900">
                 <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-orangeTitle lg:text-5xl ">
                     {{ policy.title }}
-                </h2>   
+                </h2>
             </div>
             <div class="gap gap-8 justify-items-center">
                 <AppPrinciplesCarousel :political="policy.political" class="w-full "/>
