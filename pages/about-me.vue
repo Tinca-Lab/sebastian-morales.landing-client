@@ -1,17 +1,65 @@
 <template>
+<<<<<<< HEAD
   <div class="mt-28">
     <TimeLine />
     <!-- <div class="w-1/2">
       <a class="twitter-timeline" href="https://twitter.com/JS_Morales?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a>
     </div> -->
+=======
+  <div class="mt-28 ">
+    <TimeLine />
+    <Principles  :policy="PrinciplesData" />
+    <div class="mx-auto w-full  2xl:w-[1440px] md:flex-row flex rounded-2xl h-20 bg-[#FFFFFF4D] sm:flex-col xs:flex-col sm:h-full xs:h-full" >
+      <SectionAboutMyTwitter/>
+      <div class="md:w-full md:h-full lg:w-full lg:h-full overflow-x-hidden">
+          <a class="twitter-timeline" href="https://twitter.com/JS_Morales?ref_src=twsrc%5Etfw" data-aria-polite="assertive" data-chrome="nofooter" data-tweet-limit="5" data-height="500" >Tweets by TwitterDev</a>
+      </div>
+    </div>
+>>>>>>> HomeAlpha
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import TimeLine from '@/components/TimeLine/TimeLineComponent.vue'
 export default {
   name: "AboutMePage",
   components: { TimeLine},
+=======
+import PoliticalPrinciplesComponent from '@/components/PoliticalPrinciples/AppPoliticalSection.vue';
+import TimeLine from '@/components/TimeLine/TimeLineComponent.vue'
+import SectionAboutMyTwitter from '@/components/SectionAboutMyTwitter/AppSectionTwitter.vue'
+export default {
+  name: "AboutMePage",
+  components: { Principles:PoliticalPrinciplesComponent, SectionAboutMyTwitter, TimeLine},
+>>>>>>> HomeAlpha
   layout: 'DefaultLayout',
+  data:()=>({
+    PrinciplesData:{
+      'title':'PRINCIPIOS POLITICOS',
+      'political':[
+        {
+          'image':'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-content-1.png',
+          'subtitle':"Educación de calidad: Un derecho, no un privilegio.",
+          'description':'La base fundamental para construir una sociedad justa y equitativa, donde todos tengan la oportunidad de desarrollar su potencial y alcanzar sus metas.'
+        },
+        {
+          'image':'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-content-2.png',
+          'subtitle':"Salud, sinónimo de una vida digna.",
+          'description':'Un sistema de salud que garantice el acceso justo y de calidad para todos, sin discriminación ni exclusión.'
+        },
+        {
+          'image':'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-content-3.png',
+          'subtitle':"Enfoque social, una apuesta por el bienestar de Girón.",
+          'description':'Una estrategia integral para construir una comunidad más justa, incluyente, solidaria y con igualdad de oportunidades para todos.'
+        },
+        {
+          'image':'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-content-1.png',
+          'subtitle':"Entornos seguros, el derecho de vivir sin miedo.",
+          'description':'Un compromiso por la tranquilidad y  el bienestar de nuestra comunidad para una convivencia pacífica y el desarrollo social y económico de todos los Gironeses.'
+        }
+      ]
+    }
+  })
 }
 </script>

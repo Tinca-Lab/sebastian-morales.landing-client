@@ -1,6 +1,6 @@
 <template>
   <section class="text-center flex flex-col gap-0 items-center w-full 2xl:w-[1440px] m-auto">
-    <div class="bg-[#0088B2] rounded-3xl w-[98%] 2xl:w-[1440px] z-20 my-3">
+    <div class="bg-[#0088B2] rounded-3xl w-full 2xl:w-[1440px] z-20">
       <div class="max-w-screen-xl flex flex-wrap items-center flex-col mx-auto p-4 gap-5">
         <FooterIcon />
         <div class="w-[260px] md:w-[440px] block m-auto">

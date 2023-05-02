@@ -1,7 +1,14 @@
 <template>
+<<<<<<< HEAD
   <section class="text-center flex flex-col gap-0 items-center w-full 2xl:w-[1440px] m-auto">
     <div class="bg-[#85E2FF] rounded-3xl w-[98%] 2xl:w-[1440px] z-20 my-3 h-50">
       <div class="max-w-screen-xl flex flex-col px-14 py-8 items-left mx-auto md:px-28	md:py-10 md:flex-row ">
+=======
+ <section class="text-center flex flex-col gap-0 items-center w-full 2xl:w-[1440px] m-auto">
+    <h2 class="text-white xs:text-xl md:text-4xl ">Mi Historia</h2>
+    <div class="bg-[#85E2FF] rounded-3xl w-full 2xl:w-[1440px] z-20">
+      <div class="max-w-screen-xl flex items-left mx-auto px-28	py-10">
+>>>>>>> HomeAlpha
 
         <ol class="relative border-l border-gray-200 w-[50%]">
             <li class="mb-10 ml-4">

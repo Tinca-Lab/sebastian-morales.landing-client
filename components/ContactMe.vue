@@ -20,7 +20,7 @@
 </section>
 </template>
 <script>
-import BotonContact from '@/components/Boton.vue';
+import BotonContact from '@/components/AppButton.vue';
 import WhatsAppIcon from '@/components/Icons/WhatsAppIcon.vue';
 export default{
   name: "ContactMe",
