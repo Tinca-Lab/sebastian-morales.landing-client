@@ -10,7 +10,8 @@ export const mutations = {
 
 export const actions = {
     async fetchHome({ commit }) {
-        const { data } = await this.$axios.$get('/api/home?populate[0]=sections&populate[1]=sections.blogs.image&populate[2]=sections.blogs.author&populate[3]=sections.blogs.author.image');
+      // https://api.sebastianmorales.co
+        const { data } = await this.$axios.$get('/api/home?populate[0]=sections&populate[1]=sections.cta&populate[2]=sections.media&populate[3]=sections.blogs.image&populate[4]=sections.blogs.author&populate[5]=sections.blogs.author.image');
         commit('setHome', data)
     }
 }
