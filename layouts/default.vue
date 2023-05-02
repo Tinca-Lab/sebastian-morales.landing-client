@@ -1,9 +1,9 @@
 <template >
-  <div class="bg-[#1DB5E4] pl-[10px] pr-[10px] scroll-y-hidden">
-    <Navbar-Component />
+  <div class="bg-[#1DB5E4] pl-[10px] pr-[10px] scroll-y-hidden flex flex-col gap-5">
+    <Navbar-Component class="mb-20 md:mb-[6rem]"/>
     <Social-Bar />
       <main>
-        <Nuxt />
+        <Nuxt class="flex flex-col gap-5"/>
       </main>
     <Footer-Component />
   </div>

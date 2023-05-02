@@ -1,7 +1,7 @@
 <template >
   <div class="relative bg-[#1DB5E4]">
-    <Hero-Icon class="mt-24 md:mt-[7.5rem]" />
-    <About-Me-Section />
+    <Hero-Icon />
+    <About-Me-Section :button="true" />
     <AppBlogSection :metadata="blogSection" :blogs="featuredBlogs" class="w-[98%] 2xl:w-[1440px] h-full mx-auto my-5 rounded-2xl" />
     <Contact-Me />
   </div>
@@ -21,9 +21,12 @@ export default {
     featuredBlogs: [],
     blogSection: {},
   }),
-  async beforeCreate() {
-    if (process.client)
-      await this.$store.dispatch('fetchHome');
+
+  computed: {
+    home() {
+      return this.$store.state.home;
+    },
+
   },
   watch: {
     home() {
@@ -32,12 +35,11 @@ export default {
       this.featuredBlogs = this.blogSection.attributes.blogs.data;
     }
   },
-  computed: {
-    home() {
-      return this.$store.state.home;
-    },
+  async beforeCreate() {
+    if (process.client)
+      await this.$store.dispatch('fetchHome');
+  },
 
-  }
 }
 </script>
 

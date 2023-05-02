@@ -7,9 +7,9 @@
       <section class="relative bg-[#85E2FF] xs:rounded-2xl md:rounded-3xl w-[100%] 2xl:w-[1440px] z-20 my-3">
         <div class="flex xs:flex-col md:flex-row flex-nowrap w-full">
 
-          <div class="col-span-8 w-full md:w-[75%] mx-auto xs:px-5 xs:py-3 md:px-20 md:py-7">
+          <div class="col-span-8 w-full md:w-[75%] mx-auto xs:px-4 xs:py-6 md:px-20 md:py-7">
             <h2
-              class="xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#003F52] mb-4 text-2xl font-bold tracking-wide leading-none mt-5 text-left">
+              class="xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#003F52] mb-4 text-2xl font-bold tracking-wide leading-none text-left">
               La alternativa joven y de cambio que necesita la alcaldía Girón
             </h2>
             <p class="mb-5 text-left text-gray-900 md:text-lg lg:text-xl font-Cabin">Here at Flowbite we
@@ -49,7 +49,7 @@
                 </div>
               </div>
               <div>
-                <button class="flex flex-row justify-center items-center gap-2 my-8 px-5 py-3 w-36 h-12 bg-[#FFEC42] rounded-md shadow-md text-black mx-auto md:mx-0">
+                <button class="flex flex-row justify-center items-center gap-2 my-8 px-5 py-3 w-40 h-12 active:bg-[#FFF7B2] active:border-[#FFEC42] active:border-4 hover:bg-[#FFF7B2] bg-[#FFEC42] rounded-md shadow-md text-black mx-auto md:mx-0">
                       <span class="text-lg font-medium">Leer más</span>
                       <Arrow-Icon color="black"/>
                   </button>

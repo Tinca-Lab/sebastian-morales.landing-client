@@ -1,5 +1,5 @@
 <template>
-  <div class="xs:w-full 2xl:w-[1440px] mt-28 mx-auto">
+  <div class="xs:w-full 2xl:w-[1440px] mx-auto">
     <section class="bg-blue-light-to-opacity xs:rounded-2xl md:rounded-3xl">
       <div class="bg-yellow-to-orange xs:rounded-2xl md:rounded-3xl">
           <div class="px-4 lg:pt-24 pt-8 pb-72 lg:pb-80 mx-auto max-w-screen-sm text-center lg:px-6 ">
@@ -30,7 +30,7 @@
                   <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 " placeholder="Leave a comment..."></textarea>
                   <p class="mt-4 text-sm text-gray-500">By submitting this form you agree to our <a href="#" class="text-primary-600 hover:underline">terms and conditions</a> and our <a href="#" class="text-primary-600 hover:underline">privacy policy</a> which explains how we may collect, use and disclose your personal information including to third parties.</p>
               </div>
-              <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300">Send message</button>
+              <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-[#1EB5E4] sm:w-fit hover:bg-[#0088B2] focus:ring-4 focus:outline-none focus:ring-primary-300">Send message</button>
           </form>
           <div class="space-y-8 text-center md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
               <div>

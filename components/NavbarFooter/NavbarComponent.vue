@@ -46,14 +46,14 @@
           <li v-if="nav" class="m-auto flex gap-2 py-4 md:py-0">
             <button
               type="button"
-              class="flex items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
+              class="flex active:bg-[#FFF7B2] active:border-[#FFEC42] hover:bg-[#FFF7B2] items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
             >
               Inciar session
               <Login-Icon />
             </button>
             <button
               type="button"
-              class="flex items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 ">
+              class="flex active:bg-[#FFF7B2] active:border-[#FFEC42] hover:bg-[#FFF7B2] items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 ">
               Registrarse
               <RegisterIcon />
             </button>
@@ -64,14 +64,14 @@
         <div  class="lg:gap-5 md:gap-3 hidden md:flex md:w-auto md:mr-1 lg:mr-3 ">
           <button
             type="button"
-            class="hover:bg-[#FFF7B2] flex items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
+            class="active:bg-[#FFF7B2] active:border-[#FFEC42] hover:bg-[#FFF7B2] flex items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
           >
             Inciar sesión
             <Login-Icon />
           </button>
           <button
             type="button"
-            class="hover:bg-[#FFF7B2] flex items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 ">
+            class="active:bg-[#FFF7B2] active:border-[#FFEC42] active:border hover:bg-[#FFF7B2] bg-[#FFEC42] flex items-center gap-2 text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 ">
             Registrarse
             <RegisterIcon />
           </button>

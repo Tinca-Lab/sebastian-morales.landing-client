@@ -1,12 +1,9 @@
 <template>
-<<<<<<< HEAD
-  <div class="mt-28">
-    <TimeLine />
-    <!-- <div class="w-1/2">
-      <a class="twitter-timeline" href="https://twitter.com/JS_Morales?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a>
-    </div> -->
-=======
-  <div class="mt-28 ">
+  <div>
+    <About-Me-Section :button="false"/>
+
+    <h2 class="mb-4 xs:text-2xl md:text-4xl tracking-tight font-bold text-white lg:text-5xl text-center">Mi Historia</h2>
+
     <TimeLine />
     <Principles  :policy="PrinciplesData" />
     <div class="mx-auto w-full  2xl:w-[1440px] md:flex-row flex rounded-2xl h-20 bg-[#FFFFFF4D] sm:flex-col xs:flex-col sm:h-full xs:h-full" >
@@ -15,24 +12,18 @@
           <a class="twitter-timeline" href="https://twitter.com/JS_Morales?ref_src=twsrc%5Etfw" data-aria-polite="assertive" data-chrome="nofooter" data-tweet-limit="5" data-height="500" >Tweets by TwitterDev</a>
       </div>
     </div>
->>>>>>> HomeAlpha
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
-import TimeLine from '@/components/TimeLine/TimeLineComponent.vue'
-export default {
-  name: "AboutMePage",
-  components: { TimeLine},
-=======
 import PoliticalPrinciplesComponent from '@/components/PoliticalPrinciples/AppPoliticalSection.vue';
-import TimeLine from '@/components/TimeLine/TimeLineComponent.vue'
-import SectionAboutMyTwitter from '@/components/SectionAboutMyTwitter/AppSectionTwitter.vue'
+import AboutMeSection from '@/components/AboutMeSection.vue';
+import TimeLine from '@/components/TimeLine/TimeLineComponent.vue';
+import SectionAboutMyTwitter from '@/components/SectionAboutMyTwitter/AppSectionTwitter.vue';
+
 export default {
   name: "AboutMePage",
-  components: { Principles:PoliticalPrinciplesComponent, SectionAboutMyTwitter, TimeLine},
->>>>>>> HomeAlpha
+  components: { Principles:PoliticalPrinciplesComponent, SectionAboutMyTwitter, TimeLine,AboutMeSection},
   layout: 'DefaultLayout',
   data:()=>({
     PrinciplesData:{

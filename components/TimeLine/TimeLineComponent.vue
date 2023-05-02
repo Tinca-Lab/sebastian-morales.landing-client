@@ -1,16 +1,9 @@
 <template>
-<<<<<<< HEAD
-  <section class="text-center flex flex-col gap-0 items-center w-full 2xl:w-[1440px] m-auto">
-    <div class="bg-[#85E2FF] rounded-3xl w-[98%] 2xl:w-[1440px] z-20 my-3 h-50">
-      <div class="max-w-screen-xl flex flex-col px-14 py-8 items-left mx-auto md:px-28	md:py-10 md:flex-row ">
-=======
- <section class="text-center flex flex-col gap-0 items-center w-full 2xl:w-[1440px] m-auto">
-    <h2 class="text-white xs:text-xl md:text-4xl ">Mi Historia</h2>
+<section class="text-center flex flex-col gap-0 items-center w-full 2xl:w-[1440px] m-auto">
     <div class="bg-[#85E2FF] rounded-3xl w-full 2xl:w-[1440px] z-20">
-      <div class="max-w-screen-xl flex items-left mx-auto px-28	py-10">
->>>>>>> HomeAlpha
+      <div class="max-w-screen-xl flex flex-col md:gap-10 md:flex-row xs:items-center xs:px-4 xs:py-6 md:items-left mx-auto md:px-28	md:py-10">
 
-        <ol class="relative border-l border-gray-200 w-[50%]">
+        <ol class="relative border-l border-gray-200 xs:w-full md:w-[50%]">
             <li class="mb-10 ml-4">
                 <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                 <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">February 2022</time>
@@ -38,7 +31,7 @@
             </li>
         </ol>
 
-        <ol class="relative border-l border-gray-200 w-[50%]">
+        <ol class="relative border-l border-gray-200 xs:w-[75%] md:w-[50%]">
             <li class="mb-10 ml-4">
                 <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                 <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">February 2022</time>
@@ -85,8 +78,5 @@
     name: "TimeLineComponent",
     components: {},
     scrollToTop: true,
-    data() {
-
-  },
 }
 </script>
