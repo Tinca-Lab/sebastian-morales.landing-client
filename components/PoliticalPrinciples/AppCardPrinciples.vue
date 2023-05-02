@@ -16,8 +16,8 @@ export default{
     name:"AppCardPrinciples",
     props:{
         principles:{
-            type:Array,
-            default(){return []}
+            type:Object,
+            default(){return {}}
         }
     }
 }

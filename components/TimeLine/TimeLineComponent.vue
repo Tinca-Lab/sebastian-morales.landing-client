@@ -1,9 +1,9 @@
 <template>
- <section class="text-center flex flex-col gap-0 items-center w-full 2xl:w-[1440px] m-auto">
-    <div class="bg-[#85E2FF] rounded-3xl w-[98%] 2xl:w-[1440px] z-20 my-3">
-      <div class="max-w-screen-xl flex items-left mx-auto px-28	py-10">
+<section class="text-center flex flex-col gap-0 items-center w-full 2xl:w-[1440px] m-auto">
+    <div class="bg-[#85E2FF] rounded-3xl w-full 2xl:w-[1440px] z-20">
+      <div class="max-w-screen-xl flex flex-col md:gap-10 md:flex-row xs:items-center xs:px-4 xs:py-6 md:items-left mx-auto md:px-28	md:py-10">
 
-        <ol class="relative border-l border-gray-200 w-[50%]">
+        <ol class="relative border-l border-gray-200 xs:w-full md:w-[50%]">
             <li class="mb-10 ml-4">
                 <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                 <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">February 2022</time>
@@ -31,7 +31,7 @@
             </li>
         </ol>
 
-        <ol class="relative border-l border-gray-200 w-[50%]">
+        <ol class="relative border-l border-gray-200 xs:w-[75%] md:w-[50%]">
             <li class="mb-10 ml-4">
                 <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                 <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">February 2022</time>
@@ -60,14 +60,23 @@
         </ol>
 
       </div>
+
     </div>
   </section>
 </template>
+
+<!-- <li class="mb-10 ml-4">
+  <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white"></div>
+  <time class="mb-1 text-sm font-normal leading-none text-gray-400">{{ time }}</time>
+  <h3 class="text-lg font-semibold text-gray-900">{{ h3 }}</h3>
+  <p class="mb-4 text-base font-normal text-gray-500">{{ p }}</p>
+</li> -->
+
 
 <script>
   export default {
     name: "TimeLineComponent",
     components: {},
-  }
-  // git checkout -b LSM-26-desarrollo-del-timeline-vista-acerca-de-mi
+    scrollToTop: true,
+}
 </script>
