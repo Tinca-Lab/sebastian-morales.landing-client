@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import ArrowIcon from '@/components/Icons/ArrowIcon.vue';
+import ArrowIcon from '@/components/icons/ArrowIcon.vue';
 export default {
   name: "BotonContact",
   components: {
