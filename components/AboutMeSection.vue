@@ -15,7 +15,7 @@
     </section>
 </template>
 <script>
-import BotonContact from '@/components/Boton.vue';
+import BotonContact from '@/components/AppButton.vue';
     export default{
         name: "AboutMeSection",
         components: {
