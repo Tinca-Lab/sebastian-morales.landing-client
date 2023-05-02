@@ -5,26 +5,11 @@
         <FooterIcon />
         <div class="w-[260px] md:w-[440px] block m-auto">
           <ul class="flex flex-col xs:w-[260px] md:w-[440px] font-medium md:flex-row xs-p-0 md:p-4 gap-5">
-            <li class="w-[260px] xs1:w-full">
+            <li v-for="route in routes" :key="route.id" class="w-[260px] xs1:w-full">
               <NuxtLink
                 class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0"
-                to="/">Inicio</NuxtLink>
-            </li>
-            <li class="w-[275px] xs1:w-full">
-              <NuxtLink
-                class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0"
-                to="/aboutMe">Acerca de mi</NuxtLink>
-            </li>
-            <li class="w-[275px] xs1:w-full">
-              <NuxtLink
-                class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0"
-                to="/blogs">Blogs</NuxtLink>
-            </li>
-            <li class="w-[275px] xs1:w-full">
-              <NuxtLink
-                class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0"
-                to="/contact">Contacto</NuxtLink>
-            </li>
+                :to="route.attributes.link">{{ route.attributes.route }}</NuxtLink>
+          </li>
           </ul>
         </div>
         <p class="text-white">
@@ -52,6 +37,14 @@ export default {
   components: {
     FooterIcon,
     TincaIcon,
+  },
+  data: () => ({
+    nav: false,
+    routes: []
+  }),
+  async mounted() {
+    const { data } = await this.$axios.$get('/api/navbars')
+    this.routes = data;
   },
 }
 </script>
