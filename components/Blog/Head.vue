@@ -1,7 +1,7 @@
 <template>
     <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16 ">
         <h2 
-        class="mb-4 text-5xl tracking-tight font-extrabold text-[#003F52] dark:text-white"
+        class="mb-4 text-5xl tracking-tight font-extrabold text-[#003F52] dark:text-white xs:font-Inter"
         :class="{'font-Inter':isMobile}">
         {{ title }}
         </h2>
