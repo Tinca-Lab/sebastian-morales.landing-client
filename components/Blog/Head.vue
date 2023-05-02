@@ -5,35 +5,27 @@
         :class="{'font-Inter':isMobile}">
         {{ title }}
         </h2>
-        <p
-        v-if="description.length>0"        
-        class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
+        <p v-if="description.length > 0" class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
             {{ description }}
-                <br>
-            {{ welcome }}
         </p>
     </div>
 </template>
 
 <script>
-export default{
-    name:"HeaderSection",
-    props:{
-        title:{
-            type:String,
-            default:""
+export default {
+    name: "HeaderSection",
+    props: {
+        title: {
+            type: String,
+            default: ""
         },
-        description:{
-            type:String,
-            default:""
-        },
-        welcome:{
-            type:String,
-            default:""
+        description: {
+            type: String,
+            default: ""
         },
     },
-    data(){
-        return{
+    data() {
+        return {
             isMobile: false,
         }
     },

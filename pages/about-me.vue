@@ -2,8 +2,11 @@
   <div class="mt-28 ">
     <Principles  :policy="PrinciplesData" class="h-9/12"/>
     <!-- <TimeLine /> -->
-    <div class="w-1/2">
-      <a class="twitter-timeline" href="https://twitter.com/JS_Morales?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a>
+    <div class="mx-auto w-full  2xl:w-[1440px] md:flex-row flex rounded-2xl h-20 bg-[#FFFFFF4D] sm:flex-col xs:flex-col sm:h-full xs:h-full" >
+      <SectionAboutMyTwitter/>
+      <div class="md:w-full md:h-full lg:w-full lg:h-full overflow-x-hidden">
+          <a class="twitter-timeline" href="https://twitter.com/JS_Morales?ref_src=twsrc%5Etfw" data-aria-polite="assertive" data-chrome="nofooter" data-tweet-limit="5" data-height="500" >Tweets by TwitterDev</a>
+      </div>
     </div>
   </div>
 </template>
@@ -11,9 +14,10 @@
 <script>
 import PoliticalPrinciplesComponent from '@/components/PoliticalPrinciples/AppPoliticalSection.vue';
 // import TimeLine from '@/components/TimeLine/TimeLineComponent.vue'
+import SectionAboutMyTwitter from '@/components/SectionAboutMyTwitter/AppSectionTwitter.vue'
 export default {
   name: "AboutMePage",
-  components: { Principles:PoliticalPrinciplesComponent},
+  components: { Principles:PoliticalPrinciplesComponent, SectionAboutMyTwitter},
   layout: 'DefaultLayout',
   data:()=>({
     PrinciplesData:{

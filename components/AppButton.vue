@@ -1,7 +1,7 @@
 <template>
   <button>
     <span class="text-lg font-medium">{{ title }}</span>
-    <Arrow-Icon />
+    <Arrow-Icon :color = "color" />
   </button>
 </template>
 
@@ -16,6 +16,10 @@ export default {
     title: {
       type: String,
       default: ""
+    },
+    color: {
+      type: String,
+      default: "whithe"
     }
   }
 }

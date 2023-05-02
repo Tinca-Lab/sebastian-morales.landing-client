@@ -17,6 +17,7 @@ module.exports = {
         gradientColorStops: theme => ({
           'yellow': '#FFF7B3',
           'orange': '#FFD465',
+          'white-opacity-30': '#FFFFFF4D',
         }),
         backgroundImage: theme => ({
           'yellow-to-orange': 'linear-gradient(112.21deg, #FFF7B3 21.21%, #FFD465 85.72%)',
