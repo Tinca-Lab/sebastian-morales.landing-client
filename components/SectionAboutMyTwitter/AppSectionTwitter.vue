@@ -8,7 +8,7 @@
     </section>
 </template>
 <script>
-import BotonContact from '@/components/AppButton.vue';
+import BotonContact from '@/components/Button/AppButton.vue';
 export default{
     name: "SectionAboutMyTwitter",
     components: {

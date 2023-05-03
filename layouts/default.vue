@@ -12,7 +12,7 @@
 <script>
 import NavbarComponent from '@/components/NavbarFooter/NavbarComponent.vue';
 import FooterComponent from '@/components/NavbarFooter/FooterComponent.vue';
-import SocialBar from '@/components/SocialBar.vue'
+import SocialBar from '@/components/Sections/AppSocialBar.vue'
 
 export default {
   name: "DefaultLayout",

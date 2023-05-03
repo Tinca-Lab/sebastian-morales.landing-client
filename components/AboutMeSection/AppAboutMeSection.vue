@@ -22,14 +22,14 @@
         </div>
       </div>
       <div class="grid grid-cols-2 gap-4 mt-8">
-        <img class="w-full rounded-lg " :src="`https://api.sebastianmorales.co${data.media?.data[0].attributes.url}`" alt="office content 1">
-        <img class="mt-4 w-full lg:mt-10 rounded-lg" :src="`https://api.sebastianmorales.co${data.media?.data[1].attributes.url}`" alt="office content 2">
+        <img class="w-full rounded-lg " src="@/assets/image/Imagen1.png" alt="office content 1">
+        <img class="mt-4 w-full lg:mt-10 rounded-lg" src="@/assets/image/Imagen2.png" alt="office content 2">
       </div>
     </div>
   </section>
 </template>
 <script>
-import BotonContact from '@/components/AppButton.vue';
+import BotonContact from '@/components/Button/AppButton.vue';
 export default {
   name: "AboutMeSection",
   components: {

@@ -9,9 +9,9 @@
 
 <script>
 import AppBlogSection from '@/components/Blog/AppBlogSection.vue';
-import AboutMeSection from '@/components/AboutMeSection.vue';
+import AboutMeSection from '@/components/AboutMeSection/AppAboutMeSection.vue';
 import HeroIcon from '@/components/Hero/HeroSection.vue';
-import ContactMe from '@/components/ContactMe.vue';
+import ContactMe from '@/components/Sections/AppContactMeSection.vue'; 
 
 export default {
   name: "IndexPage",
