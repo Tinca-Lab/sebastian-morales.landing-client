@@ -6,16 +6,19 @@
         class="px-2 space-y-4 font-cabin md:p-20 lg:text-xl md:text-xl font-normal text-20 leading-150 text-gray-700 sm:text-sm">
         <h2
           class="xs:text-2xl md:text-4xl tracking-tight font-bold lg:text-5xl mb-4 xl:text-6xl lg:text-left italic mx-auto leading-none text-[#FF8B1F] font-soulmaze  md:mx-0 md:font-soulmaze xs:text-center md:font-style-italic md:font-weight-400 xs:font-weight-400 md:line-height-30px xs:letter-spacing-0em xs:text-align-left">
-          Soy Sebastián Morales
+          {{data?.title}}
         </h2>
-        <p class="mb-4">We are strategists, designers and developers. Innovators and problem solvers. Small enough to be
-          simple and quick, but big enough to deliver the scope you want at the pace you need.</p>
-        <p>We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and
-          quick.</p>
+        <p class="mb-4">{{ data?.long_decription }}</p>
+        <!-- <p>We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and
+          quick.</p> -->
+          <!-- {{ data.cta.data.attributes }} -->
+
         <div v-if="button">
-          <Boton-Contact
-            :title=title :color="'white'"
-            class="flex flex-row justify-center mt-5 items-center gap-2 px-5 py-3 w-36 h-12 active:bg-[#009FD0] active:border-[#0088B2] active:border-4 hover:bg-[#0088B2] bg-[#1EB5E4]  rounded-md shadow-md text-white mx-auto lg:mx-0" />
+          <a :href="data?.cta?.data?.attributes?.url">
+            <Boton-Contact
+              :title=data?.cta?.data?.attributes?.title :color="'white'"
+              class="flex flex-row justify-center mt-5 items-center gap-2 px-5 py-3 w-36 h-12 active:bg-[#009FD0] active:border-[#0088B2] active:border-4 hover:bg-[#0088B2] bg-[#1EB5E4]  rounded-md shadow-md text-white mx-auto lg:mx-0" />
+          </a>
         </div>
       </div>
       <div class="grid grid-cols-2 gap-4 mt-8">
@@ -36,6 +39,10 @@ export default {
     button: {
       type: Boolean,
       default: false
+    },
+    data: {
+      type: Object,
+      default: () => ({})
     }
   },
   data() {
