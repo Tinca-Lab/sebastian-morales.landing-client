@@ -21,10 +21,6 @@ export default {
     featuredBlogs: [],
     blogSection: {},
   }),
-  async beforeCreate() {
-    if (process.client)
-      await this.$store.dispatch('fetchHome');
-  },
   watch: {
     home() {
       this.blogSection = this.home.attributes.sections.data
@@ -32,12 +28,10 @@ export default {
       this.featuredBlogs = this.blogSection.attributes.blogs.data;
     }
   },
-  computed: {
-    home() {
-      return this.$store.state.home;
-    },
-
-  }
+  async beforeCreate() {
+    if (process.client)
+      await this.$store.dispatch('fetchHome');
+  },
 }
 </script>
 

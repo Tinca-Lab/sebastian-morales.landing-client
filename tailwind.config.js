@@ -11,6 +11,21 @@ module.exports = {
     darkMode: 'class',
     theme: {
       extend: {
+        keyframes: {
+          'fade-in':{
+            '0%': {
+              opacity: '0%',
+            },
+            '100%':{
+              to: {
+                opacity: '100%',
+              }
+            }
+          }
+        },
+        animation: {
+          'fade-in': 'fade-in 0.5s'
+        },
         width: {
           '95':'9rem',
         },
@@ -25,7 +40,8 @@ module.exports = {
         colors: {
           primary: {"50":"#EFF6FF","100":"#DBEAFE","200":"#BFDBFE","300":"#93C5FD","400":"#60A5FA","500":"#3B82F6","600":"#2563EB","700":"#1D4ED8","800":"#1E40AF","900":"#1E3A8A"},
           transparente: {"50":"rgba(255, 255, 255, 0) 82.73%)"},
-          orangeTitle: "#FF8B1F"
+          orangeTitle: "#FF8B1F",
+          GrayTermsPrivacy: "#6B7280"
         },
         fontFamily:{
           Soulmaze: ['MADESoulmaze','sans-serif'],
