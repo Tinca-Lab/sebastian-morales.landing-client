@@ -1,6 +1,6 @@
 <template >
   <div class="relative bg-[#1DB5E4]">
-    <Hero-Icon />
+    <Hero-Icon :metadata="featuredSection" />
     <About-Me-Section :data="aboutMeData" :button="true" />
     <AppBlogSection :metadata="blogSection" :blogs="featuredBlogs" class="w-[98%] 2xl:w-[1440px] h-full mx-auto my-5 rounded-2xl" />
     <Contact-Me />
@@ -20,8 +20,9 @@ export default {
   data: () => ({
     featuredBlogs: [],
     blogSection: {},
-    aboutMeSection: {},
+    // aboutMeSection: {},
     aboutMeData: {},
+    featuredSection:{},
   }),
 
   computed: {
@@ -33,9 +34,12 @@ export default {
   watch: {
     home() {
       this.blogSection = this.home.attributes.sections.data.filter(section => section.attributes.type === 'blog')[0];
-      this.aboutMeSection = this.home.attributes.sections.data.filter(section => section.attributes.type === 'main')[0];
+      this.aboutMeData = this.home.attributes.sections.data.filter(section => section.attributes.type === 'main')[0];
+      this.featuredSection = this.home.attributes.sections.data.filter(section => section.attributes.type === 'featured')[0];
+
       this.featuredBlogs = this.blogSection.attributes.blogs.data;
-      this.aboutMeData = this.aboutMeSection.attributes;
+      this.aboutMeData = this.aboutMeData.attributes;
+      this.featuredSection = this.featuredSection.attributes;
     }
   },
   async beforeCreate() {
