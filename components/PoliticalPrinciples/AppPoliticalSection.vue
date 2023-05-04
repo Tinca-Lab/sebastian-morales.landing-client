@@ -7,7 +7,7 @@
                 </h2>
             </div>
             <div class="gap gap-8 justify-items-center">
-                <AppPrinciplesCarousel :political="policy.political" class="w-full "/>
+                <AppPrinciplesCarousel :political="policy.pps?.data" class="w-full "/>
             </div>
         </div>
     </section>
