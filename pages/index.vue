@@ -3,7 +3,7 @@
     <Hero-Icon :metadata="featuredSection" />
     <About-Me-Section :data="aboutMeData" :button="true" />
     <AppBlogSection :metadata="blogSection" :blogs="featuredBlogs" class="w-[98%] 2xl:w-[1440px] h-full mx-auto my-5 rounded-2xl" />
-    <Contact-Me />
+    <Contact-Me :metadata="contactMeData" />
   </div>
 </template>
 
@@ -22,6 +22,7 @@ export default {
     blogSection: {},
     // aboutMeSection: {},
     aboutMeData: {},
+    contactMeData: {},
     featuredSection:{},
   }),
 
@@ -36,7 +37,9 @@ export default {
       this.blogSection = this.home.attributes.sections.data.filter(section => section.attributes.type === 'blog')[0];
       this.aboutMeData = this.home.attributes.sections.data.filter(section => section.attributes.type === 'main')[0];
       this.featuredSection = this.home.attributes.sections.data.filter(section => section.attributes.type === 'featured')[0];
+      this.contactMeData = this.home.attributes.sections.data.filter(section => section.attributes.type === 'contactme')[0];
 
+      this.contactMeData = this.contactMeData.attributes;
       this.featuredBlogs = this.blogSection.attributes.blogs.data;
       this.aboutMeData = this.aboutMeData.attributes;
       this.featuredSection = this.featuredSection.attributes;
