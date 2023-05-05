@@ -17,14 +17,21 @@ module.exports = {
               opacity: '0%',
             },
             '100%':{
-              to: {
                 opacity: '100%',
-              }
+            }
+          },
+          'fade-off':{
+            '100%': {
+              opacity: '100%',
+            },
+            '0%':{
+                opacity: '0%',
             }
           }
         },
         animation: {
-          'fade-in': 'fade-in 0.5s'
+          'fade-in': 'fade-in 0.5s',
+          'fade-off': 'fade-off 0.5s'
         },
         width: {
           '95':'9rem',

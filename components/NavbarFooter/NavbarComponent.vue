@@ -78,7 +78,7 @@
           </div>
             <form 
             class="bg-yellow-to-orange xs:w-full sm:w-6/12 supersm:w-8/12 md:w-5/12 lg:w-3/12 p-5 flex flex-col space-y-2  rounded-xl right-28 top-24 z-50 animate-fade-in"
-            :class="LoginActive ? 'fixed ':'hidden'"
+            :class="LoginActive ? 'fixed animate-fade-in':'animate-fade-off hidden '"
             >
             <div class="flex justify-between items-center">
                 <span>
@@ -101,11 +101,11 @@
             </button>
             <div class="flex flex-col justify-evenly">
                 <label for="email" class="my-3">Email</label>
-                <input id="email" type="email" name="email" placeholder="name@example.com" class="w-full rounded-lg p-2">
+                <input id="email" type="email" name="email" placeholder="name@example.com" required class="w-full rounded-lg p-2">
             </div>  
             <div class="flex flex-col justify-evenly">
                 <label for="password" class="my-3">Contraseña</label>
-                <input id="password" type="password" name="password" placeholder="**********" class="w-full rounded-lg p-2">
+                <input id="password" type="password" name="password" placeholder="**********" required class="w-full rounded-lg p-2">
             </div>
             <div class="w-full flex flex-row justify-center">
                 <button class="bg-primary-400 text-white p-2 rounded-lg sm:w-3/12 sm:text-sm md:text-sm md:w-5/12 flex items-center justify-center" type="submit">
@@ -115,7 +115,7 @@
             </div>
             <div class="w-full flex justify-evenly">
                 <span>¿No tienes cuenta?</span>
-                <a class="underline underline-offset-2 text-primary-600 " href="#">Registrate aqui</a>
+                <a class="underline underline-offset-2 text-primary-600 " href="#" @click="openRegister" >Registrate aqui</a>
             </div>
           </form>
           
