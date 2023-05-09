@@ -23,12 +23,9 @@ export default {
     aboutMeSection: {},
     aboutMeData: {},
   }),
-
-  computed: {
-    home() {
-      return this.$store.state.home;
-    },
-
+  async beforeCreate() {
+    if (process.client)
+      await this.$store.dispatch('fetchHome');
   },
   watch: {
     home() {
@@ -42,7 +39,6 @@ export default {
     if (process.client)
       await this.$store.dispatch('fetchHome');
   },
-
 }
 </script>
 
