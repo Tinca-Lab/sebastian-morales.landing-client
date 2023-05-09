@@ -1,0 +1,55 @@
+<template>
+  <section>
+    <div
+      class="w-full 2xl:w-[1440px] xs:px-4 xs:py-6 rounded-3xl mx-auto grid lg:grid-cols-2  bg-gradient-to-r from-[#FFF7B2] to-[#FFD465]">
+      <div
+        class="px-2 space-y-4 font-cabin md:p-20 lg:text-xl md:text-xl font-normal text-20 leading-150 text-gray-700 sm:text-sm">
+        <h2
+          class="xs:text-2xl md:text-4xl tracking-tight font-bold lg:text-5xl mb-4 xl:text-6xl lg:text-left italic mx-auto leading-none text-[#FF8B1F] font-soulmaze  md:mx-0 md:font-soulmaze xs:text-center md:font-style-italic md:font-weight-400 xs:font-weight-400 md:line-height-30px xs:letter-spacing-0em xs:text-align-left">
+          {{data?.title}}
+        </h2>
+        <p class="mb-4">{{ data?.long_decription }}</p>
+        <!-- <p>We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and
+          quick.</p> -->
+          <!-- {{ data.cta.data.attributes }} -->
+
+        <div v-if="button">
+          <a :href="data?.cta?.data?.attributes?.url">
+            <Boton-Contact
+              :title=data?.cta?.data?.attributes?.title :color="'white'"
+              class="flex flex-row justify-center mt-5 items-center gap-2 px-5 py-3 w-36 h-12 active:bg-[#009FD0] active:border-[#0088B2] active:border-4 hover:bg-[#0088B2] bg-[#1EB5E4]  rounded-md shadow-md text-white mx-auto lg:mx-0" />
+          </a>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4 mt-8">
+        <img class="w-full rounded-lg " src="@/assets/image/Imagen1.png" alt="office content 1">
+        <img class="mt-4 w-full lg:mt-10 rounded-lg" src="@/assets/image/Imagen2.png" alt="office content 2">
+      </div>
+    </div>
+  </section>
+</template>
+<script>
+import BotonContact from '@/components/Button/AppButton.vue';
+export default {
+  name: "AboutMeSection",
+  components: {
+    BotonContact
+  },
+  props: {
+    button: {
+      type: Boolean,
+      default: false
+    },
+    data: {
+      type: Object,
+      default: () => ({})
+    }
+  },
+  data() {
+    return {
+      title: "leer mas"
+    }
+  },
+
+}
+</script>

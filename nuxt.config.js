@@ -52,7 +52,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/tailwindcss', //añadir tailwind a proyecto
+    '@nuxtjs/tailwindcss', // añadir tailwind a proyecto
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

@@ -1,7 +1,11 @@
 <template>
-  <div class="mt-28 ">
-    <Principles  :policy="PrinciplesData" class="h-9/12"/>
-    <!-- <TimeLine /> -->
+  <div>
+    <About-Me-Section :button="false"/>
+
+    <h2 class="mb-4 xs:text-2xl md:text-4xl tracking-tight font-bold text-white lg:text-5xl text-center">Mi Historia</h2>
+
+    <TimeLine />
+    <Principles  :policy="PrinciplesData" />
     <div class="mx-auto w-full  2xl:w-[1440px] md:flex-row flex rounded-2xl h-20 bg-[#FFFFFF4D] sm:flex-col xs:flex-col sm:h-full xs:h-full" >
       <SectionAboutMyTwitter/>
       <div class="md:w-full md:h-full lg:w-full lg:h-full overflow-x-hidden">
@@ -13,16 +17,18 @@
 
 <script>
 import PoliticalPrinciplesComponent from '@/components/PoliticalPrinciples/AppPoliticalSection.vue';
-// import TimeLine from '@/components/TimeLine/TimeLineComponent.vue'
-import SectionAboutMyTwitter from '@/components/SectionAboutMyTwitter/AppSectionTwitter.vue'
+import AboutMeSection from '@/components/AboutMeSection/AppAboutMeSection.vue';
+import TimeLine from '@/components/TimeLine/TimeLineComponent.vue';
+import SectionAboutMyTwitter from '@/components/SectionAboutMyTwitter/AppSectionTwitter.vue';
+
 export default {
   name: "AboutMePage",
-  components: { Principles:PoliticalPrinciplesComponent, SectionAboutMyTwitter},
+  components: { Principles:PoliticalPrinciplesComponent, SectionAboutMyTwitter, TimeLine,AboutMeSection},
   layout: 'DefaultLayout',
   data:()=>({
     PrinciplesData:{
       'title':'PRINCIPIOS POLITICOS',
-      'political':[ 
+      'political':[
         {
           'image':'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-content-1.png',
           'subtitle':"Educación de calidad: Un derecho, no un privilegio.",

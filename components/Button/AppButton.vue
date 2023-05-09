@@ -17,6 +17,10 @@ export default {
       type: String,
       default: ""
     },
+    url: {
+      type: String,
+      default: ""
+    },
     color: {
       type: String,
       default: "whithe"

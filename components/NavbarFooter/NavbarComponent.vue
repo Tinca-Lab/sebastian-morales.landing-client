@@ -1,7 +1,4 @@
 <template>
-  <!-- <div class="text-center flex flex-col gap-0 items-center w-full 2xl:w-[1440px] m-auto">
-      <section class="relative bg-[#85E2FF] xs:rounded-2xl md:rounded-3xl w-[98%] 2xl:w-[1440px] z-20 my-3">
-        <div class="flex xs:flex-col md:flex-row flex-nowrap w-full"> -->
   <div class="text-center flex flex-col gap-0 items-center w-full 2xl:w-[1440px] m-auto">
     <nav class="bg-[#0088B2] fixed mx-2.5 xs:rounded-2xl md:rounded-3xl w-[98%] 2xl:w-[1440px] z-50 mt-3 shadow-lg">
       <div class="flex flex-wrap items-center justify-between mx-auto xs:px-5 md:px-3 lg:px-5 py-2">
@@ -46,14 +43,14 @@
           <li v-if="nav" class="m-auto flex gap-2 py-4 md:py-0">
             <button
               type="button"
-              class="flex items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
+              class="flex active:bg-[#FFF7B2] active:border-[#FFEC42] hover:bg-[#FFF7B2] items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
             >
               Inciar session
               <Login-Icon />
             </button>
             <button
               type="button"
-              class="flex items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 ">
+              class="flex active:bg-[#FFF7B2] active:border-[#FFEC42] hover:bg-[#FFF7B2] items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 ">
               Registrarse
               <RegisterIcon />
             </button>
@@ -64,7 +61,7 @@
         <div  class="lg:gap-5 md:gap-3 hidden md:flex md:w-auto md:mr-1 lg:mr-3 ">
           <button
             type="button"
-            class="hover:bg-[#FFF7B2] flex items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
+            class="active:bg-[#FFF7B2] active:border-[#FFEC42] hover:bg-[#FFF7B2] flex items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
             @click="openLogin"
           >
             Inciar sesión
@@ -121,7 +118,7 @@
           
           <button
             type="button"
-            class="hover:bg-[#FFF7B2] flex items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0"
+            class="active:bg-[#FFF7B2] active:border-[#FFEC42] active:border hover:bg-[#FFF7B2] bg-[#FFEC42] flex items-center gap-2 text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0"
             @click="openRegister"
             >
             Registrarse

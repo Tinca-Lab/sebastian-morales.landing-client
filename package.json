@@ -18,6 +18,7 @@
     "@nuxtjs/tailwindcss": "^6.6.6",
     "@tailwindcss/line-clamp": "^0.4.4",
     "core-js": "^3.25.3",
+    "lottie-vuejs": "^0.4.0",
     "nuxt": "^2.15.8",
     "vue": "^2.7.10",
     "vue-carousel": "^0.18.0",
