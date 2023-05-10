@@ -11,7 +11,7 @@
 import AppBlogSection from '@/components/Blog/AppBlogSection.vue';
 import AboutMeSection from '@/components/AboutMeSection/AppAboutMeSection.vue';
 import HeroIcon from '@/components/Hero/HeroSection.vue';
-import ContactMe from '@/components/Sections/AppContactMeSection.vue'; 
+import ContactMe from '@/components/Sections/AppContactMeSection.vue';
 
 export default {
   name: "IndexPage",
@@ -25,10 +25,6 @@ export default {
     contactMeData: {},
     featuredSection:{},
   }),
-  async beforeCreate() {
-    if (process.client)
-      await this.$store.dispatch('fetchHome');
-  },
   watch: {
     home() {
       this.blogSection = this.home.attributes.sections.data.filter(section => section.attributes.type === 'blog')[0];
