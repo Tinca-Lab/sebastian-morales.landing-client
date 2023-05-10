@@ -3,34 +3,40 @@
     <section class="bg-blue-light-to-opacity xs:rounded-2xl md:rounded-3xl">
       <div class="bg-yellow-to-orange xs:rounded-2xl md:rounded-3xl">
           <div class="px-4 lg:pt-24 pt-8 pb-72 lg:pb-80 mx-auto max-w-screen-sm text-center lg:px-6 ">
-              <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">Contact Us</h2>
-              <p class="mb-16 font-light text-gray-900 sm:text-xl">We use an agile approach to test assumptions and connect with the needs of your audience early and often.</p>
+              <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">{{contactMeData.title}}</h2>
+              <p class="mb-16 font-light text-gray-900 sm:text-xl">{{ contactMeData.description }}</p>
           </div>
       </div>
-      <div class="py-16 px-4 mx-auto -mt-96 max-w-screen-xl sm:py-24 lg:px-6 ">
+      <div class="py-14 px-4 mx-auto -mt-96 max-w-screen-xl sm:py-24 lg:px-6 ">
           <form action="#" class="grid grid-cols-1 gap-8 p-6 mx-auto mb-16 max-w-screen-md bg-white rounded-lg border border-gray-200 shadow-sm lg:mb-28 sm:grid-cols-2">
               <div>
-                  <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900">First Name</label>
-                  <input id="first-name" type="text" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500" placeholder="Bonnie" required>
+                  <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900">Nombre</label>
+                  <input id="first-name" v-model="name" type="text" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500" placeholder="Bonnie" required>
+                  <p v-if="!name" class="text-red-500 font-semibold text-xs my-3">* Este campo es requerido</p>
               </div>
               <div>
-                  <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900">Last Name</label>
-                  <input id="last-name" type="text" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500" placeholder="Green" required>
+                  <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900">Apellido</label>
+                  <input id="last-name" v-model="lastName" type="text" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500" placeholder="Green" required>
               </div>
               <div>
-                  <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
-                  <input id="email" type="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5" placeholder="name@flowbite.com" required>
+                  <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
+                  <input id="email" v-model="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Ingresa un correo electrónico válido"  type="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5" placeholder="name@tinca.com" required>
+                  <p v-if="!email" class="text-red-500 font-semibold text-xs my-3">* Este campo es requerido</p>
+                  <p v-if="email && !emailValue" class="text-red-500 font-semibold text-xs my-3">* Escribe un correo valido</p>
+                  {{ emailValue }}
               </div>
               <div>
-                  <label for="phone-number" class="block mb-2 text-sm font-medium text-gray-900">Phone Number</label>
-                  <input id="phone-number" type="number" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500" placeholder="+12 345 6789" required>
+                  <label for="phone-number" class="block mb-2 text-sm font-medium text-gray-900">Numero de Telefono</label>
+                  <input id="phone-number" v-model="cellphone" type="number" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500" placeholder="311 678 69 85" required>
               </div>
               <div class="sm:col-span-2">
-                  <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Your message</label>
-                  <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 " placeholder="Leave a comment..."></textarea>
+                  <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Tu mensaje</label>
+                  <textarea id="message" v-model="information" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 " placeholder="Deja un comentario..."></textarea>
                   <p class="mt-4 text-sm text-gray-500">By submitting this form you agree to our <a href="#" class="text-primary-600 hover:underline">terms and conditions</a> and our <a href="#" class="text-primary-600 hover:underline">privacy policy</a> which explains how we may collect, use and disclose your personal information including to third parties.</p>
               </div>
-              <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-[#1EB5E4] sm:w-fit hover:bg-[#0088B2] focus:ring-4 focus:outline-none focus:ring-primary-300">Send message</button>
+              <div>
+                <button :disabled="!buttonActive" type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-[#1EB5E4] sm:w-fit hover:bg-[#0088B2] focus:ring-4 focus:outline-none focus:ring-primary-300" @click="submit" >{{contactMeData.cta?.data?.attributes.title}}</button>
+              </div>
           </form>
           <div class="space-y-8 text-center md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
               <div>
@@ -69,6 +75,7 @@
               </div>
           </div>
       </div>
+      {{ contactMeData }}
   </section>
   </div>
 </template>
@@ -81,5 +88,84 @@ export default {
   components: {
     WhatsAppIcon
   },
-};
+
+  data(){
+    return{
+      name:"",
+      lastName:"",
+      email:"",
+      cellphone:"",
+      information:"",
+      send: null,
+      error: null,
+      contactMeData:{},
+      buttonActive: false,
+      emailValue: false,
+    }
+  },
+  computed: {
+    contactMe() {
+      return this.$store.state.contactMe;
+    },
+
+  },
+  watch: {
+    contactMe() {
+      this.contactMeData = this.contactMe.attributes.sections.data.attributes;
+    },
+    name() {
+    this.verifyInfo();
+    },
+    email() {
+    this.verifyInfo();
+    this.verifyEmail();
+    }
+  },
+  async beforeCreate() {
+    if (process.client)
+      await this.$store.dispatch('fetchContactMe');
+  },
+  methods:{
+    verifyEmail(){
+      const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      this.emailValue = regex.test(this.email);
+    },
+    verifyInfo() {
+      if (this.name && this.email && this.emailValue) {
+        this.buttonActive = true;
+      } else {
+        this.buttonActive = false;
+      }
+    },
+    async submit(){
+      const metadata={
+        name:this.name,
+        lastname:this.lastName,
+        email:this.email,
+        cellphone:this.cellphone,
+        information:this.information
+      }
+      const body={
+        data:metadata
+      }
+      const endpoint = this.contactMeData.cta?.data?.attributes.url;
+      await this.$axios
+        .post(endpoint, body)
+        .then((response) => {
+          if (response.status === 200) {
+            this.send = true
+            setTimeout(
+              function () {
+                this.$router.push('/')
+              }.bind(this),
+              2000
+            )
+          }
+        })
+        .catch((error) => {
+          this.error = error
+        })
+      },
+    }
+  };
 </script>

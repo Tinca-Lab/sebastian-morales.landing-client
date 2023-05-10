@@ -1,13 +1,13 @@
 <template>
   <div>
-    <About-Me-Section :button="false"/>
+    <About-Me-Section :data="aboutMeData" :button="false"/>
 
-    <h2 class="mb-4 xs:text-2xl md:text-4xl tracking-tight font-bold text-white lg:text-5xl text-center">Mi Historia</h2>
+    <h2 class="mb-4 xs:text-2xl md:text-4xl tracking-tight font-bold text-white lg:text-5xl text-center">{{timeLineData.title}}</h2>
 
-    <TimeLine />
-    <Principles  :policy="PrinciplesData" />
+    <TimeLine :metadata="timeLineData"/>
+    <Principles  :policy="politicalPrinciples" />
     <div class="mx-auto w-full  2xl:w-[1440px] md:flex-row flex rounded-2xl h-20 bg-[#FFFFFF4D] sm:flex-col xs:flex-col sm:h-full xs:h-full" >
-      <SectionAboutMyTwitter/>
+      <SectionAboutMyTwitter :metadata="sectionTwitterData"/>
       <div class="md:w-full md:h-full lg:w-full lg:h-full overflow-x-hidden">
           <a class="twitter-timeline" href="https://twitter.com/JS_Morales?ref_src=twsrc%5Etfw" data-aria-polite="assertive" data-chrome="nofooter" data-tweet-limit="5" data-height="500" >Tweets by TwitterDev</a>
       </div>
@@ -50,7 +50,37 @@ export default {
           'description':'Un compromiso por la tranquilidad y  el bienestar de nuestra comunidad para una convivencia pacífica y el desarrollo social y económico de todos los Gironeses.'
         }
       ]
+    },
+    aboutMeData:{},
+    timeLineData:{},
+    politicalPrinciples:{},
+    sectionTwitterData:{}
+  }),
+  computed: {
+    about() {
+      return this.$store.state.aboutMe;
+    },
+
+  },
+  watch: {
+    about() {
+      this.aboutMeData = this.about.attributes.sections.data.filter(section => section.attributes.type === 'main')[0];
+      this.timeLineData = this.about.attributes.sections.data.filter(section => section.attributes.type === 'history')[0];
+      this.politicalPrinciples = this.about.attributes.sections.data.filter(section => section.attributes.type === 'featured')[0];
+      this.politicalPrinciples = this.about.attributes.sections.data.filter(section => section.attributes.type === 'featured')[0];
+      this.sectionTwitterData = this.about.attributes.sections.data.filter(section => section.attributes.type === 'twitter')[0];
+
+      this.sectionTwitterData = this.sectionTwitterData.attributes;
+      this.timeLineData = this.timeLineData.attributes;
+      this.aboutMeData = this.aboutMeData.attributes;
+      this.politicalPrinciples = this.politicalPrinciples?.attributes;
+
+
     }
-  })
+  },
+  async beforeCreate() {
+    if (process.client)
+      await this.$store.dispatch('fetchAboutMe');
+  },
 }
 </script>
