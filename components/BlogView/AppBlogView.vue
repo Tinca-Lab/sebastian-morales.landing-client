@@ -72,7 +72,7 @@
           <section v-if="metadata">
             <div class="grid grid-cols-3 gap-4">
               <div v-for="(element1, i) in prueba()" :key="i" class="w-full">
-                <nuxt-link to="/blogs/1">
+                <nuxt-link :to="'/blogs/'+element1.id">
                   <CardBlog :blog="element1" />
                 </nuxt-link>
               </div>
