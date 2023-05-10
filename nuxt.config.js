@@ -15,7 +15,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/sebasMorales.png' },
       // {rel: "stylesheet",href: "./assets/fonts/style.css"},
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cabin&display=swap" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap" }

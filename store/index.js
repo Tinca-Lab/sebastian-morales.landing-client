@@ -2,6 +2,11 @@ export const state = () => ({
     home: {},
     aboutMe:{},
     contactMe:{},
+    blogs:{},
+    category:{},
+    filteredItems:[],
+    SearchFilteredItems:[],
+    blog:[]
 })
 
 export const mutations = {
@@ -14,6 +19,20 @@ export const mutations = {
     setContactMe(state, contactMe) {
       state.contactMe = contactMe
     },
+    setBlogs(state, blogs) {
+      state.blogs = blogs
+    },
+    setCategory(state, category) {
+      state.category = category
+    },
+    setFilteredItems(state, filter) {
+      state.filteredItems = filter
+    },setSearchFilteredItems(state, filter) {
+      state.SearchFilteredItems = filter
+    },
+    setBlogUnique(state, blog) {
+      state.blog = blog
+    }
 }
 
 export const actions = {
@@ -32,5 +51,29 @@ export const actions = {
         const { data } = await this.$axios.$get('/api/contactme?populate[0]=sections&populate[1]=sections.cta');
         commit('setContactMe', data)
     },
+    async fetchBlog({ commit }) {
+      // https://api.sebastianmorales.co/api/blog-view?populate[0]=sections&populate[1]=sections.blogs.image&populate[2]=sections.blogs.author&populate[3]=sections.blogs.author.image
+      const { data } = await this.$axios.$get('api/blog-view?populate[0]=sections&populate[1]=sections.blogs.image&populate[2]=sections.blogs.author&populate[3]=sections.blogs.author.image')
+      commit('setBlogs', data)
+      commit('setFilteredItems', data.attributes.sections.data[0].attributes.blogs.data)
+    },
+    async fetchCategory({ commit }) {
+      // https://api.sebastianmorales.co/api/blog-view?populate[0]=sections&populate[1]=sections.blogs.image&populate[2]=sections.blogs.author&populate[3]=sections.blogs.author.image
+      const { data } = await this.$axios.$get('api/categories')
+      commit('setCategory', data)
+    },
+    Filter({ commit }, data) {
+      commit('setFilteredItems', data)
+    },
+    SearchFilter({ commit }, data) {
+      commit('setSearchFilteredItems', data)
+    },
+    async fetchBlogUnique({ commit }, id) {
+      const { data } = await this.$axios.$get(`/api/blogs/${id}?populate[0]=image&populate[1]=author&populate[2]=author.image`)
+
+      commit('setBlogUnique', data)
+    }
+
+
 
 }
