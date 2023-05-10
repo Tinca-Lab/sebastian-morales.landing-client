@@ -17,7 +17,7 @@
 
 <script>
 import PoliticalPrinciplesComponent from '@/components/PoliticalPrinciples/AppPoliticalSection.vue';
-import AboutMeSection from '@/components/AboutMeSection.vue';
+import AboutMeSection from '@/components/AboutMeSection/AppAboutMeSection.vue';
 import TimeLine from '@/components/TimeLine/TimeLineComponent.vue';
 import SectionAboutMyTwitter from '@/components/SectionAboutMyTwitter/AppSectionTwitter.vue';
 

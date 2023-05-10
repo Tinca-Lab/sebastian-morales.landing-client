@@ -9,9 +9,9 @@
 
 <script>
 import AppBlogSection from '@/components/Blog/AppBlogSection.vue';
-import AboutMeSection from '@/components/AboutMeSection.vue';
+import AboutMeSection from '@/components/AboutMeSection/AppAboutMeSection.vue';
 import HeroIcon from '@/components/Hero/HeroSection.vue';
-import ContactMe from '@/components/ContactMe.vue';
+import ContactMe from '@/components/Sections/AppContactMeSection.vue'; 
 
 export default {
   name: "IndexPage",
@@ -25,12 +25,9 @@ export default {
     contactMeData: {},
     featuredSection:{},
   }),
-
-  computed: {
-    home() {
-      return this.$store.state.home;
-    },
-
+  async beforeCreate() {
+    if (process.client)
+      await this.$store.dispatch('fetchHome');
   },
   watch: {
     home() {
@@ -49,7 +46,6 @@ export default {
     if (process.client)
       await this.$store.dispatch('fetchHome');
   },
-
 }
 </script>
 
