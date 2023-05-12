@@ -40,7 +40,7 @@
                 class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0"
                 :to="route.attributes.link">{{ route.attributes.route }}</NuxtLink>
           </li>
-          <li v-if="nav" class="m-auto flex gap-2 py-4 md:py-0">
+          <li v-if="nav && !isAuthenticated" class="m-auto flex gap-2 py-4 md:py-0">
             <button
               type="button"
               class="flex active:bg-[#FFF7B2] active:border-[#FFEC42] hover:bg-[#FFF7B2] items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
@@ -50,7 +50,8 @@
             </button>
             <button
               type="button"
-              class="flex active:bg-[#FFF7B2] active:border-[#FFEC42] hover:bg-[#FFF7B2] items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 ">
+              class="flex active:bg-[#FFF7B2] active:border-[#FFEC42] hover:bg-[#FFF7B2] items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
+            >
               Registrarse
               <RegisterIcon />
             </button>
@@ -73,7 +74,8 @@
           @click="openLogin"
           >
           </div>
-            <form
+          <!-- Login form -->
+              <form
             class="bg-yellow-to-orange xs:w-full sm:w-6/12 supersm:w-8/12 md:w-5/12 lg:w-3/12 p-5 flex flex-col space-y-2  rounded-xl right-28 top-24 z-50 animate-fade-in"
             :class="LoginActive ? 'fixed animate-fade-in':'animate-fade-off hidden '"
             >
@@ -105,7 +107,10 @@
                 <input id="passwordLogin" type="password" name="password" placeholder="**********" required class="w-full rounded-lg p-2">
             </div>
             <div class="w-full flex flex-row justify-center">
-                <button class="bg-primary-400 text-white p-2 rounded-lg sm:w-3/12 sm:text-sm md:text-sm md:w-5/12 flex items-center justify-center" type="submit">
+                <button
+                  class="bg-primary-400 text-white p-2 rounded-lg sm:w-3/12 sm:text-sm md:text-sm md:w-5/12 flex items-center justify-center" type="submit"
+                  disabled
+                >
                     Iniciar Sesion
                     <Modal-Login-Icon class="ml-1"/>
                 </button>
@@ -119,6 +124,7 @@
           <button
             type="button"
             class="active:bg-[#FFF7B2] active:border-[#FFEC42] active:border hover:bg-[#FFF7B2] bg-[#FFEC42] flex items-center gap-2 text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0"
+            disabled
             @click="openRegister"
             >
             Registrarse
@@ -130,7 +136,9 @@
           @click="openRegister"
           >
           </div>
-            <form class="bg-yellow-to-orange xs:w-full sm:w-6/12 supersm:w-8/12 md:w-5/12 lg:w-4/12 p-5 pb-28 flex flex-col space-y-1 rounded-xl h-screen overflow-y-auto z-50 md:left-2/4 lg:left-2/4 md:mr-0 animate-fade-in" :class="RegisterActive ? 'fixed top-24':'hidden'">
+          <!-- register form -->
+            <section
+            class="bg-yellow-to-orange xs:w-full sm:w-6/12 supersm:w-8/12 md:w-5/12 lg:w-4/12 p-5 pb-28 flex flex-col space-y-1 rounded-xl h-screen overflow-y-auto z-50 md:left-2/4 lg:left-2/4 md:mr-0 animate-fade-in" :class="RegisterActive ? 'fixed top-24':'hidden'">
               <div class="flex justify-between items-center">
                   <p class="text-center  text-gray-700 font-Cabin ">
                     ¿Te gustaría estar al tanto de noticias y novedades en mi candidatura? Registrate para recibir la información más actualizada.
@@ -144,31 +152,24 @@
                 <Google-Icon class="mr-2"/>
                 Iniciar con Google
               </button>
+
               <div class=" text-left ">
                 <div class="flex flex-col justify-evenly">
-                      <label for="nombres" class="my-3">Nombres</label>
-                      <input id="nombres" type="nombres" name="nombres" placeholder="Escribe tu nombre" class="w-full rounded-lg p-2" required>
-                </div>
-                <div class="flex flex-col justify-evenly">
-                    <label for="apellidos" class="my-3">Apellidos</label>
-                    <input id="apellidos" type="apellidos" name="apellidos" placeholder="Escribe tu apellido" class="w-full rounded-lg p-2" required>
+                      <label for="nombres" class="my-3">Nombre</label>
+                      <input id="nombres" v-model="usernameRegister" type="nombres" name="nombres" placeholder="Escribe tu nombre" class="w-full rounded-lg p-2" required>
                 </div>
                 <div class="flex flex-col justify-evenly">
                     <label for="email" class="my-3">Email</label>
-                    <input id="email" type="email" name="email" placeholder="name@example.com" class="w-full rounded-lg p-2" required>
-                </div>
-                <div class="flex flex-col justify-evenly">
-                    <label for="Phone" class="my-3">Phone number</label>
-                    <input id="Phone" type="Phone" name="Phone" placeholder="+(12) 345 6789" class="w-full rounded-lg p-2" required>
+                    <input id="email" v-model="emailRegister" type="email" name="email" placeholder="name@example.com" class="w-full rounded-lg p-2" required>
                 </div>
                 <div class="flex flex-col justify-evenly">
                     <label for="password" class="my-3">Contraseña</label>
-                    <input id="password" type="password" name="password" placeholder="**********" class="w-full rounded-lg p-2" required>
+                    <input id="password" v-model="passwordRegister" type="password" name="password" placeholder="**********" class="w-full rounded-lg p-2" required>
                 </div>
-                <div class="flex flex-col justify-evenly">
+                <!-- <div class="flex flex-col justify-evenly">
                     <label for="confirmar" class="my-3">Confirmar Contraseña</label>
-                    <input id="confirmar" type="confirmar" name="confirmar" placeholder="**********" class="w-full rounded-lg p-2" required>
-                </div>
+                    <input v-model="passwordRegister" id="confirmar" type="confirmar" name="confirmar" placeholder="**********" class="w-full rounded-lg p-2" required>
+                </div> -->
                 </div>
                 <div class="w-full flex flex-row justify-start gap-2 mx-auto">
                     <input type="checkbox" class="border-none border-0">
@@ -177,7 +178,11 @@
                     </p>
                 </div>
                 <div class="w-8/12 flex justify-evenly mx-auto">
-                    <button class="bg-primary-400 text-white p-2 rounded-lg sm:w-3/12 sm:text-sm md:text-xs md:w-5/12 flex items-center justify-center">
+                    <button
+                      type="submit"
+                      class="bg-primary-400 text-white p-2 rounded-lg sm:w-3/12 sm:text-sm md:text-xs md:w-5/12 flex items-center justify-center"
+                      @click=userRegister()
+                      >
                         Registrarse
                         <Modal-Register-Icon class="ml-1"/>
                     </button>
@@ -189,7 +194,7 @@
                       Cerrar
                     </Button>
                 </div>
-            </form>
+            </section>
 
         </div>
       </div>
@@ -214,6 +219,9 @@ export default {
     routes: [],
     LoginActive:false,
     RegisterActive:false,
+    usernameRegister: '',
+    emailRegister: '',
+    passwordRegister: '',
   }),
   async mounted() {
     const { data } = await this.$axios.$get('/api/navbars')
@@ -230,8 +238,20 @@ export default {
     openRegister() {
       this.RegisterActive = !this.RegisterActive
       this.LoginActive = false
-    }
-
+    },
+    async userRegister() {
+      try {
+        this.$axios.setToken(false)
+        await this.$axios.post('auth/local/register', {
+          username: this.usernameRegister,
+          email: this.emailRegister,
+          password: this.passwordRegister,
+        })
+        this.success = true
+      } catch (e) {
+        if (e.response) this.err = e.response.data
+      }
+    },
   }
 };
 </script>
