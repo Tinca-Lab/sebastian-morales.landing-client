@@ -5,30 +5,39 @@
         <header class="m-auto text-center">
           <section class="flex items-center gap-5 w-full justify-center">
             <HouseIcon />
-            Home
+            <nuxt-link :to="`/`">
+              Home
+            </nuxt-link>
             <LeftArrowIcon />
-            Blogs
+            <nuxt-link :to="`/blogs`">
+              Blogs
+            </nuxt-link>
           </section>
           <section class="flex w-full justify-center my-4">
             <form class="w-full md:w-96 md:m-auto" @submit="handleSubmit">
               <div class="flex relative">
                 <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your
                   Email</label>
-                <button id="dropdown-button" data-dropdown-toggle="dropdown"
+                <button
+                  id="dropdown-button" data-dropdown-toggle="dropdown"
                   class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white  border border-[#1EB5E4] rounded-l-lg hover:bg-[#0088B2]" :class="modal ? 'bg-[#0088B2]' : 'bg-[#1EB5E4]'"
                   type="button" @click="openClose">
-                  <p class="xs:hidden md:block">Filtro</p> <Filter-Icon class="md:hidden" /> <svg aria-hidden="true"
+                  <p class="xs:hidden md:block">Filtro</p> <Filter-Icon class="md:hidden" /> <svg
+                    aria-hidden="true"
                     class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
+                    <path
+                      fill-rule="evenodd"
                       d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                       clip-rule="evenodd"></path>
                   </svg>
                 </button>
-                <div id="dropdown" class="z-10 top-12 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
+                <div
+                  id="dropdown" class="z-10 top-12 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
                   :class="modal ? 'block' : 'hidden'">
                   <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
                     <li v-for="(element, index) in categories" :key="index">
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                      <a
+                        href="#" class="block px-4 py-2 hover:bg-gray-100"
                         @click="ReloadBlogs(element.attributes?.title)">{{ element.attributes?.title }}</a>
                     </li>
                   </ul>
@@ -48,14 +57,16 @@
                       </svg>
                     </button>
                   </nuxt-link>
-                  <input v-model="dataForSearch" type="text" id="search-dropdown"
+                  <input
+                    id="search-dropdown" v-model="dataForSearch" type="text"
                     class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-100 border-l-2 border border-[#1EB5E4] focus:outline-none focus:ring-1 focus:ring-[#1EB5E4]"
-                    placeholder="Search" @focus="mutateSearch" @blur="mutateSearch" @keyup="searchFilter" required>
+                    placeholder="Search" required @focus="mutateSearch" @blur="mutateSearch" @keyup="searchFilter">
                   <div class="bg-white w-full" :class="search ? 'absolute' : 'hidden'">
                     <p v-for="(element, index) in results" :key="index" class="flex gap-3 hover:bg-gray-300 p-3"><svg
                         aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        <path
+                          stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                           d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                       </svg> {{ element?.attributes?.title }}</p>
                   </div>
@@ -72,7 +83,7 @@
           <section v-if="metadata">
             <div class="grid grid-cols-3 gap-4">
               <div v-for="(element1, i) in prueba()" :key="i" class="w-full">
-                <nuxt-link to="/blogs/1">
+                <nuxt-link :to="'/blogs/'+element1.id">
                   <CardBlog :blog="element1" />
                 </nuxt-link>
               </div>

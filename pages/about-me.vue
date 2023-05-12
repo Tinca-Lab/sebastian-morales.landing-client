@@ -1,7 +1,6 @@
 <template>
   <div>
     <About-Me-Section :data="aboutMeData" :button="false"/>
-
     <h2 class="mb-4 xs:text-2xl md:text-4xl tracking-tight font-bold text-white lg:text-5xl text-center">{{timeLineData.title}}</h2>
 
     <TimeLine :metadata="timeLineData"/>
