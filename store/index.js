@@ -6,7 +6,8 @@ export const state = () => ({
     category:{},
     filteredItems:[],
     SearchFilteredItems:[],
-    blog:[]
+    blog:[],
+    allBlogs:[],
 })
 
 export const mutations = {
@@ -32,7 +33,11 @@ export const mutations = {
     },
     setBlogUnique(state, blog) {
       state.blog = blog
-    }
+      state.blog.attributes.comentaries.data = state.blog.attributes.comentaries.data.sort((a, b) => b.id - a.id);
+    },
+    setAllBlogs(state, allBlogs) {
+      state.allBlogs = allBlogs
+    },
 }
 
 export const actions = {
@@ -69,11 +74,12 @@ export const actions = {
       commit('setSearchFilteredItems', data)
     },
     async fetchBlogUnique({ commit }, id) {
-      const { data } = await this.$axios.$get(`/api/blogs/${id}?populate[0]=image&populate[1]=author&populate[2]=author.image`)
-
+      const { data } = await this.$axios.$get(`/api/blogs/${id}?populate[0]=image&populate[1]=author&populate[2]=author.image&populate[3]=comentaries&populate[4]=comentaries.media&sort[5]=comentaries.createdAt:desc
+      `);
       commit('setBlogUnique', data)
-    }
-
-
-
+    },
+    async fetchAllBlogs({ commit }) {
+      const { data } = await this.$axios.$get('/api/blogs?populate[0]=image&populate[1]=author&populate[2]=author.image&populate[3]=comentaries')
+      commit('setAllBlogs', data)
+    },
 }
