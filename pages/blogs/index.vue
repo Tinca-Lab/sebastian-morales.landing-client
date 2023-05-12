@@ -8,11 +8,12 @@
 import BlogView from "@/components/BlogView/AppBlogView.vue";
 
 export default {
-  name: "BlogViewPage",
-  components: {
+    name: "BlogViewPage",
+    components: {
       // LottieAnimation,
       BlogView
     },
+    // middleware: 'auth',
     data: () => ({
       blogSection: [],
       blogData: {},

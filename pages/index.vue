@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import AppBlogSection from '@/components/Blog/AppBlogSection.vue';
 import AboutMeSection from '@/components/AboutMeSection/AppAboutMeSection.vue';
 import HeroIcon from '@/components/Hero/HeroSection.vue';
@@ -30,7 +31,7 @@ export default {
     home() {
       return this.$store.state.home;
     },
-
+    ...mapGetters(['isAuthenticated']),...mapGetters(['isAuthenticated']),
   },
   watch: {
     home() {
@@ -49,7 +50,11 @@ export default {
     if (process.client)
       await this.$store.dispatch('fetchHome');
   },
-
+  methods: {
+        async userLogout() {
+          await this.$auth.logout()
+        },
+      },
 }
 </script>
 
