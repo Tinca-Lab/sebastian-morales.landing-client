@@ -8,6 +8,8 @@ export const state = () => ({
     SearchFilteredItems:[],
     blog:[],
     allBlogs:[],
+    statusModalLogin: false,
+    statusModalRegister: false
 })
 
 export const mutations = {
@@ -38,6 +40,12 @@ export const mutations = {
     setAllBlogs(state, allBlogs) {
       state.allBlogs = allBlogs
     },
+    setStatusModalLogin(state, status) {
+      state.statusModalLogin = status
+    },
+    setStatusModalRegister(state, status) {
+      state.statusModalRegister = status
+    }
 }
 
 export const actions = {
@@ -82,6 +90,12 @@ export const actions = {
       const { data } = await this.$axios.$get('/api/blogs?populate[0]=image&populate[1]=author&populate[2]=author.image&populate[3]=comentaries')
       commit('setAllBlogs', data)
     },
+  changeStatusModalLogin({ commit },status) {
+    commit('setStatusModalLogin', status)
+  },
+  changeStatusModalRegister({ commit }, status) {
+    commit('setStatusModalRegister', status)
+  }
 }
 
 export const getters = {

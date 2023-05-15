@@ -58,8 +58,7 @@
           </li>
           </ul>
         </div>
-
-        <div  class="lg:gap-5 md:gap-3 hidden md:flex md:w-auto md:mr-1 lg:mr-3 ">
+        <div  class="lg:gap-5 md:gap-3 hidden md:flex md:w-auto md:mr-1 lg:mr-3 relative">
           <button
             type="button"
             class="active:bg-[#FFF7B2] active:border-[#FFEC42] hover:bg-[#FFF7B2] flex items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
@@ -69,14 +68,14 @@
             <Login-Icon />
           </button>
           <div
-          class="fixed top-24 "
+          class="fixed top-[-1px] "
           :class="LoginActive ? 'w-screen h-screen bg-black bg-opacity-50 transition-shadow ease-in-out duration-75 left-0 z-10':'bg-transparent'"
           @click="openLogin"
           >
           </div>
           <!-- Login form -->
-              <form
-            class="bg-yellow-to-orange xs:w-full sm:w-6/12 supersm:w-8/12 md:w-5/12 lg:w-3/12 p-5 flex flex-col space-y-2  rounded-xl right-28 top-24 z-50 animate-fade-in"
+          <form
+            class="bg-yellow-to-orange w-3/12 p-5 flex flex-col space-y-2  rounded-xl right-28 top-24 z-50 animate-fade-in text-left"
             :class="LoginActive ? 'fixed animate-fade-in':'animate-fade-off hidden '"
             >
             <div class="flex justify-between items-center">
@@ -90,14 +89,14 @@
                   Cerrar
                 </Button>
             </div>
-            <button class="bg-primary-600 w-full text-white rounded-md flex justify-center items-center p-2">
+            <!-- <button class="bg-primary-600 w-full text-white rounded-md flex justify-center items-center p-2">
                 <Facebook-Icon class="mr-2"/>
                 Iniciar con Facebook
             </button>
             <button class="bg-primary-600 w-full text-white rounded-md flex justify-center items-center p-2">
                 <GoogleIcon class="mr-2"/>
                 Iniciar con Google
-            </button>
+            </button> -->
             <div class="flex flex-col justify-evenly">
                 <label for="emailLogin" class="my-3">Email</label>
                 <input id="emailLogin" type="email" name="email" placeholder="name@example.com" required class="w-full rounded-lg p-2">
@@ -109,7 +108,6 @@
             <div class="w-full flex flex-row justify-center">
                 <button
                   class="bg-primary-400 text-white p-2 rounded-lg sm:w-3/12 sm:text-sm md:text-sm md:w-5/12 flex items-center justify-center" type="submit"
-                  disabled
                 >
                     Iniciar Sesion
                     <Modal-Login-Icon class="ml-1"/>
@@ -124,78 +122,128 @@
           <button
             type="button"
             class="active:bg-[#FFF7B2] active:border-[#FFEC42] active:border hover:bg-[#FFF7B2] bg-[#FFEC42] flex items-center gap-2 text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0"
-            disabled
             @click="openRegister"
             >
             Registrarse
             <RegisterIcon />
           </button>
           <div
-          class="fixed right-0  top-24 z-10"
-          :class="RegisterActive ? 'w-screen h-screen bg-black bg-opacity-50 ':'bg-transparent'"
+          class="fixed top-[-1px]"
+          :class="RegisterActive ? 'w-screen h-screen bg-black bg-opacity-50 transition-shadow ease-in-out duration-75 left-0 z-10 overflow-auto':'bg-transparent'"
           @click="openRegister"
           >
           </div>
           <!-- register form -->
-            <section
-            class="bg-yellow-to-orange xs:w-full sm:w-6/12 supersm:w-8/12 md:w-5/12 lg:w-4/12 p-5 pb-28 flex flex-col space-y-1 rounded-xl h-screen overflow-y-auto z-50 md:left-2/4 lg:left-2/4 md:mr-0 animate-fade-in" :class="RegisterActive ? 'fixed top-24':'hidden'">
-              <div class="flex justify-between items-center">
-                  <p class="text-center  text-gray-700 font-Cabin ">
-                    ¿Te gustaría estar al tanto de noticias y novedades en mi candidatura? Registrate para recibir la información más actualizada.
+          <form
+            class="bg-yellow-to-orange w-3/12 p-5 flex flex-col space-y-2  overflow-auto h-[500px] rounded-xl right-28 top-24 z-50 animate-fade-in"
+            :class="RegisterActive ? 'fixed animate-fade-in':'animate-fade-off hidden '"
+            >
+            <div class="flex justify-between items-center">
+                <p class="text-center  text-gray-700 font-Cabin ">
+                  ¿Te gustaría estar al tanto de noticias y novedades en mi candidatura? Registrate para recibir la información más actualizada.
+                </p>
+            </div>
+
+            <div class=" text-left ">
+              <div class="flex flex-col justify-evenly">
+                    <label for="nombres" class="my-3">Nombre</label>
+                    <input id="nombres" v-model="usernameRegister" type="nombres" name="nombres" placeholder="Escribe tu nombre" class="w-full rounded-lg p-2" required>
+              </div>
+              <div class="flex flex-col justify-evenly">
+                  <label for="email" class="my-3">Email</label>
+                  <input id="email" v-model="emailRegister" type="email" name="email" placeholder="name@example.com" class="w-full rounded-lg p-2" required>
+              </div>
+              <div class="flex flex-col justify-evenly">
+                  <label for="password" class="my-3">Contraseña</label>
+                  <input id="password" v-model="passwordRegister" type="password" name="password" placeholder="**********" class="w-full rounded-lg p-2" required>
+              </div>
+              <div class="flex flex-col justify-evenly">
+                  <label for="celular" class="my-3">Celular</label>
+                  <input id="celular" type="number" placeholder="3152687894" class="w-full rounded-lg p-2" required>
+              </div>
+              <div class="flex flex-col justify-evenly">
+                  <label for="confirmar" class="my-3">Confirmar Contraseña</label>
+                  <input id="confirmar" v-model="passwordRegister" type="password" name="confirmar" placeholder="**********" class="w-full rounded-lg p-2" required>
+              </div>
+              </div>
+              <div class="w-full flex flex-row justify-start gap-2 mx-auto">
+                  <input type="checkbox" class="border-none border-0">
+                  <p class="text-GrayTermsPrivacy ">
+                      By submitting this form, you confirm that you have read and agree to Flowbite’s Terms of Service and Privacy Statement
                   </p>
               </div>
-              <button class="bg-primary-600 w-full text-white rounded-md flex justify-center items-center p-2">
-                <Facebook-Icon class="mr-2"/>
-                Iniciar con Facebook
-              </button>
-              <button class="bg-primary-600 w-full text-white rounded-md flex justify-center items-center p-2">
-                <Google-Icon class="mr-2"/>
-                Iniciar con Google
-              </button>
-
-              <div class=" text-left ">
-                <div class="flex flex-col justify-evenly">
-                      <label for="nombres" class="my-3">Nombre</label>
-                      <input id="nombres" v-model="usernameRegister" type="nombres" name="nombres" placeholder="Escribe tu nombre" class="w-full rounded-lg p-2" required>
-                </div>
-                <div class="flex flex-col justify-evenly">
-                    <label for="email" class="my-3">Email</label>
-                    <input id="email" v-model="emailRegister" type="email" name="email" placeholder="name@example.com" class="w-full rounded-lg p-2" required>
-                </div>
-                <div class="flex flex-col justify-evenly">
-                    <label for="password" class="my-3">Contraseña</label>
-                    <input id="password" v-model="passwordRegister" type="password" name="password" placeholder="**********" class="w-full rounded-lg p-2" required>
-                </div>
-                <!-- <div class="flex flex-col justify-evenly">
-                    <label for="confirmar" class="my-3">Confirmar Contraseña</label>
-                    <input v-model="passwordRegister" id="confirmar" type="confirmar" name="confirmar" placeholder="**********" class="w-full rounded-lg p-2" required>
-                </div> -->
-                </div>
-                <div class="w-full flex flex-row justify-start gap-2 mx-auto">
-                    <input type="checkbox" class="border-none border-0">
-                    <p class="text-GrayTermsPrivacy ">
-                        By submitting this form, you confirm that you have read and agree to Flowbite’s Terms of Service and Privacy Statement
-                    </p>
-                </div>
-                <div class="w-8/12 flex justify-evenly mx-auto">
-                    <button
-                      type="submit"
-                      class="bg-primary-400 text-white p-2 rounded-lg sm:w-3/12 sm:text-sm md:text-xs md:w-5/12 flex items-center justify-center"
-                      @click=userRegister()
-                      >
-                        Registrarse
-                        <Modal-Register-Icon class="ml-1"/>
-                    </button>
-                    <Button
-                    class="border border-solid border-black text-black rounded-lg px-4 py-2"
-                    type="button"
-                    @click ="openRegister"
+              <div class="w-8/12 flex justify-evenly mx-auto">
+                  <button
+                    type="submit"
+                    class="bg-primary-400 text-white p-2 rounded-lg sm:w-3/12 sm:text-sm md:text-xs md:w-5/12 flex items-center justify-center"
+                    @click=userRegister()
                     >
-                      Cerrar
-                    </Button>
-                </div>
-            </section>
+                      Registrarse
+                      <Modal-Register-Icon class="ml-1"/>
+                  </button>
+                  <Button
+                  class="border border-solid border-black text-black rounded-lg px-4 py-2"
+                  type="button"
+                  @click ="openRegister"
+                  >
+                    Cerrar
+                  </Button>
+              </div>
+          </form>
+          <!-- <section
+          class="bg-yellow-to-orange p-5 pb-28 flex flex-col space-y-1 rounded-xl h-screen overflow-y-auto z-50 right-0 md:mr-0 animate-fade-in" :class="RegisterActive ? 'absolute top-5':'hidden'">
+            <div class="flex justify-between items-center">
+                <p class="text-center  text-gray-700 font-Cabin ">
+                  ¿Te gustaría estar al tanto de noticias y novedades en mi candidatura? Registrate para recibir la información más actualizada.
+                </p>
+            </div>
 
+            <div class=" text-left ">
+              <div class="flex flex-col justify-evenly">
+                    <label for="nombres" class="my-3">Nombre</label>
+                    <input id="nombres" v-model="usernameRegister" type="nombres" name="nombres" placeholder="Escribe tu nombre" class="w-full rounded-lg p-2" required>
+              </div>
+              <div class="flex flex-col justify-evenly">
+                  <label for="email" class="my-3">Email</label>
+                  <input id="email" v-model="emailRegister" type="email" name="email" placeholder="name@example.com" class="w-full rounded-lg p-2" required>
+              </div>
+              <div class="flex flex-col justify-evenly">
+                  <label for="password" class="my-3">Contraseña</label>
+                  <input id="password" v-model="passwordRegister" type="password" name="password" placeholder="**********" class="w-full rounded-lg p-2" required>
+              </div>
+              <div class="flex flex-col justify-evenly">
+                  <label for="celular" class="my-3">Celular</label>
+                  <input id="celular" type="number" placeholder="3152687894" class="w-full rounded-lg p-2" required>
+              </div>
+              <div class="flex flex-col justify-evenly">
+                  <label for="confirmar" class="my-3">Confirmar Contraseña</label>
+                  <input v-model="passwordRegister" id="confirmar" type="password" name="confirmar" placeholder="**********" class="w-full rounded-lg p-2" required>
+              </div>
+              </div>
+              <div class="w-full flex flex-row justify-start gap-2 mx-auto">
+                  <input type="checkbox" class="border-none border-0">
+                  <p class="text-GrayTermsPrivacy ">
+                      By submitting this form, you confirm that you have read and agree to Flowbite’s Terms of Service and Privacy Statement
+                  </p>
+              </div>
+              <div class="w-8/12 flex justify-evenly mx-auto">
+                  <button
+                    type="submit"
+                    class="bg-primary-400 text-white p-2 rounded-lg sm:w-3/12 sm:text-sm md:text-xs md:w-5/12 flex items-center justify-center"
+                    @click=userRegister()
+                    >
+                      Registrarse
+                      <Modal-Register-Icon class="ml-1"/>
+                  </button>
+                  <Button
+                  class="border border-solid border-black text-black rounded-lg px-4 py-2"
+                  type="button"
+                  @click ="openRegister"
+                  >
+                    Cerrar
+                  </Button>
+              </div>
+          </section> -->
         </div>
       </div>
     </nav>
@@ -208,21 +256,31 @@ import LoginIcon from '@/components/Icons/LoginIcon.vue';
 import RegisterIcon from '@/components/Icons/RegisterIcon.vue';
 import ModalLoginIcon from '@/components/Icons/ModalLoginIcon.vue';
 import ModalRegisterIcon from '@/components/Icons/ModalRegisterIcon.vue';
-import FacebookIcon from '@/components/Icons/FacebookIcon.vue';
-import GoogleIcon from '@/components/Icons/GoogleIcon.vue';
+// import FacebookIcon from '@/components/Icons/FacebookIcon.vue';
+// import GoogleIcon from '@/components/Icons/GoogleIcon.vue';
 
 export default {
   name: 'NavbarComponent',
-  components: { MoralesLogo, LoginIcon, RegisterIcon ,ModalLoginIcon ,ModalRegisterIcon,FacebookIcon,GoogleIcon },
+  components: { MoralesLogo, LoginIcon, RegisterIcon ,ModalLoginIcon ,ModalRegisterIcon,
+    // FacebookIcon,GoogleIcon
+  },
   data: () => ({
     nav: false,
     routes: [],
-    LoginActive:false,
-    RegisterActive:false,
+    // LoginActive:false,
+    // RegisterActive:false,
     usernameRegister: '',
     emailRegister: '',
     passwordRegister: '',
   }),
+  computed:{
+    LoginActive() {
+      return this.$store.state.statusModalLogin
+    },
+    RegisterActive() {
+      return this.$store.state.statusModalRegister
+    }
+  },
   async mounted() {
     const { data } = await this.$axios.$get('/api/navbars')
     this.routes = data;
@@ -231,13 +289,25 @@ export default {
     openNavbar() {
       this.nav = !this.nav;
     },
+    // async openLogin() {
+    //   await this.$store.dispatch('changeStatusModalLogin');
+    //   await this.$store.dispatch('changeStatusModalRegister', false);
+    // },
+    // async openRegister() {
+    //   await this.$store.dispatch('changeStatusModalRegister')
+    //   await this.$store.dispatch('changeStatusModalLogin', false)
+    // },
     openLogin() {
-      this.LoginActive = !this.LoginActive;
-      this.RegisterActive = false
+      this.$store.dispatch('changeStatusModalLogin', !this.LoginActive);
+      this.$store.dispatch('changeStatusModalRegister', false);
+      // this.LoginActive = !this.LoginActive;
+      // this.RegisterActive = false
     },
     openRegister() {
-      this.RegisterActive = !this.RegisterActive
-      this.LoginActive = false
+      this.$store.dispatch('changeStatusModalRegister', !this.RegisterActive)
+      this.$store.dispatch('changeStatusModalLogin', false)
+      // this.RegisterActive = !this.RegisterActive
+      // this.LoginActive = false
     },
     async userRegister() {
       try {
@@ -263,5 +333,20 @@ a.nuxt-link-exact-active {
   text-underline-offset: 0.25rem;
   text-decoration-thickness: 1.5px;
   color: #FFF177;
+}
+::-webkit-scrollbar {
+  width: 3px; /* Ancho de la barra de desplazamiento */
+}
+
+/* Estilo para la pista de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+  background-color: transparent; /* Color de fondo de la pista */
+  border-radius: 1.5rem; /* Redondeo de la pista */
+}
+
+/* Estilo para la barra de desplazamiento */
+::-webkit-scrollbar-thumb {
+  background-color: #E5B331; /* Color de la barra de desplazamiento */
+  border-radius: 1.5rem; /* Redondeo de la barra de desplazamiento */
 }
 </style>
