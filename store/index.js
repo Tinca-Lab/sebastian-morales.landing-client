@@ -81,9 +81,8 @@ export const actions = {
     SearchFilter({ commit }, data) {
       commit('setSearchFilteredItems', data)
     },
-    async fetchBlogUnique({ commit }, id) {
-      const { data } = await this.$axios.$get(`/api/blogs/${id}?populate[0]=image&populate[1]=author&populate[2]=author.image&populate[3]=comentaries&populate[4]=comentaries.media&sort[5]=comentaries.createdAt:desc
-      `);
+    async fetchBlogUnique({ commit }, id) {    // /api/blogs/${id}?populate[0]=image&populate[1]=author&populate[2]=author.image&populate[3]=comentaries&populate[4]=comentaries.author
+      const { data } = await this.$axios.$get(`/api/blogs/${id}?populate[0]=image&populate[1]=author&populate[2]=author.image&populate[3]=comentaries&populate[4]=comentaries.author`);
       commit('setBlogUnique', data)
     },
     async fetchAllBlogs({ commit }) {

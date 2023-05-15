@@ -42,13 +42,30 @@
                         >{{ blog?.attributes?.createdAt }}</time>
                     </span>
                   </article>
-                  <span class="flex gap-3 justify-center items-center bg-gray-50 p-2 rounded-lg">
-                    Share
+                  <span class="flex gap-3 justify-center items-center bg-gray-50 p-2 rounded-lg" @click="mutateDropDownMenu">
+                    Share {{dropDownMenu}}
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M14.5 6.70913C15.1701 6.70916 15.8243 6.50519 16.3756 6.12437C16.9269 5.74355 17.3493 5.20392 17.5865 4.57723C17.8236 3.95054 17.8644 3.2665 17.7034 2.61607C17.5424 1.96564 17.1871 1.37964 16.685 0.936003C16.1828 0.492364 15.5575 0.212108 14.8922 0.132504C14.2268 0.0528995 13.553 0.177719 12.9604 0.490364C12.3677 0.803009 11.8843 1.28866 11.5743 1.88274C11.2644 2.47683 11.1427 3.15118 11.2253 3.81613L5.79131 6.53313C5.32516 6.08362 4.73706 5.78119 4.10027 5.66352C3.46348 5.54585 2.80614 5.61814 2.21013 5.87138C1.61413 6.12462 1.1058 6.54761 0.748476 7.08768C0.391152 7.62775 0.200623 8.26101 0.200623 8.90858C0.200623 9.55616 0.391152 10.1894 0.748476 10.7295C1.1058 11.2696 1.61413 11.6926 2.21013 11.9458C2.80614 12.199 3.46348 12.2713 4.10027 12.1536C4.73706 12.036 5.32516 11.7335 5.79131 11.284L11.2253 14.001C11.1291 14.7735 11.309 15.5551 11.7333 16.2078C12.1576 16.8604 12.7989 17.342 13.544 17.5676C14.289 17.7931 15.0898 17.7479 15.8048 17.4402C16.5198 17.1324 17.103 16.5817 17.4513 15.8855C17.7995 15.1894 17.8905 14.3925 17.7081 13.6357C17.5257 12.879 17.0816 12.2111 16.4543 11.75C15.8271 11.289 15.0571 11.0646 14.2804 11.1164C13.5037 11.1682 12.7703 11.4929 12.2098 12.0331L6.77581 9.31613C6.8091 9.04582 6.8091 8.77245 6.77581 8.50213L12.2098 5.78513C12.8016 6.35713 13.609 6.70913 14.5 6.70913Z"
                         fill="#374151" />
                     </svg>
+                      <!-- Dropdown menu -->
+                      <div
+                      class="fixed top-[-1px]"
+                      :class="dropDownMenu ? 'w-screen h-screen bg-red-900 bg-opacity-50 transition-shadow ease-in-out duration-75 left-0 z-10 overflow-auto':'bg-transparent'"
+                      @click="mutateDropDownMenu"
+                      >
+                      </div>
+                      <div :class="dropDownMenu ? 'absolute':'hidden'" class="z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 right-2 top-12">
+                          <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                            <li>
+                              <p class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Facebook</p>
+                            </li>
+                            <li>
+                              <p class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Log out</p>
+                            </li>
+                          </ul>
+                      </div>
                   </span>
                   <!-- <aside aria-label="Share social media">
                     <a href="#"
@@ -145,8 +162,8 @@
                     </div>
                     <div class="flex justify-between items-center py-2 px-3 border-t dark:border-gray-600">
                       <button
-                        type="submit"
-                        class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-[#1EB5E4] rounded-lg hover:bg-[#0088B2]"
+                        type="button"
+                        class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-[#1EB5E4] rounded-lg hover:bg-[#0088B2] cursor-pointer"
                         :disabled="buttonDisabled" @click="submit">
                         Escribir comentario
                       </button>
@@ -156,14 +173,14 @@
                 </form>
                 <section v-for="(element, index) in blog?.attributes?.comentaries?.data" :key="index">
                   <article class="p-6 mb-6 text-base bg-gray-50 rounded-lg dark:bg-gray-800">
-                    <footer class="flex justify-between items-center mb-2">
+                    <footer class="flex justify-between items-center mb-2 relative">
                       <div class="flex items-center">
                         <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white"><img
                             class="mr-2 w-6 h-6 rounded-full"
                             :src="'https://api.sebastianmorales.co'+element?.attributes?.media?.data?.attributes?.url"
                             alt="Michael Gough"
                             onerror="this.onerror=null;this.src='/Vector.png'"
-                            >{{ element?.attributes?.author }}</p>
+                            >{{ element?.attributes?.author?.data?.attributes?.names }}</p>
                         <p class="text-sm text-gray-600 dark:text-gray-400"><time
                             datetime="2022-02-08"
                             :title="formatDate(element?.attributes?.createdAt)">{{ formatDate(element?.attributes?.createdAt) }}</time></p>
@@ -184,22 +201,19 @@
                       <!-- Dropdown menu -->
                       <div
                         id="dropdownComment1"
-                        class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                        class="hidden right-0 top-10 z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                         <ul
                           class="py-1 text-sm text-gray-700 dark:text-gray-200"
                           aria-labelledby="dropdownMenuIconHorizontalButton">
                           <li>
                             <a
-                              href="#"
-                              class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-                          </li>
-                          <li>
-                            <a
+                              v-if="loggedInUser?.id == element?.attributes?.author?.data?.id"
                               href="#"
                               class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
                           </li>
                           <li>
                             <a
+                              v-if="loggedInUser?.id !== element?.attributes?.author?.data?.id"
                               href="#"
                               class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Report</a>
                           </li>
@@ -266,7 +280,7 @@
                   <article v-for="(element, index) in blogs" :key="index">
                     <div class="mb-6 text-left">
                       <span class="flex items-center justify-between mb-4">
-                        <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white"><img
+                        <p class="inline-flex items-center mr-3 text-sm text-gray-900"><img
                             class="mr-2 w-6 h-6 rounded-full"
                             :src="'https://api.sebastianmorales.co' + element?.attributes?.author?.data?.attributes?.image?.data.attributes?.url"
                             alt="Michael Gough">
@@ -386,9 +400,11 @@ export default {
     usernameRegister:'',
     emailRegister:'',
     passwordRegister:'',
+    dropDownMenu:false,
   }),
   computed: {
     ...mapGetters(['isAuthenticated']),
+    ...mapGetters(['loggedInUser']),
     blog() {
       return this.$store.state.blog;
     },
@@ -420,13 +436,16 @@ export default {
     await this.$store.dispatch('fetchAllBlogs');
   },
   methods: {
+    mutateDropDownMenu(){
+      this.dropDownMenu = !this.dropDownMenu
+    },
     verifyEmail(){
       const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       this.emailValue = regex.test(this.email);
     },
     async submit(){
       const metadata={
-        "author":"Bryan",
+        "author":this.loggedInUser.id,
         "comentary":this.commentary,
         "blog":this.$route.params.id
       }
@@ -440,10 +459,12 @@ export default {
           if (response.status === 200) {
             this.send = true
             setTimeout(
-              function () {
-                this.$router.push('/blogs/'+this.$route.params.id)
-              }.bind(this),
-              2000
+              this.$store.dispatch('fetchBlogUnique', this.$route.params.id)
+              // function () {
+              //   this.$router.push('/blogs/'+this.$route.params.id)
+              // }.bind(this),
+              // 2000
+
             )
           }
         })
