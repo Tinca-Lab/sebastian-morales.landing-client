@@ -127,14 +127,15 @@
                   <div class="mb-4 w-full bg-gray-50 rounded-lg border border-gray-200">
                     <div class="py-2 px-4 bg-gray-50 rounded-t-lg ">
                       <label for="comment" class="sr-only">Your comment</label>
-                      <!-- v-if="!isAuthenticated" -->
-                      <!-- <textarea
+                      <textarea
+                        v-if="isAuthenticated"
                         v-model="commentary"
                         rows="6"
                         class=" w-full text-sm text-gray-900 rounded-lg bg-[#F9FAFB] focus:outline-none border-gray-200 border-2 p-3"
                         placeholder="Escribe un comentario..." required>
-                      </textarea> -->
+                      </textarea>
                       <textarea
+                        v-else
                         id="comment"
                         v-model="commentary"
                         rows="6"
@@ -214,8 +215,8 @@
             </article>
             <article class="hidden lg:block py-8 w-1/3" aria-labelledby="sidebar-label">
               <div class="sticky top-6">
-                <h3 id="sidebar-label" class="sr-only">Sidebar</h3>
-                <div class="p-4 mb-6 rounded-lg border border-gray-200 bg-white">
+                <h3 v-if="!isAuthenticated" id="sidebar-label" class="sr-only">Sidebar</h3>
+                <div v-if="!isAuthenticated" class="p-4 mb-6 rounded-lg border border-gray-200 bg-white">
                   <h4 class="mb-2 text-sm font-bold text-gray-900 uppercase">Flowbite News morning headlines
                   </h4>
                   <p class="mb-4 text-sm font-light text-gray-500">Get all the stories you need-to-know
@@ -345,6 +346,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import MarkdownItVue from 'markdown-it-vue'
 import ArrowIcon from "@/components/Icons/ArrowIcon.vue";
 import 'markdown-it-vue/dist/markdown-it-vue.css'
@@ -386,6 +388,7 @@ export default {
     passwordRegister:'',
   }),
   computed: {
+    ...mapGetters(['isAuthenticated']),
     blog() {
       return this.$store.state.blog;
     },
