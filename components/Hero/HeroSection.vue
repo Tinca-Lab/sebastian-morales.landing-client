@@ -6,17 +6,15 @@
           <div class="col-span-8 w-full md:w-[75%] mx-auto xs:px-4 xs:py-6 md:px-20 md:py-7">
             <h2
               class="xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#003F52] mb-4 text-2xl font-bold tracking-wide leading-none text-left">
-              {{metadata.title}}
+              {{metadata?.title}}
             </h2>
             <p class="mb-5 text-left text-gray-900 md:text-lg lg:text-xl font-Cabin">
-                {{ metadata.description }}
+                {{ metadata?.description }}
             </p>
             <!-- img for desktop -->
+            <!-- {{ metadata?.Video?.data?.attributes?.url }} -->
             <div class="block h-full md:hidden">
-              <img
-              class="object-cover w-full h-full rounded-2xl"
-              src="https://w0.peakpx.com/wallpaper/973/618/HD-wallpaper-paisaje-bonito-paisaje-thumbnail.jpg"
-              alt="Conference speaker">
+              <video controls :src="'https://api.sebastianmorales.co'+metadata?.Video?.data?.attributes?.url"></video>
             </div>
             <div class=" sm:flex xs:flex-col">
               <h2
@@ -47,10 +45,11 @@
           </div>
         </div>
         <div class="xs:hidden md:block w-[35%] relative">
-          <img
+          <!-- <img
             class="w-full md:rounded-r-3xl"
             src="https://w0.peakpx.com/wallpaper/973/618/HD-wallpaper-paisaje-bonito-paisaje-thumbnail.jpg"
-            alt="Conference speaker">
+            alt="Conference speaker"> -->
+            <video class="w-full 2xl:rounded-r-3xl" controls :src="'https://api.sebastianmorales.co'+metadata?.Video?.data?.attributes?.url"></video>
         </div>
       </div>
     </section>
