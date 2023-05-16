@@ -5,16 +5,11 @@
 
         <main>
           <div class="flex relative z-20 justify-between rounded gap-4">
-            <article class="w-2/3 max-w-none format format-sm sm:format-base lg:format-lg format-blue">
+            <article class="w-full lg:w-2/3 max-w-none format format-sm sm:format-base lg:format-lg format-blue">
               <header>
                 <section class="py-8">
                   <div class="px-4 w-full flex flex-col gap-5 text-left">
                     <section class="flex items-center gap-5 w-full justify-left">
-                      <HouseIcon />
-                      <nuxt-link :to="`/`">
-                        Home
-                      </nuxt-link>
-                      <LeftArrowIcon />
                       <nuxt-link :to="`/blogs`">
                         Blogs
                       </nuxt-link>
@@ -131,11 +126,11 @@
                   </aside> -->
 
                 </div>
-                <footer class="flex flex-row justify-start gap-5 mt-3">
+                <footer class="flex flex-row justify-start xs:gap-3 md:gap-5 mt-3 xs:text-sm md:text-base">
                   <button
                     type="button"
                     class="py-2.5 px-4 text-xs font-medium text-black border-2 rounded-lg flex flex-row gap-3 items-center"
-                    :class="like ? 'bg-white border-white' : 'border-black'" @click="like = !like">
+                    :class="like ? 'bg-white border-white' : 'border-black'" @click="mutateLike">
                     <svg
                       v-if="like" width="14" height="12" viewBox="0 0 14 12" fill="none"
                       xmlns="http://www.w3.org/2000/svg">
@@ -157,7 +152,7 @@
                         d="M1.85481 1.56388C2.52991 0.888985 3.44542 0.50985 4.40001 0.50985C5.3546 0.50985 6.27011 0.888985 6.94521 1.56388L8.00001 2.61778L9.05481 1.56388C9.3869 1.22004 9.78414 0.945788 10.2234 0.757116C10.6626 0.568444 11.135 0.469133 11.613 0.46498C12.091 0.460826 12.565 0.551912 13.0074 0.732923C13.4499 0.913935 13.8518 1.18125 14.1898 1.51926C14.5278 1.85727 14.7952 2.25922 14.9762 2.70165C15.1572 3.14407 15.2483 3.61812 15.2441 4.09613C15.24 4.57413 15.1406 5.04652 14.952 5.48574C14.7633 5.92495 14.489 6.32219 14.1452 6.65428L8.00001 12.8004L1.85481 6.65428C1.17992 5.97918 0.800781 5.06367 0.800781 4.10908C0.800781 3.15449 1.17992 2.23898 1.85481 1.56388Z"
                         fill="#374151" />
                     </svg>
-                    {{ blog?.attributes?.likes }} reactions
+                    {{getLikes().length }} reactions
                   </span>
                   <span class="flex flex-row gap-3 items-center">
                     <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -210,7 +205,7 @@
                   </div>
                 </form>
                 <section v-for="(element, index) in blog?.attributes?.comentaries?.data" :key="index">
-                  <article class="p-6 mb-6 text-base bg-gray-50 rounded-lg dark:bg-gray-800">
+                  <article class="p-6 mb-6 text-base bg-gray-50 h-auto rounded-lg">
                     <footer class="flex justify-between items-center mb-2 relative">
                       <div class="flex items-center">
                         <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white"><img
@@ -258,9 +253,9 @@
                         </ul>
                       </div>
                     </footer>
-                    <p class="text-gray-500 text-left">
-                      {{ element?.attributes?.comentary }}
-                    </p>
+                      <p class="text-gray-500 text-left h-auto max-w-max">
+                        {{ element?.attributes?.comentary }}
+                      </p>
                   </article>
                 </section>
               </section>
@@ -403,7 +398,7 @@ import MarkdownItVue from 'markdown-it-vue'
 import ArrowIcon from "@/components/Icons/ArrowIcon.vue";
 import 'markdown-it-vue/dist/markdown-it-vue.css'
 import LeftArrowIcon from "@/components/Icons/LeftArrowIcon.vue";
-import HouseIcon from "@/components/Icons/HouseIcon.vue";
+// import HouseIcon from "@/components/Icons/HouseIcon.vue";
 // import ModalRegisterIcon from '@/components/Icons/ModalRegisterIcon.vue';
 // import FacebookIcon from '@/components/Icons/FacebookIcon.vue';
 // import GoogleIcon from '@/components/Icons/GoogleIcon.vue';
@@ -412,7 +407,7 @@ export default {
   name: "BlogEntry",
   components: {
     LeftArrowIcon,
-    HouseIcon,
+    // HouseIcon,
     MarkdownItVue,
     ArrowIcon,
     // ModalRegisterIcon,
@@ -439,6 +434,7 @@ export default {
     emailRegister:'',
     passwordRegister:'',
     dropDownMenu:false,
+    likeId:null,
   }),
   computed: {
     ...mapGetters(['isAuthenticated']),
@@ -452,6 +448,9 @@ export default {
     content() {
       return this.$store.state.blog?.attributes?.content || ' ';
     },
+    likes() {
+      return this.$store.state.likes;
+    }
   },
   watch:{
     commentary(){
@@ -471,9 +470,45 @@ export default {
   async beforeCreate() {
     if (process.client)
       await this.$store.dispatch('fetchBlogUnique', this.$route.params.id);
-    await this.$store.dispatch('fetchAllBlogs');
+      await this.$store.dispatch('fetchAllBlogs');
+      await this.$store.dispatch('getLikes')
+  },
+  mounted() {
+    setTimeout(() => {
+      const blogId = parseInt(this.$route.params.id); // ID del blog deseado
+      const filteredLikes = this.likes?.filter(item => {
+          return item?.attributes?.author?.data?.id === this.loggedInUser?.id && item?.attributes?.blog?.data?.id === blogId;
+      })
+      if (filteredLikes?.length > 0) {
+        this.like = true;
+      }
+      this.likeId = (filteredLikes[0]?.id);
+    }, 1000);
   },
   methods: {
+    getLikes(){
+      const blogId = parseInt(this.$route.params.id); // ID del blog deseado
+      const filteredData = this.likes?.filter(item => item?.attributes?.blog?.data?.id === blogId);
+      return filteredData;
+    },
+    async mutateLike() {
+      if (this.like) {
+        const blogId = parseInt(this.$route.params.id); // ID del blog deseado
+        const filteredLikes = this.likes?.filter(item => {
+            return item?.attributes?.author?.data?.id === this.loggedInUser?.id && item?.attributes?.blog?.data?.id === blogId;
+        })
+        this.likeId = (filteredLikes[0]?.id);
+        await this.$axios.delete(`https://api.sebastianmorales.co/api/likes/${this.likeId}`);
+        await this.$store.dispatch('getLikes');
+      } else {
+        this.$axios.post('https://api.sebastianmorales.co/api/likes', {
+          data: { blog: this.$route.params.id, author: this.loggedInUser?.id }
+        });
+        await this.$store.dispatch('fetchBlogUnique', this.$route.params.id);
+        await this.$store.dispatch('getLikes')
+      }
+      this.like = !this.like;
+    },
     mutateDropDownMenu(){
       this.dropDownMenu = !this.dropDownMenu
     },

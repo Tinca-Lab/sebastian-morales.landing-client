@@ -9,7 +9,8 @@ export const state = () => ({
     blog:[],
     allBlogs:[],
     statusModalLogin: false,
-    statusModalRegister: false
+    statusModalRegister: false,
+    likes: [],
 })
 
 export const mutations = {
@@ -45,7 +46,10 @@ export const mutations = {
     },
     setStatusModalRegister(state, status) {
       state.statusModalRegister = status
-    }
+    },
+    setLikes(state, likes) {
+      state.likes = likes
+    },
 }
 
 export const actions = {
@@ -94,6 +98,10 @@ export const actions = {
   },
   changeStatusModalRegister({ commit }, status) {
     commit('setStatusModalRegister', status)
+  },
+  async getLikes({ commit }) {
+    const { data } = await this.$axios.$get('/api/likes?populate[0]=author&populate[1]=blog&fields[2]=id')
+    commit('setLikes', data)
   }
 }
 
