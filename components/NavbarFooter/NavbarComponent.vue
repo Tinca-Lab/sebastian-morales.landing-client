@@ -41,20 +41,272 @@
                 :to="route.attributes.link">{{ route.attributes.route }}</NuxtLink>
           </li>
           <li v-if="nav && !isAuthenticated" class="m-auto flex gap-2 py-4 md:py-0">
-            <button
-              type="button"
-              class="flex active:bg-[#FFF7B2] active:border-[#FFEC42] hover:bg-[#FFF7B2] items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
-            >
-              Inciar session
-              <Login-Icon />
-            </button>
-            <button
-              type="button"
-              class="flex active:bg-[#FFF7B2] active:border-[#FFEC42] hover:bg-[#FFF7B2] items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
-            >
-              Registrarse
-              <RegisterIcon />
-            </button>
+            <article>
+              <button
+                type="button"
+                class="flex active:bg-[#FFF7B2] active:border-[#FFEC42] hover:bg-[#FFF7B2] items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
+                @click="openLogin"
+              >
+                Inciar session
+                <Login-Icon />
+              </button>
+              <form
+                class="bg-yellow-to-orange w-11/12 p-5 flex flex-col space-y-2  rounded-xl right-4 top-4 z-50 animate-fade-in text-left gap-3"
+                :class="LoginActive ? 'fixed animate-fade-in':'animate-fade-off hidden '"
+                >
+                <div class="flex justify-between items-center">
+                    <span>
+                      Iniciar sesión
+                    </span>
+                    <Button
+                    class="border border-solid border-black text-black rounded-lg px-4 py-2 hover:text-white hover:border-[#374151] hover:bg-[#374151]" type="button"
+                    @click="openLogin"
+                    >
+                      Cerrar
+                    </Button>
+                </div>
+                <div
+                v-if="err"
+                class="
+                  p-4
+                  mb-4
+                  text-sm text-red-700
+                  bg-red-100
+                  rounded-lg
+                "
+                role="alert"
+                >
+                  {{ err }}
+                </div>
+                <div class="flex flex-col justify-evenly">
+                    <label for="emailLogin" class="my-3">Email</label>
+                    <input id="emailLogin" v-model="emailLogin" type="email" name="email" placeholder="name@example.com" required class="w-full rounded-lg p-2">
+                </div>
+                <div class="flex flex-col justify-evenly">
+                    <label for="passwordLogin" class="my-3">Contraseña</label>
+                    <input id="passwordLogin" v-model="passwordLogin" type="password" name="password" placeholder="**********" required class="w-full rounded-lg p-2">
+                </div>
+                <div class="w-full flex flex-row justify-center">
+                    <button
+                      class="active:bg-[#009FD0] active:border-[#0088B2] active:border-4 hover:bg-[#0088B2] bg-[#1EB5E4] text-white p-2 rounded-lg sm:w-3/12 sm:text-sm md:text-sm md:w-5/12 flex items-center justify-center" type="button" @click="userLogin"
+                    >
+                        Iniciar Sesion
+                        <Modal-Login-Icon class="ml-1"/>
+                    </button>
+                </div>
+                <div class="w-full flex justify-evenly">
+                    <span>¿No tienes cuenta?</span>
+                    <a class="underline underline-offset-2 text-primary-600 " href="#" @click="openRegister" >Registrate aqui</a>
+                </div>
+              </form>
+            </article>
+            <article>
+              <button
+                type="button"
+                class="flex active:bg-[#FFF7B2] active:border-[#FFEC42] hover:bg-[#FFF7B2] items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
+                @click="openRegisterMobile"
+              >
+                Registrarse
+                <RegisterIcon />
+                <form
+                  class="bg-yellow-to-orange w-12/12 p-10 flex flex-col space-y-2 gap-4 overflow-auto h-full right-0 top-0 z-50 animate-fade-in"
+                  :class="RegisterActiveMobile ? 'fixed animate-fade-in':'animate-fade-off hidden '"
+                  >
+                  <div class="flex justify-between items-center">
+                      <p class="text-center  text-gray-700 font-Cabin ">
+                        ¿Te gustaría estar al tanto de noticias y novedades en mi candidatura? Registrate para recibir la información más actualizada.
+                      </p>
+                  </div>
+                  <div class=" text-left ">
+                    <div class="flex flex-col justify-evenly">
+                          <label for="name" class="my-3">Nombres</label>
+                          <input id="name" v-model="usernameRegister" type="text" name="nombres" placeholder="Escribe tu nombre" class="w-full rounded-lg p-2" required>
+                    </div>
+                    <div class="flex flex-col justify-evenly">
+                          <label for="lastName" class="my-3">Apellidos</label>
+                          <input id="lastName" v-model="lastNameRegister" type="text" name="Apelldios" placeholder="Escribe tu apellido" class="w-full rounded-lg p-2" required>
+                    </div>
+                    <div class="flex flex-col justify-evenly">
+                        <label for="email" class="my-3">Email</label>
+                        <input id="email" v-model="emailRegister" type="email" name="email" placeholder="name@example.com" class="w-full rounded-lg p-2" required>
+                    </div>
+                    <div class="flex flex-col justify-evenly">
+                        <label for="cellphone" class="my-3">Celular</label>
+                        <input id="cellphone" v-model="cellPhoneRegister" type="number" placeholder="3152687894" class="w-full rounded-lg p-2" required>
+                    </div>
+                    <div class="flex flex-col justify-evenly">
+                        <label for="password" class="my-3">Contraseña</label>
+                        <div class="relative">
+                          <input
+                            id="password"
+                            v-model="passwordRegister"
+                            :type="showPassword ? 'text' : 'password'"
+                            name="password"
+                            placeholder="**********"
+                            class="w-full rounded-lg p-2"
+                            required
+                          />
+                          <button
+                            type="button"
+                            class="absolute inset-y-0 right-0 px-3 py-2 text-gray-500 hover:text-gray-800 focus:outline-none"
+                            @click="togglePasswordVisibility"
+                          >
+                            <svg
+                              v-if="showPassword"
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="h-6 w-6"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                              />
+                            </svg>
+                            <svg
+                              v-else
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="h-6 w-6"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                              />
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M5 12h.01M19 12h.01M6 12h.01M18 12h.01M7 12h.01M17 12h.01M8 12h.01M16 12h.01M9 12h.01M15 12h.01M10 12h.01M14 12h.01M11 12h.01M13 12h.01"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                        <!-- <input id="password" v-model="passwordRegister" type="password" name="password" placeholder="**********" class="w-full rounded-lg p-2" required> -->
+                    </div>
+                    <div class="flex flex-col justify-evenly">
+                        <label for="passwordConfirm" class="my-3">Confirmar Contraseña</label>
+                        <div class="relative">
+                          <input
+                            id="passwordConfirm"
+                            v-model="passwordConfirm"
+                            :type="showPasswordConfirm ? 'text' : 'password'"
+                            name="password"
+                            placeholder="**********"
+                            class="w-full rounded-lg p-2"
+                            required
+                          />
+                          <button
+                            type="button"
+                            class="absolute inset-y-0 right-0 px-3 py-2 text-gray-500 hover:text-gray-800 focus:outline-none"
+                            @click="togglePasswordVisibilityConfirm"
+                          >
+                            <svg
+                              v-if="showPasswordConfirm"
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="h-6 w-6"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                              />
+                            </svg>
+                            <svg
+                              v-else
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="h-6 w-6"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                              />
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M5 12h.01M19 12h.01M6 12h.01M18 12h.01M7 12h.01M17 12h.01M8 12h.01M16 12h.01M9 12h.01M15 12h.01M10 12h.01M14 12h.01M11 12h.01M13 12h.01"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="w-full flex flex-row justify-start gap-2 mx-auto">
+                      <input type="checkbox" class="border-none border-0 w-6 h-6 transform scale-150">
+                      <p class="text-GrayTermsPrivacy text-left">
+                          By submitting this form, you confirm that you have read and agree to Flowbite’s Terms of Service and Privacy Statement
+                      </p>
+                  </div>
+                  <div
+                    v-if="errRegister"
+                    class="
+                      p-4
+                      mb-4
+                      text-sm text-red-700
+                      bg-red-100
+                      rounded-lg
+                    "
+                    role="alert"
+                  >
+                    {{ errRegister }}
+                  </div>
+                  <div class="w-8/12 flex justify-evenly mx-auto">
+                      <button
+                        type="button"
+                        class="active:bg-[#009FD0] active:border-[#0088B2] active:border-4 hover:bg-[#0088B2] bg-[#1EB5E4] text-white p-2 rounded-lg sm:w-3/12 sm:text-sm md:text-xs md:w-5/12 flex items-center justify-center"
+                        :disabled="sendRegisterButton"
+                        @click=userRegister()
+                        >
+                          Registrarse
+                          <Modal-Register-Icon class="ml-1"/>
+                      </button>
+                      <Button
+                      class="border border-solid border-black text-black rounded-lg px-4 py-2 hover:text-white hover:border-[#374151] hover:bg-[#374151]"
+                      type="button"
+                      @click ="openRegister"
+                      >
+                        Cerrar
+                      </Button>
+                  </div>
+                </form>
+              </button>
+
+            </article>
+          </li>
+          <li v-if="nav && isAuthenticated" class="m-auto flex gap-2 py-4 md:py-0">
+            <article v-if="isAuthenticated" class="relative">
+              <button class="active:bg-[#FFF7B2] active:border-[#FFEC42] hover:bg-[#FFF7B2] flex items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0" @click="dropDownMenu = !dropDownMenu">
+                Mi perfil <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+              </button>
+              <div :class="dropDownMenu ? 'absolute':'hidden'" class="z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 right-2 top-12">
+                  <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                    <li>
+                      <p class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">{{loggedInUser.username}}</p>
+                    </li>
+                    <li>
+                      <p class="block px-4 py-2 hover:bg-gray-100 cursor-pointer" @click.prevent="userLogout">Log out</p>
+                    </li>
+                  </ul>
+              </div>
+
+            </article>
           </li>
           </ul>
         </div>
@@ -116,14 +368,6 @@
                   Cerrar
                 </Button>
             </div>
-            <!-- <button class="bg-primary-600 w-full text-white rounded-md flex justify-center items-center p-2">
-                <Facebook-Icon class="mr-2"/>
-                Iniciar con Facebook
-            </button>
-            <button class="bg-primary-600 w-full text-white rounded-md flex justify-center items-center p-2">
-                <GoogleIcon class="mr-2"/>
-                Iniciar con Google
-            </button> -->
             <div
             v-if="err"
             class="
@@ -169,7 +413,7 @@
             <RegisterIcon />
           </button>
           <div
-          class="fixed top-[-1px]"
+          class="fixed top-[-1px] xs:hideen md:fixed"
           :class="RegisterActive ? 'w-screen h-screen bg-black bg-opacity-50 transition-shadow ease-in-out duration-75 left-0 z-10 overflow-auto':'bg-transparent'"
           @click="openRegister"
           >
@@ -408,6 +652,7 @@ export default {
     showPassword: false,
     showPasswordConfirm: false,
     dropDownMenu:false,
+    RegisterActiveMobile:false,
   }),
   computed:{
     ...mapGetters(['isAuthenticated']),
@@ -434,6 +679,9 @@ export default {
   },
 
   methods: {
+    openRegisterMobile() {
+      this.RegisterActiveMobile = !this.RegisterActiveMobile
+    },
     togglePasswordVisibilityConfirm() {
       this.showPasswordConfirm = !this.showPasswordConfirm
     },
