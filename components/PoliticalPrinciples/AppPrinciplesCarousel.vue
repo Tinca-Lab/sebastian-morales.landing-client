@@ -1,7 +1,7 @@
 <template>
-    <div class=" mx-auto w-9/12 ">
+    <div class=" mx-auto w-full">
         <carousel
-        class="w-full md:w-8/12 lg:w-9/12 mx-auto h-1/2"
+        class="w-10/12 mx-auto h-1/2 gap-3"
         :per-page-custom="[[320, 1],[768, 3],[1199, 4]]"
         :pagination-active-color="'#FF8B1F'"
         :pagination-color="'#FFF'"

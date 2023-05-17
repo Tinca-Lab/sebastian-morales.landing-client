@@ -2,7 +2,8 @@
   <div class="relative bg-[#1DB5E4]">
     <Hero-Icon :metadata="featuredSection" />
     <About-Me-Section :data="aboutMeData" :button="true" />
-    <AppBlogSection :metadata="blogSection" :blogs="featuredBlogs" class="w-[98%] 2xl:w-[1440px] h-full mx-auto my-5 rounded-2xl" />
+    <AppBlogSection :metadata="blogSection" :blogs=" featuredBlogs.filter(Element => Element.attributes.is_featured)" class="w-[98%] 2xl:w-[1440px] h-full mx-auto my-5 rounded-2xl" />
+
     <Contact-Me :metadata="contactMeData" />
   </div>
 </template>

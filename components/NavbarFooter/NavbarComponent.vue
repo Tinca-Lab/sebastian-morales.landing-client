@@ -35,7 +35,7 @@
           <ul
             class="flex flex-col font-medium bg-[#0088B2] text-lg md:flex-row md:py-5 lg:p-5 md:gap-3 lg:gap-5"
           >
-          <li v-for="route in routes" :key="route.id" class="border-b-2 border-[#1DB5E4] py-2 md:border-none md:py-0 xs:text-left">
+          <li v-for="route in routes" :key="route.id" class="border-b-2 border-[#1DB5E4] py-2 md:border-none md:py-0 xs:text-left" @click="nav = false">
               <NuxtLink
                 class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0"
                 :to="route.attributes.link">{{ route.attributes.route }}</NuxtLink>
@@ -652,19 +652,29 @@
         </div>
 
         <!-- v-if="success" -->
-        <form class="hidden animate-fade-in bg-yellow-to-orange w-10/12 justify-center top-[50%] left-1/2 transform -translate-x-1/2 rounded-lg p-5 flex-col space-y-2 z-50 text-left gap-3">
+        <div
+          class="fixed top-[0px] left-0 h-full w-full"
+          :class="success ? 'bg-black bg-opacity-50 transition-shadow ease-in-out duration-75 z-10 overflow-auto':'hidden bg-transparent'"
+        >
+        </div>
+
+        <article
+          class="bg-yellow-to-orange w-4/12 p-5 flex flex-col space-y-2 gap-4 overflow-auto rounded-xl left-[50%] top-[50%] z-50 animate-fade-in"
+          :class="success ? 'fixed animate-fade-in' : 'animate-fade-off hidden'"
+          style="transform: translate(-50%, -50%);"
+          >
           <div class="w-full flex flex-col justify-center gap-3">
             <span>Tu cuenta se ha creado exitosamente.</span>
-            <div class="w-full m-auto flex border-black-3">
-              <button
-              class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-[#1EB5E4] sm:w-fit hover:bg-[#0088B2] focus:ring-4 focus:outline-none focus:ring-primary-300"
+            <div class="w-36 m-auto flex border-black border-3 items-center">
+              <div
+              class="h-[45px] flex justify-center items-center py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-[#1EB5E4] sm:w-fit hover:bg-[#0088B2] focus:ring-4 focus:outline-none focus:ring-primary-300"
               >
                 Suscrito
-              </button>
-              <lottie-animation class="rounded-lg w-6/12" path="./check-lotie.json" />
             </div>
-        </div>
-</form>
+              <lottie-animation class="rounded-lg w-full" path="./check-lotie.json" />
+            </div>
+          </div>
+        </article>
       </div>
     </nav>
   </div>
@@ -691,7 +701,7 @@ export default {
     nav: false,
     err: null,
     errRegister:null,
-    success:null,
+    success:false,
     sendRegisterButton:true,
     routes: [],
     emailLogin: '',
@@ -780,7 +790,7 @@ export default {
           this.success = false
         }, 3000);
       } catch (e) {
-        if (e.response) this.errRegister = e.response.data.error.message
+        if (e.response) this.errRegister = 'Ha ocurrido un error, intentalo de nuevo 0 ingresa mas tarde'
       }
     },
     async userLogin() {

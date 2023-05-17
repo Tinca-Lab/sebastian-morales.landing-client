@@ -3,11 +3,6 @@
     <section class="relative bg-[#C6F1FF] xs:rounded-2xl md:rounded-3xl w-[100%] 2xl:w-[1440px] z-20 my-3">
       <div class="flex xs:flex-col flex-nowrap w-full xs:px-4 md:px-20 py-8">
         <header class="m-auto text-center">
-          <section class="flex items-center gap-5 w-full justify-center">
-            <nuxt-link :to="`/blogs`">
-              Blogs
-            </nuxt-link>
-          </section>
           <section class="flex w-full justify-center my-4">
             <form class="w-full md:w-96 md:m-auto" @submit="handleSubmit">
               <div class="flex relative">
@@ -76,11 +71,12 @@
             </form>
           </section>
           <section class="mb-10">
-            <h2 class="my-2 text-2xl font-bold tracking-tight text-gray-900 font-MadeSoulmaze line-clamp-2">
-                {{ data?.title }}
+            <h2
+              class="mb-4 text-5xl tracking-tight font-normal text-[#003F52]">
+              {{ data?.title }}
             </h2>
-            <p class="mb-4 font-light text-gray-900 line-clamp-4">
-                {{ data?.description }}
+            <p class="text-[#374151] sm:text-xl ">
+              {{ data?.description }}
             </p>
           </section>
         </header>

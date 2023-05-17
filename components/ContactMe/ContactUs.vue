@@ -2,9 +2,9 @@
   <div class="xs:w-full 2xl:w-[1440px] mx-auto">
     <section class="bg-blue-light-to-opacity xs:rounded-2xl md:rounded-3xl">
       <div class="bg-yellow-to-orange xs:rounded-2xl md:rounded-3xl">
-          <div class="px-4 lg:pt-24 pt-8 pb-72 lg:pb-80 mx-auto max-w-screen-sm text-center lg:px-6 ">
-              <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">{{contactMeData.title}}</h2>
-              <p class="mb-16 font-light text-gray-900 sm:text-xl">{{ contactMeData.description }}</p>
+          <div class="px-4 lg:pt-20 pt-8 pb-72 lg:pb-80 mx-auto max-w-screen-sm text-center lg:px-6 ">
+              <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-normal text-[#003F52]">{{contactMeData.title}}</h2>
+              <p class="xs:mb-16 lg:mb-0 font-light text-gray-900 sm:text-xl">{{ contactMeData.description }}</p>
           </div>
       </div>
       <div class="py-14 px-4 mx-auto -mt-96 max-w-screen-xl sm:py-24 lg:px-6 ">
