@@ -61,6 +61,7 @@ export default {
     },
 
   },
+
   watch: {
     about() {
       this.aboutMeData = this.about.attributes.sections.data.filter(section => section.attributes.type === 'main')[0];
@@ -77,6 +78,10 @@ export default {
 
     }
   },
+  // beforeMount() {
+  //   // Recarga la página
+  //   location.reload();
+  // },
   async beforeCreate() {
     if (process.client)
       await this.$store.dispatch('fetchAboutMe');

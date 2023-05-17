@@ -4,11 +4,6 @@
       <div class="flex xs:flex-col flex-nowrap w-full xs:px-4 md:px-20 py-8">
         <header class="m-auto text-center">
           <section class="flex items-center gap-5 w-full justify-center">
-            <HouseIcon />
-            <nuxt-link :to="`/`">
-              Home
-            </nuxt-link>
-            <LeftArrowIcon />
             <nuxt-link :to="`/blogs`">
               Blogs
             </nuxt-link>
@@ -31,6 +26,12 @@
                       clip-rule="evenodd"></path>
                   </svg>
                 </button>
+                <div
+                  class="fixed top-[-1px] xs:hideen md:fixed"
+                  :class="modal ? 'w-screen h-screen bg-black bg-opacity-50 transition-shadow ease-in-out duration-75 left-0 z-10 overflow-auto':'bg-transparent'"
+                  @click="openClose"
+                  >
+                </div>
                 <div
                   id="dropdown" class="z-10 top-12 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
                   :class="modal ? 'block' : 'hidden'">
@@ -75,14 +76,18 @@
             </form>
           </section>
           <section class="mb-10">
-            <h2>{{ data.title }}</h2>
-            <p>{{ data.description }}</p>
+            <h2 class="my-2 text-2xl font-bold tracking-tight text-gray-900 font-MadeSoulmaze line-clamp-2">
+                {{ data?.title }}
+            </h2>
+            <p class="mb-4 font-light text-gray-900 line-clamp-4">
+                {{ data?.description }}
+            </p>
           </section>
         </header>
         <main>
           <section v-if="metadata">
-            <div class="grid lg:grid-cols-3 gap-4 xs:grid-cols-1 md:grid-cols-2">
-              <div v-for="(element1, i) in prueba()" :key="i" class="w-full">
+            <div class="grid lg:grid-cols-3 gap-4 xs:grid-cols-1 md:grid-cols-2 text-left">
+              <div v-for="(element1, i) in prueba()" :key="i" class="w-full text-left">
                 <nuxt-link :to="'/blogs/'+element1.id">
                   <CardBlog :blog="element1" />
                 </nuxt-link>
@@ -96,16 +101,16 @@
 </template>
 
 <script>
-import HouseIcon from '@/components/Icons/HouseIcon.vue'
-import LeftArrowIcon from '@/components/Icons/LeftArrowIcon.vue'
+// import HouseIcon from '@/components/Icons/HouseIcon.vue'
+// import LeftArrowIcon from '@/components/Icons/LeftArrowIcon.vue'
 import CardBlog from '@/components/Blog/CardBlogComponents/CardBlog.vue';
 import FilterIcon from '@/components/Icons/FilterIcon.vue';
 
 export default {
   name: 'BlogView',
   components: {
-    HouseIcon,
-    LeftArrowIcon,
+    // HouseIcon,
+    // LeftArrowIcon,
     CardBlog,
     FilterIcon
   },

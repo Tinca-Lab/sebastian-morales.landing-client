@@ -51,7 +51,7 @@
                 <Login-Icon />
               </button>
               <form
-                class="bg-yellow-to-orange w-11/12 p-5 flex flex-col space-y-2  rounded-xl right-4 top-4 z-50 animate-fade-in text-left gap-3"
+                class="bg-yellow-to-orange w-[100%] h-full justify-center p-5 flex flex-col space-y-2 right-0 top-0 z-50 animate-fade-in text-left gap-3"
                 :class="LoginActive ? 'fixed animate-fade-in':'animate-fade-off hidden '"
                 >
                 <div class="flex justify-between items-center">
@@ -84,7 +84,60 @@
                 </div>
                 <div class="flex flex-col justify-evenly">
                     <label for="passwordLogin" class="my-3">Contraseña</label>
-                    <input id="passwordLogin" v-model="passwordLogin" type="password" name="password" placeholder="**********" required class="w-full rounded-lg p-2">
+                    <!-- <input id="passwordLogin" v-model="passwordLogin" name="password" placeholder="**********" required class="w-full rounded-lg p-2"> -->
+                    <div class="relative">
+                          <input
+                            id="passwordLogin"
+                            v-model="passwordLogin"
+                            :type="showPasswordLogin ? 'text' : 'password'"
+                            name="password"
+                            placeholder="**********"
+                            class="w-full rounded-lg p-2"
+                            required
+                          />
+                          <button
+                            type="button"
+                            class="absolute inset-y-0 right-0 px-3 py-2 text-gray-500 hover:text-gray-800 focus:outline-none"
+                            @click="togglePasswordVisibilityLogin"
+                          >
+                            <svg
+                              v-if="showPasswordLogin"
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="h-6 w-6"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                              />
+                            </svg>
+                            <svg
+                              v-else
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="h-6 w-6"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                              />
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M5 12h.01M19 12h.01M6 12h.01M18 12h.01M7 12h.01M17 12h.01M8 12h.01M16 12h.01M9 12h.01M15 12h.01M10 12h.01M14 12h.01M11 12h.01M13 12h.01"
+                              />
+                            </svg>
+                          </button>
+                        </div>
                 </div>
                 <div class="w-full flex flex-row justify-center">
                     <button
@@ -104,15 +157,16 @@
               <button
                 type="button"
                 class="flex active:bg-[#FFF7B2] active:border-[#FFEC42] hover:bg-[#FFF7B2] items-center gap-2 text-black bg-[#FFEC42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 "
-                @click="openRegisterMobile"
+                @click="openRegister"
               >
                 Registrarse
-                <RegisterIcon />
-                <form
-                  class="bg-yellow-to-orange w-12/12 p-10 flex flex-col space-y-2 gap-4 overflow-auto h-full right-0 top-0 z-50 animate-fade-in"
-                  :class="RegisterActiveMobile ? 'fixed animate-fade-in':'animate-fade-off hidden '"
-                  >
-                  <div class="flex justify-between items-center">
+                <register-icon />
+              </button>
+              <form
+                class="bg-yellow-to-orange w-12/12 h-full p-5 flex flex-col space-y-2 right-0 top-0 z-50 animate-fade-in text-left gap-3 overflow-auto"
+                :class="RegisterActive ? 'fixed animate-fade-in':'animate-fade-off hidden '"
+                >
+                <div class="flex justify-between items-center">
                       <p class="text-center  text-gray-700 font-Cabin ">
                         ¿Te gustaría estar al tanto de noticias y novedades en mi candidatura? Registrate para recibir la información más actualizada.
                       </p>
@@ -189,7 +243,6 @@
                             </svg>
                           </button>
                         </div>
-                        <!-- <input id="password" v-model="passwordRegister" type="password" name="password" placeholder="**********" class="w-full rounded-lg p-2" required> -->
                     </div>
                     <div class="flex flex-col justify-evenly">
                         <label for="passwordConfirm" class="my-3">Confirmar Contraseña</label>
@@ -285,9 +338,7 @@
                         Cerrar
                       </Button>
                   </div>
-                </form>
-              </button>
-
+              </form>
             </article>
           </li>
           <li v-if="nav && isAuthenticated" class="m-auto flex gap-2 py-4 md:py-0">
@@ -437,21 +488,6 @@
             >
               {{ errRegister }}
             </div>
-            <div
-              v-if="success"
-              class="
-                p-4
-                mb-4
-                text-sm text-green-700
-                bg-green-100
-                rounded-lg
-              "
-              role="alert"
-            >
-              Your account has been created successfully you can now
-              <NuxtLink class="font-medium" to="/user/login">Login</NuxtLink>
-            </div>
-
             <div class="flex justify-between items-center">
                 <p class="text-center  text-gray-700 font-Cabin ">
                   ¿Te gustaría estar al tanto de noticias y novedades en mi candidatura? Registrate para recibir la información más actualizada.
@@ -614,6 +650,21 @@
             </div>
           </form>
         </div>
+
+        <!-- v-if="success" -->
+        <form class="hidden animate-fade-in bg-yellow-to-orange w-10/12 justify-center top-[50%] left-1/2 transform -translate-x-1/2 rounded-lg p-5 flex-col space-y-2 z-50 text-left gap-3">
+          <div class="w-full flex flex-col justify-center gap-3">
+            <span>Tu cuenta se ha creado exitosamente.</span>
+            <div class="w-full m-auto flex border-black-3">
+              <button
+              class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-[#1EB5E4] sm:w-fit hover:bg-[#0088B2] focus:ring-4 focus:outline-none focus:ring-primary-300"
+              >
+                Suscrito
+              </button>
+              <lottie-animation class="rounded-lg w-6/12" path="./check-lotie.json" />
+            </div>
+        </div>
+</form>
       </div>
     </nav>
   </div>
@@ -621,6 +672,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import LottieAnimation from "lottie-vuejs/src/LottieAnimation.vue"; // import lottie-vuejs
 import MoralesLogo from '@/components/Icons/MoralesLogo.vue';
 import LoginIcon from '@/components/Icons/LoginIcon.vue';
 import RegisterIcon from '@/components/Icons/RegisterIcon.vue';
@@ -632,6 +684,7 @@ import ModalRegisterIcon from '@/components/Icons/ModalRegisterIcon.vue';
 export default {
   name: 'NavbarComponent',
   components: { MoralesLogo, LoginIcon, RegisterIcon ,ModalLoginIcon ,ModalRegisterIcon,
+    LottieAnimation,
     // FacebookIcon,GoogleIcon
   },
   data: () => ({
@@ -653,6 +706,7 @@ export default {
     showPasswordConfirm: false,
     dropDownMenu:false,
     RegisterActiveMobile:false,
+    showPasswordLogin:false,
   }),
   computed:{
     ...mapGetters(['isAuthenticated']),
@@ -679,6 +733,9 @@ export default {
   },
 
   methods: {
+    togglePasswordVisibilityLogin() {
+      this.showPasswordLogin = !this.showPasswordLogin
+    },
     openRegisterMobile() {
       this.RegisterActiveMobile = !this.RegisterActiveMobile
     },
@@ -697,10 +754,12 @@ export default {
     openLogin() {
       this.$store.dispatch('changeStatusModalLogin', !this.LoginActive);
       this.$store.dispatch('changeStatusModalRegister', false);
+      this.err = null;
     },
     openRegister() {
-      this.$store.dispatch('changeStatusModalRegister', !this.RegisterActive)
-      this.$store.dispatch('changeStatusModalLogin', false)
+      this.$store.dispatch('changeStatusModalRegister', !this.RegisterActive);
+      this.$store.dispatch('changeStatusModalLogin', false);
+      this.errRegister = '';
     },
     async userRegister() {
       try {
@@ -713,7 +772,13 @@ export default {
           lastname:this.lastNameRegister,
           names:this.usernameRegister,
         })
+        this.$store.dispatch('changeStatusModalRegister', !this.RegisterActive);
+        this.$store.dispatch('changeStatusModalLogin', false);
         this.success = true
+        this.openNavbar()
+        setTimeout(() => {
+          this.success = false
+        }, 3000);
       } catch (e) {
         if (e.response) this.errRegister = e.response.data.error.message
       }
@@ -723,8 +788,10 @@ export default {
         await this.$auth.loginWith('local', {
           data: { identifier: this.emailLogin, password: this.passwordLogin },
         })
+        this.$store.dispatch('changeStatusModalLogin', !this.LoginActive);
+        this.$store.dispatch('changeStatusModalRegister', false);
       } catch (e) {
-        if (e.response) this.err = e.response.data.error.message
+        if (e.response) this.err = "El correo o la contraseña no son correctos."
       }
     },
   }

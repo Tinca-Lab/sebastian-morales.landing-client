@@ -1,11 +1,11 @@
 <template>
     <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16 ">
-        <h2 
-        class="mb-4 text-5xl tracking-tight font-extrabold text-[#003F52] dark:text-white xs:font-Inter"
+        <h2
+        class="mb-4 text-5xl tracking-tight font-normal text-[#003F52]"
         :class="{'font-Inter':isMobile}">
         {{ title }}
         </h2>
-        <p v-if="description.length > 0" class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
+        <p v-if="description.length > 0" class="text-[#374151] sm:text-xl ">
             {{ description }}
         </p>
     </div>
