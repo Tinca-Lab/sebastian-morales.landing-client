@@ -134,6 +134,7 @@
                 </div>
                 <footer class="flex flex-row justify-start xs:gap-3 md:gap-5 mt-3 xs:text-sm md:text-base">
                   <button
+                    v-if="isAuthenticated"
                     type="button"
                     class="py-2.5 px-4 text-xs font-medium text-black border-2 rounded-lg flex flex-row gap-3 items-center"
                     :class="like ? 'bg-white border-white' : 'border-black'" @click="mutateLike">
@@ -151,6 +152,58 @@
                     </svg>
                     Me gusta
                   </button>
+                  <button
+                    v-else
+                    type="button"
+                    class="py-2.5 px-4 text-xs font-medium text-black border-2 rounded-lg flex flex-row gap-3 items-center"
+                    :class="like ? 'bg-white border-white' : 'border-black'" @click="mutateLoginModalLike">
+                    <svg
+                      v-if="like" width="14" height="12" viewBox="0 0 14 12" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M5.7089 1.99127L5.7088 1.99117C5.20248 1.485 4.51585 1.20065 3.7999 1.20065C3.08401 1.20065 2.39742 1.48496 1.89111 1.99107C1.89107 1.9911 1.89104 1.99114 1.891 1.99117M5.7089 1.99127L1.891 1.99117M5.7089 1.99127L6.6465 2.92807L6.9999 3.28117L7.3533 2.92807L8.2909 1.99127L8.29096 1.99133L8.29715 1.98492C8.54621 1.72704 8.84414 1.52135 9.17355 1.37985C9.50296 1.23834 9.85726 1.16386 10.2158 1.16075C10.5743 1.15763 10.9298 1.22595 11.2616 1.3617C11.5934 1.49746 11.8949 1.69795 12.1484 1.95146C12.4019 2.20497 12.6024 2.50643 12.7382 2.83825C12.8739 3.17007 12.9422 3.5256 12.9391 3.88411C12.936 4.24261 12.8615 4.5969 12.72 4.92632C12.5785 5.25573 12.3728 5.55366 12.1149 5.80272L12.1149 5.80267L12.1087 5.80884L6.9999 10.9184L1.89111 5.80887C1.8911 5.80886 1.89109 5.80885 1.89108 5.80884C1.38493 5.30252 1.10059 4.6159 1.10059 3.89997C1.10059 3.18407 1.3849 2.49749 1.891 1.99117M5.7089 1.99127L1.891 1.99117"
+                        fill="#FF6275" stroke="#FF6275" />
+                    </svg>
+                    <svg v-else width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M1.22836 3.0944C1.37913 2.73042 1.60011 2.3997 1.87869 2.12112C2.15727 1.84254 2.48799 1.62156 2.85197 1.4708C3.21595 1.32003 3.60606 1.24243 4.00003 1.24243C4.39399 1.24243 4.78411 1.32003 5.14808 1.4708C5.51206 1.62156 5.84278 1.84254 6.12136 2.12112L7.00003 2.99979L7.87869 2.12112C8.4413 1.55851 9.20437 1.24244 10 1.24244C10.7957 1.24244 11.5587 1.55851 12.1214 2.12112C12.684 2.68374 13 3.4468 13 4.24246C13 5.03811 12.684 5.80118 12.1214 6.36379L7.00003 11.4851L1.87869 6.36379C1.60011 6.08522 1.37913 5.7545 1.22836 5.39052C1.0776 5.02654 1 4.63643 1 4.24246C1 3.84849 1.0776 3.45838 1.22836 3.0944Z"
+                        stroke="#111928" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Me gusta
+                  </button>
+
+                  <div
+                    class="fixed top-[0px] left-0 h-full w-full"
+                    :class="loginModalLike ? 'bg-black bg-opacity-50 transition-shadow ease-in-out duration-75 z-10 overflow-auto':'hidden bg-transparent'"
+                    @click="mutateLoginModalLike"
+                  >
+                  </div>
+
+                  <article
+                    class="bg-yellow-to-orange w-4/12 p-5 flex flex-col space-y-2 gap-4 overflow-auto rounded-xl left-[50%] top-[50%] z-50 animate-fade-in"
+                    :class="loginModalLike ? 'fixed animate-fade-in' : 'animate-fade-off hidden'"
+                    style="transform: translate(-50%, -50%);"
+                    >
+                    <p class="text-lg font-semibold text-center">Para poder dar me gusta necesitas primero iniciar sesión.</p>
+                    <div class="w-8/12 flex justify-evenly mx-auto">
+                      <button
+                        type="button"
+                        class="active:bg-[#009FD0] active:border-[#0088B2] active:border-4 hover:bg-[#0088B2] bg-[#1EB5E4] text-white p-2 rounded-lg sm:w-3/12 sm:text-sm md:text-xs md:w-5/12 flex items-center justify-center"
+                        @click="activeModalLogin"
+                        >
+                          Iniciar Seccion
+                          <Modal-Login-Icon class="ml-1"/>
+                      </button>
+                      <Button
+                      class="border border-solid border-black text-black rounded-lg px-4 py-2 hover:text-white hover:border-[#374151] hover:bg-[#374151]"
+                      type="button"
+                      @click ="mutateLoginModalLike"
+                      >
+                        Cerrar
+                      </Button>
+                    </div>
+                  </article>
+
                   <span class="flex flex-row gap-3 items-center">
                     <svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
@@ -160,14 +213,14 @@
                     </svg>
                     {{getLikes().length }} reactions
                   </span>
-                  <span class="flex flex-row gap-3 items-center">
+                  <span class="flex flex-row gap-3 items-center" @click="scrollToElement">
                     <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         fill-rule="evenodd" clip-rule="evenodd"
                         d="M15.2 9.60913V2.40913C15.2 1.93174 15.0103 1.4739 14.6728 1.13634C14.3352 0.798773 13.8774 0.609131 13.4 0.609131H2.59999C2.1226 0.609131 1.66476 0.798773 1.3272 1.13634C0.98963 1.4739 0.799988 1.93174 0.799988 2.40913V9.60913C0.799988 10.0865 0.98963 10.5444 1.3272 10.8819C1.66476 11.2195 2.1226 11.4091 2.59999 11.4091H5.29999L7.99999 14.1091L10.7 11.4091H13.4C13.8774 11.4091 14.3352 11.2195 14.6728 10.8819C15.0103 10.5444 15.2 10.0865 15.2 9.60913ZM3.49999 4.20913C3.49999 3.97044 3.59481 3.74152 3.76359 3.57274C3.93237 3.40395 4.16129 3.30913 4.39999 3.30913H11.6C11.8387 3.30913 12.0676 3.40395 12.2364 3.57274C12.4052 3.74152 12.5 3.97044 12.5 4.20913C12.5 4.44783 12.4052 4.67674 12.2364 4.84553C12.0676 5.01431 11.8387 5.10913 11.6 5.10913H4.39999C4.16129 5.10913 3.93237 5.01431 3.76359 4.84553C3.59481 4.67674 3.49999 4.44783 3.49999 4.20913ZM4.39999 6.90913C4.16129 6.90913 3.93237 7.00395 3.76359 7.17274C3.59481 7.34152 3.49999 7.57044 3.49999 7.80913C3.49999 8.04783 3.59481 8.27674 3.76359 8.44553C3.93237 8.61431 4.16129 8.70913 4.39999 8.70913H7.09999C7.33868 8.70913 7.5676 8.61431 7.73638 8.44553C7.90517 8.27674 7.99999 8.04783 7.99999 7.80913C7.99999 7.57044 7.90517 7.34152 7.73638 7.17274C7.5676 7.00395 7.33868 6.90913 7.09999 6.90913H4.39999Z"
                         fill="#374151" />
                     </svg>
-                    {{ blog?.attributes?.comentaries?.data.length }} commits
+                    {{ blog?.attributes?.comentaries?.data.length }} comentarios
                   </span>
                 </footer>
               </header>
@@ -177,11 +230,11 @@
               <!-- Comments -->
               <section class="mt-8 not-format">
                 <div class="flex justify-between items-center mb-6">
-                  <h2 class="text-lg lg:text-2xl font-bold text-gray-900">Deja un comentario</h2>
+                  <h2  ref="myElement" class="text-lg lg:text-2xl font-bold text-gray-900">Deja un comentario</h2>
                 </div>
                 <form class="mb-6">
                   <div class="mb-4 w-full bg-gray-50 rounded-lg border border-gray-200">
-                    <div class="py-2 px-4 bg-gray-50 rounded-t-lg ">
+                    <div class="py-2 px-4 bg-gray-50 rounded-t-lg relative">
                       <label for="comment" class="sr-only">Your comment</label>
                       <textarea
                         v-if="isAuthenticated"
@@ -196,8 +249,38 @@
                         v-model="commentary"
                         rows="6"
                         class=" w-full text-sm text-gray-900 rounded-lg bg-[#F9FAFB] focus:outline-none border-gray-200 border-2 p-3"
-                        placeholder="Escribe un comentario..." readonly @click="activeModal()">
+                        placeholder="Escribe un comentario..." readonly @click="mutateLoginModal()">
                       </textarea>
+                      <div
+                        class="fixed top-[0px] left-0 h-full w-full"
+                        :class="loginModal ? 'bg-black bg-opacity-50 transition-shadow ease-in-out duration-75 z-10 overflow-auto':'hidden bg-transparent'"
+                        @click="mutateLoginModal"
+                        >
+                      </div>
+                      <article
+                        class="bg-yellow-to-orange w-4/12 p-5 flex flex-col space-y-2 gap-4 overflow-auto rounded-xl left-[50%] top-[50%] z-50 animate-fade-in"
+                        :class="loginModal ? 'fixed animate-fade-in' : 'animate-fade-off hidden'"
+                        style="transform: translate(-50%, -50%);"
+                        >
+                        <p class="text-lg font-semibold text-center">Para poder comentar necesitas primero iniciar sesión.</p>
+                        <div class="w-8/12 flex justify-evenly mx-auto">
+                          <button
+                            type="button"
+                            class="active:bg-[#009FD0] active:border-[#0088B2] active:border-4 hover:bg-[#0088B2] bg-[#1EB5E4] text-white p-2 rounded-lg sm:w-3/12 sm:text-sm md:text-xs md:w-5/12 flex items-center justify-center"
+                            @click="activeModalLogin"
+                            >
+                              Iniciar Seccion
+                              <Modal-Login-Icon class="ml-1"/>
+                          </button>
+                          <Button
+                          class="border border-solid border-black text-black rounded-lg px-4 py-2 hover:text-white hover:border-[#374151] hover:bg-[#374151]"
+                          type="button"
+                          @click ="mutateLoginModal"
+                          >
+                            Cerrar
+                          </Button>
+                      </div>
+                      </article>
                     </div>
                     <div class="flex justify-between items-center py-2 px-3 border-t dark:border-gray-600">
                       <button
@@ -404,6 +487,7 @@ import MarkdownItVue from 'markdown-it-vue'
 import ArrowIcon from "@/components/Icons/ArrowIcon.vue";
 import 'markdown-it-vue/dist/markdown-it-vue.css'
 import LeftArrowIcon from "@/components/Icons/LeftArrowIcon.vue";
+import ModalLoginIcon from "@/components/Icons/ModalLoginIcon.vue";
 // import HouseIcon from "@/components/Icons/HouseIcon.vue";
 // import ModalRegisterIcon from '@/components/Icons/ModalRegisterIcon.vue';
 // import FacebookIcon from '@/components/Icons/FacebookIcon.vue';
@@ -413,6 +497,7 @@ export default {
   name: "BlogEntry",
   components: {
     LeftArrowIcon,
+    ModalLoginIcon,
     // HouseIcon,
     MarkdownItVue,
     ArrowIcon,
@@ -442,6 +527,8 @@ export default {
     passwordRegister:'',
     dropDownMenu:false,
     likeId:null,
+    loginModal:false,
+    loginModalLike:false,
   }),
   computed: {
     ...mapGetters(['isAuthenticated']),
@@ -493,6 +580,26 @@ export default {
     }, 1000);
   },
   methods: {
+    mutateLoginModalLike(){
+      this.loginModalLike = !this.loginModalLike
+    },
+    activeModalLogin(){
+      this.$store.dispatch('changeStatusModalLogin', !this.loginModal)
+      this.loginModal = false;
+      this.loginModalLike = false;
+    },
+    mutateLoginModal() {
+      this.loginModal = !this.loginModal
+    },
+    scrollToElement() {
+      const element = this.$refs.myElement;
+      const offset = element.offsetTop;
+
+      window.scrollTo({
+        top: offset,
+        behavior: 'smooth'
+      });
+    },
     getLikes(){
       const blogId = parseInt(this.$route.params.id); // ID del blog deseado
       const filteredData = this.likes?.filter(item => item?.attributes?.blog?.data?.id === blogId);
