@@ -25,13 +25,13 @@
               <div class="border-t-2 border-black md:flex md:flex-row gap-5">
                 <div v-for="(principio,index) in Part1" :key="index" class="mb-8 md:w-[50%]">
                   <h2 class="my-3 text-left text-xl text-gray-900 font-Cabin font-extrabold">{{ principio.attributes.title }}</h2>
-                  <p class="mb-2 font-light text-left">{{principio.attributes.description}}</p>
+                  <p class="mb-2 font-light text-left font-Cabin">{{principio.attributes.description}}</p>
                 </div>
               </div>
               <div class="border-t-2 border-black md:flex md:flex-row gap-5">
                 <div v-for="(principio,index) in Part2" :key="index" class="mb-8 md:w-[50%]">
                   <h2 class="my-3 text-left text-xl text-gray-900 font-Cabin font-extrabold">{{ principio.attributes.title }}</h2>
-                  <p class="mb-2 font-light text-left">{{principio.attributes.description}}</p>
+                  <p class="mb-2 font-light text-left font-cabin">{{principio.attributes.description}}</p>
                 </div>
               </div>
               <div>

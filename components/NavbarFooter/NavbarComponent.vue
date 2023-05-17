@@ -35,7 +35,7 @@
           <ul
             class="flex flex-col font-medium bg-[#0088B2] text-lg md:flex-row md:py-5 lg:p-5 md:gap-3 lg:gap-5"
           >
-          <li v-for="route in routes" :key="route.id" class="border-b-2 border-[#1DB5E4] py-2 md:border-none md:py-0 xs:text-left">
+          <li v-for="route in routes" :key="route.id" class="border-b-2 border-[#1DB5E4] py-2 md:border-none md:py-0 xs:text-left" @click="nav = false">
               <NuxtLink
                 class="hover:text-[#FFF177] hover:underline-offset-4 hover:underline hover:underline-[#FFF177] hover:decoration-3 block py-2 pl-3 pr-4 text-white bg-[#0088B2] rounded md:bg-[#0088B2] md:text-white-700 md:p-0"
                 :to="route.attributes.link">{{ route.attributes.route }}</NuxtLink>
