@@ -1,8 +1,6 @@
 <template>
     <div>
-        <a href="#">
-            <img class="mb-5 rounded-lg w-full h-[180px] overflow-y-auto" :src="image" alt="office laptop working">
-        </a>
+        <img class="mb-5 rounded-lg w-full h-[180px] overflow-y-auto" :src="image" alt="office laptop working">
         <span
             :class="[type === 'Article' ? 'bg-purple-100 text-purple-800' :
                 type === 'News' ? 'dark:text-yellow-900 bg-yellow-100 text-yellow-800' : '']"
