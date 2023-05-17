@@ -1,10 +1,10 @@
 <template>
     <article class="flex flex-col p-4  justify-between bg-white rounded-lg border border-gray-200 shadow-md">
-        <HeaderBlog :image="`https://api.sebastianmorales.co${blog.attributes.image.data.attributes.url}`" :type=type />
+        <HeaderBlog :image="`https://api.sebastianmorales.co${blog.attributes.image.data.attributes.url}`" :type=blog?.attributes?.type />
         <ArticleBlog :title="blog.attributes.title" :description="blog.attributes.description" />
         <FooterBlog
             :image="`https://api.sebastianmorales.co${blog.attributes.author.data.attributes.image.data.attributes.url}`"
-            :autor="blog.attributes.author.data.attributes.name" :date="blog?.date" :text=true />
+            :autor="blog.attributes.author.data.attributes.name" :date="blog?.attributes?.createdAt" :text=true />
     </article>
 </template>
 

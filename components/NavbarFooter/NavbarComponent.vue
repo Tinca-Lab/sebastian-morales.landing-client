@@ -339,15 +339,6 @@
                       </Button>
                   </div>
               </form>
-
-              <form
-                class="fixed animate-fade-in bg-yellow-to-orange w-6/12 justify-center p-5 flex flex-col space-y-2 z-50 text-left gap-3"
-
-                >
-                <div class="w-full flex justify-evenly">
-                    <span>Cuenta creada satisfactoriamente</span>
-                </div>
-              </form>
             </article>
           </li>
           <li v-if="nav && isAuthenticated" class="m-auto flex gap-2 py-4 md:py-0">
@@ -497,21 +488,6 @@
             >
               {{ errRegister }}
             </div>
-            <div
-              v-if="success"
-              class="
-                p-4
-                mb-4
-                text-sm text-green-700
-                bg-green-100
-                rounded-lg
-              "
-              role="alert"
-            >
-              Your account has been created successfully you can now
-              <NuxtLink class="font-medium" to="/user/login">Login</NuxtLink>
-            </div>
-
             <div class="flex justify-between items-center">
                 <p class="text-center  text-gray-700 font-Cabin ">
                   ¿Te gustaría estar al tanto de noticias y novedades en mi candidatura? Registrate para recibir la información más actualizada.
@@ -674,6 +650,21 @@
             </div>
           </form>
         </div>
+
+        <!-- v-if="success" -->
+        <form class="hidden animate-fade-in bg-yellow-to-orange w-10/12 justify-center top-[50%] left-1/2 transform -translate-x-1/2 rounded-lg p-5 flex-col space-y-2 z-50 text-left gap-3">
+          <div class="w-full flex flex-col justify-center gap-3">
+            <span>Tu cuenta se ha creado exitosamente.</span>
+            <div class="w-full m-auto flex border-black-3">
+              <button
+              class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-[#1EB5E4] sm:w-fit hover:bg-[#0088B2] focus:ring-4 focus:outline-none focus:ring-primary-300"
+              >
+                Suscrito
+              </button>
+              <lottie-animation class="rounded-lg w-6/12" path="./check-lotie.json" />
+            </div>
+        </div>
+</form>
       </div>
     </nav>
   </div>
@@ -681,6 +672,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import LottieAnimation from "lottie-vuejs/src/LottieAnimation.vue"; // import lottie-vuejs
 import MoralesLogo from '@/components/Icons/MoralesLogo.vue';
 import LoginIcon from '@/components/Icons/LoginIcon.vue';
 import RegisterIcon from '@/components/Icons/RegisterIcon.vue';
@@ -692,6 +684,7 @@ import ModalRegisterIcon from '@/components/Icons/ModalRegisterIcon.vue';
 export default {
   name: 'NavbarComponent',
   components: { MoralesLogo, LoginIcon, RegisterIcon ,ModalLoginIcon ,ModalRegisterIcon,
+    LottieAnimation,
     // FacebookIcon,GoogleIcon
   },
   data: () => ({
@@ -782,6 +775,10 @@ export default {
         this.$store.dispatch('changeStatusModalRegister', !this.RegisterActive);
         this.$store.dispatch('changeStatusModalLogin', false);
         this.success = true
+        this.openNavbar()
+        setTimeout(() => {
+          this.success = false
+        }, 3000);
       } catch (e) {
         if (e.response) this.errRegister = e.response.data.error.message
       }

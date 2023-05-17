@@ -66,7 +66,7 @@ export default {
 
 h2 {
   font-family: Soulmaze;
-  font-weight: lighter;
+  font-weight: 400;
 }
 
 html {
